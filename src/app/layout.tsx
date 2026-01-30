@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "zBuffer",
-  description: "Early-stage venture capital for technical founders building the infrastructure of tomorrow",
+  description: "Tech builders and founders investing in AI, software, hardware, space, biotech, and longevity.",
   icons: {
     icon: "/logo.png",
   },
