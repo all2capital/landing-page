@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useCallback, useEffect, useRef } from "react";
+import { useState, useCallback, useEffect, useRef, MouseEvent as ReactMouseEvent } from "react";
 import Navigation from "@/components/Navigation";
 import PageLoader from "@/components/PageLoader";
 
@@ -28,6 +28,71 @@ const team = [
     bio: "Engineering leader with deep experience in systems and platform architecture.",
   },
 ];
+
+function GlowCard({
+  children,
+  className = "",
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseMove = (e: ReactMouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    setMousePos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
+  return (
+    <motion.div
+      ref={cardRef}
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay }}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className={`relative rounded-xl border border-white/[0.06] bg-white/[0.03] overflow-hidden ${className}`}
+      style={{
+        transform: isHovered ? "translateY(-4px)" : "translateY(0)",
+        transition: "transform 0.3s ease, box-shadow 0.3s ease",
+        boxShadow: isHovered
+          ? "0 8px 32px -8px rgba(0, 0, 0, 0.4)"
+          : "none",
+      }}
+    >
+      {/* RGB glow that follows cursor */}
+      <div
+        className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-300"
+        style={{
+          opacity: isHovered ? 1 : 0,
+          background: `radial-gradient(300px circle at ${mousePos.x}px ${mousePos.y}px, rgba(255,0,60,0.15), rgba(255,140,0,0.1) 25%, rgba(0,200,80,0.08) 40%, rgba(0,120,255,0.1) 55%, rgba(120,0,255,0.08) 70%, transparent 80%)`,
+        }}
+      />
+      {/* Border glow that follows cursor */}
+      <div
+        className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-300"
+        style={{
+          opacity: isHovered ? 1 : 0,
+          background: `radial-gradient(200px circle at ${mousePos.x}px ${mousePos.y}px, rgba(255,100,50,0.3), rgba(0,150,255,0.2) 40%, transparent 70%)`,
+          mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+          maskComposite: "exclude",
+          WebkitMaskComposite: "xor",
+          padding: "1px",
+        }}
+      />
+      <div className="relative z-10">{children}</div>
+    </motion.div>
+  );
+}
 
 const slideVariants = {
   enter: (direction: number) => ({
@@ -112,16 +177,10 @@ function ThesisSlide() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
           {focusAreas.map((area, i) => (
-            <motion.div
-              key={area.name}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 + i * 0.06 }}
-              className="rounded-xl border border-white/[0.06] bg-white/[0.03] p-4 md:p-5"
-            >
+            <GlowCard key={area.name} className="p-4 md:p-5" delay={0.2 + i * 0.06}>
               <h3 className="text-sm md:text-base font-semibold mb-1">{area.name}</h3>
               <p className="text-xs md:text-sm text-white/40">{area.description}</p>
-            </motion.div>
+            </GlowCard>
           ))}
         </div>
       </div>
@@ -144,17 +203,11 @@ function TeamSlide() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-[700px]">
           {team.map((member, i) => (
-            <motion.div
-              key={member.name}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.1 + i * 0.1 }}
-              className="rounded-xl border border-white/[0.06] bg-white/[0.03] p-6 md:p-8"
-            >
+            <GlowCard key={member.name} className="p-6 md:p-8" delay={0.1 + i * 0.1}>
               <h3 className="text-xl md:text-2xl font-semibold mb-1">{member.name}</h3>
               <p className="text-sm font-medium text-white/40 font-mono mb-4">{member.role}</p>
               <p className="text-base text-white/60">{member.bio}</p>
-            </motion.div>
+            </GlowCard>
           ))}
         </div>
       </div>
