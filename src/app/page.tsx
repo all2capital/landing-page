@@ -3,6 +3,11 @@
 import { useRef, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
+import ThesisSection from "@/components/ThesisSection";
+import ProductsShowcase from "@/components/ProductsShowcase";
+import TeamSection from "@/components/TeamSection";
+import CTASection from "@/components/CTASection";
+import Footer from "@/components/Footer";
 import PageLoader from "@/components/PageLoader";
 import { SolarSystem3D } from "@/components/ui/solar-system-3d";
 
@@ -32,7 +37,12 @@ export default function Home() {
         <Navigation />
         <main>
           <Hero />
+          <ThesisSection />
+          <ProductsShowcase />
+          <TeamSection />
+          <CTASection />
         </main>
+        <Footer />
       </div>
     </>
   );
