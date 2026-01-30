@@ -16,8 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className="antialiased overflow-x-hidden bg-white dark:bg-black text-black dark:text-white">
-        <div className="noise-overlay" aria-hidden="true" />
+      <body className="antialiased overflow-x-hidden bg-black text-white">
         {children}
       </body>
     </html>
