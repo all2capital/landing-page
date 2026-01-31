@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import JoinLPForm from "./JoinLPForm";
 import GlassCard from "./ui/glass-card";
 
 export default function CTASection() {
@@ -34,15 +35,9 @@ export default function CTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+            className="flex justify-center"
           >
-            <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ type: "spring", stiffness: 400, damping: 25 }}
-              className="btn-elegant-primary px-8 py-3.5 bg-white text-black font-medium rounded-lg text-base"
-            >
-              Get in Touch
-            </motion.button>
+            <JoinLPForm className="inline-block" />
           </motion.div>
         </GlassCard>
       </div>

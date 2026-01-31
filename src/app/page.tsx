@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useCallback, useEffect, useRef, MouseEvent as ReactMouseEvent } from "react";
+import JoinLPForm from "@/components/JoinLPForm";
 import Navigation from "@/components/Navigation";
 import PageLoader from "@/components/PageLoader";
 
@@ -96,7 +97,7 @@ function GlowCard({
 
 const slideVariants = {
   enter: (direction: number) => ({
-    x: direction > 0 ? "100%" : "-100%",
+    x: direction > 0 ? "50%" : "-50%",
     opacity: 0,
   }),
   center: {
@@ -104,29 +105,31 @@ const slideVariants = {
     opacity: 1,
   },
   exit: (direction: number) => ({
-    x: direction > 0 ? "-100%" : "100%",
+    x: direction > 0 ? "-50%" : "50%",
     opacity: 0,
   }),
 };
 
+const slideContentTop = "pt-[18vh] md:pt-[22vh] pb-24 md:pb-32";
+
 function HeroSlide({ isFirstLoad }: { isFirstLoad: boolean }) {
   const d = isFirstLoad ? 2 : 0;
   return (
-    <div className="flex-1 flex flex-col justify-end px-6 md:px-12 pb-20 md:pb-28">
+    <div className={`flex-1 flex flex-col ${slideContentTop} px-6 md:px-12`}>
       <div className="max-w-[1100px] mx-auto w-full">
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: d }}
+          transition={{ duration: d ? 1.2 : 0.4, ease: [0.16, 1, 0.3, 1], delay: d }}
           className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.05] max-w-4xl"
         >
-          Investing in new era AI builders.
+          Reimagine the world.
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: d + 0.3 }}
+          transition={{ duration: d ? 0.8 : 0.35, ease: [0.16, 1, 0.3, 1], delay: d + (d ? 0.3 : 0.06) }}
           className="mt-8 text-lg md:text-xl text-white/40 max-w-xl"
         >
           We are tech builders and founders investing in AI, the new era of software, hardware, space, biotech, and longevity. No bullshit crypto projects.
@@ -135,17 +138,10 @@ function HeroSlide({ isFirstLoad }: { isFirstLoad: boolean }) {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: d + 0.5 }}
+          transition={{ duration: d ? 0.8 : 0.35, ease: [0.16, 1, 0.3, 1], delay: d + (d ? 0.5 : 0.12) }}
           className="mt-10"
         >
-          <motion.button
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ type: "spring", stiffness: 400, damping: 25 }}
-            className="rgb-btn px-8 py-3.5 font-medium text-base"
-          >
-            <span>Get in Touch</span>
-          </motion.button>
+          <JoinLPForm />
         </motion.div>
       </div>
     </div>
@@ -154,12 +150,12 @@ function HeroSlide({ isFirstLoad }: { isFirstLoad: boolean }) {
 
 function ThesisSlide() {
   return (
-    <div className="flex-1 flex items-center px-6 md:px-12">
+    <div className={`flex-1 flex flex-col ${slideContentTop} px-6 md:px-12 overflow-y-auto`}>
       <div className="max-w-[1100px] mx-auto w-full">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6"
         >
           Our Thesis
@@ -168,7 +164,7 @@ function ThesisSlide() {
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+          transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1], delay: 0.05 }}
           className="text-base md:text-lg text-white/50 max-w-2xl mb-12"
         >
           We&apos;re builders ourselves. We back technical founders working on AI, software,
@@ -177,7 +173,7 @@ function ThesisSlide() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
           {focusAreas.map((area, i) => (
-            <GlowCard key={area.name} className="p-4 md:p-5" delay={0.2 + i * 0.06}>
+            <GlowCard key={area.name} className="p-4 md:p-5" delay={0.08 + i * 0.03}>
               <h3 className="text-sm md:text-base font-semibold mb-1">{area.name}</h3>
               <p className="text-xs md:text-sm text-white/40">{area.description}</p>
             </GlowCard>
@@ -190,12 +186,12 @@ function ThesisSlide() {
 
 function TeamSlide() {
   return (
-    <div className="flex-1 flex items-center px-6 md:px-12">
+    <div className={`flex-1 flex flex-col ${slideContentTop} px-6 md:px-12 overflow-y-auto`}>
       <div className="max-w-[1100px] mx-auto w-full">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-12"
         >
           Team
@@ -203,7 +199,7 @@ function TeamSlide() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-[700px]">
           {team.map((member, i) => (
-            <GlowCard key={member.name} className="p-6 md:p-8" delay={0.1 + i * 0.1}>
+            <GlowCard key={member.name} className="p-6 md:p-8" delay={0.05 + i * 0.05}>
               <h3 className="text-xl md:text-2xl font-semibold mb-1">{member.name}</h3>
               <p className="text-sm font-medium text-white/40 font-mono mb-4">{member.role}</p>
               <p className="text-base text-white/60">{member.bio}</p>
@@ -336,7 +332,7 @@ export default function Home() {
               initial="enter"
               animate="center"
               exit="exit"
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               className="flex-1 flex flex-col"
             >
               {currentSlide === 0 && <HeroSlide isFirstLoad={isFirstLoad} />}
