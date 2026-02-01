@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function JoinLPForm({ className = "" }: { className?: string }) {
@@ -8,6 +8,23 @@ export default function JoinLPForm({ className = "" }: { className?: string }) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!expanded) return;
+    const handleClickOutside = (e: MouseEvent | TouchEvent) => {
+      const target = e.target as Node;
+      if (containerRef.current && !containerRef.current.contains(target)) {
+        setExpanded(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, [expanded]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -16,7 +33,7 @@ export default function JoinLPForm({ className = "" }: { className?: string }) {
   };
 
   return (
-    <div className={`overflow-hidden rounded-xl ${className}`}>
+    <div ref={containerRef} className={`overflow-hidden rounded-xl ${className}`}>
       <AnimatePresence initial={false} mode="wait">
         {!expanded ? (
           <motion.div
