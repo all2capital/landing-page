@@ -5,16 +5,19 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function JoinLPForm({ className = "" }: { className?: string }) {
   const [expanded, setExpanded] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const containerRef = useRef<HTMLDivElement>(null);
+  const panelRef = useRef<HTMLFormElement | null>(null);
 
   useEffect(() => {
-    if (!expanded) return;
+    if (!expanded || submitted) return;
     const handleClickOutside = (e: MouseEvent | TouchEvent) => {
       const target = e.target as Node;
-      if (containerRef.current && !containerRef.current.contains(target)) {
+      if (panelRef.current && !panelRef.current.contains(target)) {
         setExpanded(false);
       }
     };
@@ -24,18 +27,51 @@ export default function JoinLPForm({ className = "" }: { className?: string }) {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("touchstart", handleClickOutside);
     };
-  }, [expanded]);
+  }, [expanded, submitted]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Placeholder: wire to your LP signup endpoint
-    console.log({ firstName, lastName, email });
+    setError(null);
+    setLoading(true);
+    try {
+      const res = await fetch("/api/lp-signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ firstName, lastName, email }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setError(data.error ?? "Something went wrong. Please try again.");
+        setLoading(false);
+        return;
+      }
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <div ref={containerRef} className={`overflow-hidden rounded-xl ${className}`}>
+    <div className={`overflow-hidden rounded-xl ${className}`}>
       <AnimatePresence initial={false} mode="wait">
-        {!expanded ? (
+        {submitted ? (
+          <motion.div
+            key="success"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="btn-liquid-glass block w-full max-w-sm p-6 text-left"
+          >
+            <p className="text-base font-medium text-white/95 leading-relaxed">
+              We will contact you within 72 hours.
+            </p>
+            <p className="mt-2 text-sm text-white/60">
+              Thank you for your interest in zBuffer Capital.
+            </p>
+          </motion.div>
+        ) : !expanded ? (
           <motion.div
             key="button"
             initial={{ opacity: 1 }}
@@ -56,6 +92,7 @@ export default function JoinLPForm({ className = "" }: { className?: string }) {
           </motion.div>
         ) : (
           <motion.form
+            ref={panelRef}
             key="form"
             initial={{ maxHeight: 0, opacity: 0 }}
             animate={{ maxHeight: 280, opacity: 1 }}
@@ -114,21 +151,26 @@ export default function JoinLPForm({ className = "" }: { className?: string }) {
                 />
               </label>
             </div>
+            {error && (
+              <p className="text-sm text-red-400/90 mb-3">{error}</p>
+            )}
             <div className="flex items-center justify-end gap-3">
               <motion.button
                 type="button"
                 onClick={() => setExpanded(false)}
-                className="text-sm text-white/50 hover:text-white/80 transition-colors"
+                disabled={loading}
+                className="text-sm text-white/50 hover:text-white/80 transition-colors disabled:opacity-50"
               >
                 Cancel
               </motion.button>
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="btn-liquid-glass px-5 py-2.5 text-sm font-medium"
+                disabled={loading}
+                whileHover={loading ? undefined : { scale: 1.02 }}
+                whileTap={loading ? undefined : { scale: 0.98 }}
+                className="btn-liquid-glass px-5 py-2.5 text-sm font-medium disabled:opacity-70"
               >
-                Submit
+                {loading ? "Sending…" : "Submit"}
               </motion.button>
             </div>
           </motion.form>

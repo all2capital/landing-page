@@ -179,6 +179,11 @@
   z-index: 1;
 }
 
+/* Safe area for notched devices (e.g. iPhone) */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
 /* Smooth scroll */
 html {
   scroll-behavior: smooth;
