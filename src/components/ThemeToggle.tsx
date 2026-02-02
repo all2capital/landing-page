@@ -38,7 +38,7 @@ export default function ThemeToggle() {
       onClick={toggleTheme}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      className="w-9 h-9 flex items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors"
+      className="w-9 h-9 flex items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors cursor-pointer"
       aria-label="Toggle theme"
     >
       {isDark ? (

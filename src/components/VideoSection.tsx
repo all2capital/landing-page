@@ -120,7 +120,7 @@ export default function VideoSection({
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
             >
-              <button className="group flex items-center gap-2 text-sm font-medium hover:gap-4 transition-all duration-300">
+              <button className="group flex items-center gap-2 text-sm font-medium hover:gap-4 transition-all duration-300 cursor-pointer">
                 Learn more
                 <svg
                   className="w-4 h-4 transition-transform group-hover:translate-x-1"

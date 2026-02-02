@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500;600;700&family=Press+Start+2P&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -9,6 +9,7 @@
   --color-foreground: var(--foreground);
   --font-sans: 'Space Grotesk', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+  --font-display: 'DM Sans', system-ui, sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -48,6 +49,7 @@
 }
 
 :root {
+  --font-display: "DM Sans", system-ui, sans-serif;
   --radius: 0.625rem;
   --background: #ffffff;
   --foreground: #0a0a0a;
@@ -98,6 +100,11 @@
     @apply bg-background text-foreground;
     font-family: 'Space Grotesk', system-ui, sans-serif;
   }
+  button,
+  a[href],
+  [role="button"] {
+    cursor: pointer;
+  }
 }
 
 /* Custom scrollbar */
@@ -124,6 +131,14 @@
 
 .dark::-webkit-scrollbar-thumb:hover {
   background: #525252;
+}
+
+/* Page background glows — in CSS to avoid hydration mismatch with Dark Reader etc. */
+.bg-glow-rgb {
+  background: conic-gradient(from 135deg at 50% 50%, #ff0000, #ff6600, #ffdd00, #00ff44, #0088ff, #6600ff, #ff0066, transparent 75%);
+}
+.bg-glow-center {
+  background: radial-gradient(ellipse, rgba(255, 255, 255, 0.02), transparent);
 }
 
 /* RGB gradient button */
@@ -183,10 +198,39 @@
 .pb-safe {
   padding-bottom: env(safe-area-inset-bottom, 0);
 }
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0);
+}
 
-/* Smooth scroll */
+/* Touch-friendly: minimum tap target and tap highlight */
+@media (pointer: coarse) {
+  [data-touch-target] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Smooth scroll and mobile overflow */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Smooth touch scrolling on iOS for slide content */
+.touch-scroll {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Touch tap highlight (visible but subtle on mobile) */
+@media (pointer: coarse) {
+  button,
+  a,
+  [role="button"],
+  input,
+  select,
+  textarea {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.15);
+  }
 }
 
 /* Selection color */
