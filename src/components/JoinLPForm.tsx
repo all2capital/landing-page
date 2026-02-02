@@ -94,7 +94,7 @@ export default function JoinLPForm({ className = "" }: { className?: string }) {
             onClick={() => setOpen(true)}
             className="btn-liquid-glass px-6 sm:px-8 py-3.5 font-medium text-base h-auto min-h-[48px] rounded-xl border border-white/20 bg-transparent shadow-none hover:bg-transparent w-full sm:w-auto"
           >
-            Get in Touch
+            Join as LP
           </Button>
         </motion.div>
       </div>
@@ -142,7 +142,7 @@ export default function JoinLPForm({ className = "" }: { className?: string }) {
                   onSubmit={handleSubmit}
                   className="relative z-10 btn-liquid-glass w-full max-w-sm p-5"
                 >
-                  <h3 className="text-lg font-semibold text-white/95 mb-4">Get in Touch</h3>
+                  <h3 className="text-lg font-semibold text-white/95 mb-4">Join as LP</h3>
                   <div className="space-y-4 mb-5">
                     <div className="grid grid-cols-1 min-[400px]:grid-cols-2 gap-3">
                       <label className="block">
