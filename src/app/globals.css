@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Press+Start+2P&family=Jura:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
+
+/* Hide scrollbars but keep scrolling */
+* {
+  scrollbar-width: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
