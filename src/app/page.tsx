@@ -481,23 +481,6 @@ export default function Home() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [currentSlide, next, prev]);
 
-  // Wheel navigation — only on home slide
-  useEffect(() => {
-    if (currentSlide !== 0) return;
-    let lastWheel = 0;
-    const handleWheel = (e: WheelEvent) => {
-      e.preventDefault();
-      const now = Date.now();
-      if (now - lastWheel < 800) return;
-      if (Math.abs(e.deltaY) > 30) {
-        lastWheel = now;
-        if (e.deltaY > 0) next();
-        else prev();
-      }
-    };
-    window.addEventListener("wheel", handleWheel, { passive: false });
-    return () => window.removeEventListener("wheel", handleWheel);
-  }, [currentSlide, next, prev]);
 
   // Touch/swipe navigation — only on home slide
   useEffect(() => {
