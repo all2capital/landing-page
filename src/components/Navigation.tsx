@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
 
 interface NavigationProps {
   onNavigate?: (slide: number) => void;
@@ -80,17 +79,16 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
               }
             }}
             className="flex items-center gap-2 sm:gap-2.5 hover:opacity-80 transition-opacity touch-manipulation pointer-events-auto"
-            aria-label="zBuffer Capital — go to home"
+            aria-label="All2 Capital — go to home"
           >
-            <Image src="/logo_small.jpeg" alt="" width={32} height={32} className="w-7 h-7 sm:w-8 sm:h-8 md:w-8 md:h-8 shrink-0" />
             <span
-              className="font-semibold tracking-[0.12em] sm:tracking-[0.2em] text-sm min-[380px]:text-base sm:text-lg md:text-xl transition-colors duration-300"
+              className="font-bold tracking-[-0.02em] text-2xl min-[380px]:text-2xl sm:text-3xl md:text-3xl transition-colors duration-300"
               style={{
-                fontFamily: '"Jura", sans-serif',
+                fontFamily: "var(--font-space-grotesk), sans-serif",
                 color: menuOpen || currentSlide !== 0 ? "#000" : "#fff",
               }}
             >
-              zBUFFER CAPITAL
+              all<sub className="text-[0.65em] relative -bottom-[0.1em]">2</sub> capital
             </span>
           </button>
 

@@ -129,7 +129,7 @@ export default function JoinLPForm({ className = "" }: { className?: string }) {
                     We will contact you within 72 hours.
                   </p>
                   <p className="mt-2 text-sm text-white/60">
-                    Thank you for your interest in zBuffer Capital.
+                    Thank you for your interest in All2 Capital.
                   </p>
                 </motion.div>
               ) : (

@@ -157,7 +157,7 @@ const team = [
     bio: "Engineering leader with deep experience in systems and platform architecture.",
     image: "/team-rob.png",
     linkedin: "https://www.linkedin.com/in/robertmneir/",
-    email: "robertneir@zbuffercapital.com",
+    email: "robertneir@all2capital.com",
   },
   {
     name: "Hisham",
@@ -165,7 +165,7 @@ const team = [
     bio: "Technical founder turned investor. Focused on infrastructure and developer tools.",
     image: "/team-hisham.png",
     linkedin: "https://www.linkedin.com/in/hisham-el-husseini/",
-    email: "hisham@zbuffercapital.com",
+    email: "hisham@all2capital.com",
   },
 ];
 
@@ -228,21 +228,36 @@ function ThesisSlide() {
         >
           Manifesto
         </motion.h2>
-        <motion.p
-          {...driftUp(0.05)}
-          className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed max-w-3xl mb-6 sm:mb-8"
-        >
-          We are tech builders and founders investing in AI, the new era of
-          software, hardware, space, biotech, and longevity.
-        </motion.p>
-        <motion.p
-          {...driftUp(0.1)}
-          className="text-sm sm:text-base md:text-lg text-white/55 leading-relaxed max-w-3xl"
-        >
-          We&apos;re builders ourselves. We back technical founders working on AI, software,
-          hardware, space, biotech, and longevity — the things that actually matter.
-          Everything we invest in touches AI in some way. This is a must.
-        </motion.p>
+        <motion.div {...driftUp(0.05)} className="max-w-3xl mb-8 sm:mb-10">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-3 sm:mb-4">
+            What is going on with AI?
+          </h3>
+          <p className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed">
+            Times are changing in software as AI&apos;s creative destruction wave forces us to
+            re-underwrite every company globally. All industries will be disrupted, and software
+            will be the medium through which this disruption occurs. Code is so far the only way
+            AI successfully manifests itself, which means understanding code deeply is more
+            important now than any other time in history (even the dotcom era). You may be able
+            to use AI tools without knowing how to code, but you are much less positioned to
+            predict how AI tools will progress without understanding code, its structure, how it
+            evolves, and what limitations there are within code itself and hardware. Code has
+            become as important as the English language.
+          </p>
+        </motion.div>
+        <motion.div {...driftUp(0.1)} className="max-w-3xl">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-3 sm:mb-4">
+            Why we are starting this?
+          </h3>
+          <p className="text-sm sm:text-base md:text-lg text-white/55 leading-relaxed">
+            Our team consists only of software dev entrepreneurs. We code and build companies.
+            We&apos;re technical enough to build software, and wise enough to know why something
+            should or shouldn&apos;t be built. Since we operate our own software businesses and
+            have for many years, we see how AI is changing our personal businesses daily. This
+            gives us a chance to prognosticate on how other businesses will be affected by the
+            new AI tools and progress we see on a daily basis. Not many people choose to sit or
+            can sit at the front of the rollercoaster ride. We&apos;re there.
+          </p>
+        </motion.div>
       </div>
     </div>
   );

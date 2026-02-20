@@ -34,7 +34,7 @@ export default function Logo({ width = 36, height = 36, className = "", priority
     return (
       <Image
         src="/logo-dark.png"
-        alt="zBuffer"
+        alt="All2 Capital"
         width={width}
         height={height}
         className={className}
@@ -46,7 +46,7 @@ export default function Logo({ width = 36, height = 36, className = "", priority
   return (
     <Image
       src={isDark ? "/logo-dark.png" : "/logo-light.png"}
-      alt="zBuffer"
+      alt="All2 Capital"
       width={width}
       height={height}
       className={className}

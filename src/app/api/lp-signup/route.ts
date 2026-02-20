@@ -4,8 +4,8 @@ import { Resend } from "resend";
 const apiKey = process.env.RESEND_API_KEY;
 const resend = apiKey ? new Resend(apiKey) : null;
 
-const ROBERT_EMAIL = "robertneir@zbuffercapital.com";
-const HISHAM_EMAIL = "hisham@zbuffercapital.com";
+const ROBERT_EMAIL = "robertneir@all2capital.com";
+const HISHAM_EMAIL = "hisham@all2capital.com";
 const FROM_EMAIL = process.env.RESEND_FROM ?? "onboarding@resend.dev";
 
 export async function POST(request: Request) {
@@ -41,7 +41,7 @@ export async function POST(request: Request) {
       from: FROM_EMAIL,
       to: ROBERT_EMAIL,
       cc: [HISHAM_EMAIL],
-      subject: "Potential zBuffer LP",
+      subject: "Potential All2 Capital LP",
       text: textBody,
     });
 

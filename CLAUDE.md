@@ -1,4 +1,4 @@
-# zBuffer Project Instructions
+# All2 Capital Project Instructions
 
 ## Skills & Expertise
 
@@ -29,7 +29,7 @@ When working with Three.js (3D graphics):
 - Loading models: GLTF/GLB format preferred, use `useGLTF` or `useLoader`
 
 ## Project Context
-This is the zBuffer investment fund website built with:
+This is the All2 Capital investment fund website built with:
 - Next.js 16
 - Tailwind CSS v4
 - Framer Motion for animations
