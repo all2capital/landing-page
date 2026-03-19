@@ -4,16 +4,8 @@ import { motion } from "framer-motion";
 import GlassCard from "./ui/glass-card";
 
 const team = [
-  {
-    name: "Hisham",
-    role: "General Partner",
-    bio: "Technical founder turned investor. Focused on infrastructure and developer tools.",
-  },
-  {
-    name: "Rob",
-    role: "General Partner",
-    bio: "Engineering leader with deep experience in systems and platform architecture.",
-  },
+  { name: "Hisham El-Husseini", role: "General Partner" },
+  { name: "Robert Neir", role: "General Partner" },
 ];
 
 export default function TeamSection() {
@@ -34,8 +26,7 @@ export default function TeamSection() {
           {team.map((member, index) => (
             <GlassCard key={member.name} delay={index * 0.1}>
               <h3 className="text-xl md:text-2xl font-semibold mb-1">{member.name}</h3>
-              <p className="text-sm font-medium text-white/40 font-mono mb-4">{member.role}</p>
-              <p className="text-base text-white/60">{member.bio}</p>
+              <p className="text-sm font-medium text-white/40 font-mono">{member.role}</p>
             </GlassCard>
           ))}
         </div>
