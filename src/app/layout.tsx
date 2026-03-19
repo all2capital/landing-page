@@ -6,7 +6,8 @@ export const metadata: Metadata = {
   title: "All2 Capital",
   description: "Tech builders and founders investing in AI, software, hardware, space, biotech, and longevity.",
   icons: {
-    icon: "/favicon.ico",
+    icon: { url: "/favicon.png", type: "image/png" },
+    apple: "/favicon.png",
   },
 };
 
