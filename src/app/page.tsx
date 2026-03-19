@@ -20,12 +20,12 @@ function faviconUrl(url: string, size = 32) {
 }
 
 const philosophies = [
-  "We invest in what matters — the companies reshaping how the world actually works.",
-  "The best founders don't follow markets, they create them.",
-  "Every breakthrough starts with someone technical enough to know it's possible.",
-  "AI isn't a feature. It's the foundation of every company we back.",
-  "We build alongside our founders, not from the sidelines.",
-  "The next century belongs to the people building it right now.",
+  "We build and invest in the technologies shaping the future.",
+  "We learn by building, not just observing.",
+  "We stay close to emerging technologies and the markets around them.",
+  "We build, experiment, and invest with conviction.",
+  "We understand systems by working inside them.",
+  "We invest in what we've spent time building and testing.",
 ];
 
 /* Thesis principles */
@@ -380,7 +380,6 @@ function InvestmentsSlide() {
 
 /* ─── Slide 3: Team ─── */
 function TeamSlide() {
-
   return (
     <div className="min-h-full overflow-y-auto bg-[#181818]">
       <div className={`${alignmentWrapper} pt-28 md:pt-36 pb-16 sm:pb-20 md:pb-24 flex flex-col items-center`}>

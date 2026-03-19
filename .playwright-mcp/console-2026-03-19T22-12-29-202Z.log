@@ -1,0 +1,59 @@
+[   32638ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=l19JbrZOM-roOarjA7wa9' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/387c0_next_dist_client_cbd1e3fb._.js:10878
+[   33643ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=l19JbrZOM-roOarjA7wa9' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/387c0_next_dist_client_cbd1e3fb._.js:10878
+[   34645ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=l19JbrZOM-roOarjA7wa9' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/387c0_next_dist_client_cbd1e3fb._.js:10878
+[   35648ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=l19JbrZOM-roOarjA7wa9' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/387c0_next_dist_client_cbd1e3fb._.js:10878
+[   36650ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=l19JbrZOM-roOarjA7wa9' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/387c0_next_dist_client_cbd1e3fb._.js:10878
+[   41653ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=l19JbrZOM-roOarjA7wa9' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/387c0_next_dist_client_cbd1e3fb._.js:10878
+[   46655ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=l19JbrZOM-roOarjA7wa9' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/387c0_next_dist_client_cbd1e3fb._.js:10878
+[   47612ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[   47918ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[   48274ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[   48680ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[   49135ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[   49638ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[   50193ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[   50798ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[   51452ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[   51662ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=l19JbrZOM-roOarjA7wa9' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/387c0_next_dist_client_cbd1e3fb._.js:10878
+[   52160ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[   52913ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[   53718ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[   54576ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[   55481ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[   56436ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[   56669ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=l19JbrZOM-roOarjA7wa9' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/387c0_next_dist_client_cbd1e3fb._.js:10878
+[   57440ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[   58495ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[   59600ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[   60756ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[   61672ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=l19JbrZOM-roOarjA7wa9' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/387c0_next_dist_client_cbd1e3fb._.js:10878
+[   61959ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[   63215ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[   64519ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[   65872ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[   66678ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=l19JbrZOM-roOarjA7wa9' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/387c0_next_dist_client_cbd1e3fb._.js:10878
+[   67278ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[   68734ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[   70240ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[   71682ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=l19JbrZOM-roOarjA7wa9' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/387c0_next_dist_client_cbd1e3fb._.js:10878
+[ 1081335ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=pLUnPPDzJqnGACpuVq2sH' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/387c0_next_dist_client_cbd1e3fb._.js:10878
+[ 1082337ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=pLUnPPDzJqnGACpuVq2sH' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/387c0_next_dist_client_cbd1e3fb._.js:10878
+[ 1083339ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=pLUnPPDzJqnGACpuVq2sH' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/387c0_next_dist_client_cbd1e3fb._.js:10878
+[ 1084342ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=pLUnPPDzJqnGACpuVq2sH' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/387c0_next_dist_client_cbd1e3fb._.js:10878
+[ 1085343ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=pLUnPPDzJqnGACpuVq2sH' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/387c0_next_dist_client_cbd1e3fb._.js:10878
+[ 1090344ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=pLUnPPDzJqnGACpuVq2sH' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/387c0_next_dist_client_cbd1e3fb._.js:10878
+[ 1095346ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=pLUnPPDzJqnGACpuVq2sH' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/387c0_next_dist_client_cbd1e3fb._.js:10878
+[ 1100349ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=pLUnPPDzJqnGACpuVq2sH' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/387c0_next_dist_client_cbd1e3fb._.js:10878
+[ 1105351ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=pLUnPPDzJqnGACpuVq2sH' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/387c0_next_dist_client_cbd1e3fb._.js:10878
+[ 1110355ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=pLUnPPDzJqnGACpuVq2sH' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/387c0_next_dist_client_cbd1e3fb._.js:10878
+[ 1115361ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=pLUnPPDzJqnGACpuVq2sH' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/387c0_next_dist_client_cbd1e3fb._.js:10878
+[ 1116364ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[ 1116667ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[ 1117019ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[ 1117421ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[ 1117874ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[ 1118377ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[ 1118931ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[ 1119534ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[ 1120186ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/home_video.mp4:0
+[ 1120364ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=pLUnPPDzJqnGACpuVq2sH' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/387c0_next_dist_client_cbd1e3fb._.js:10878
