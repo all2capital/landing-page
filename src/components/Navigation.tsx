@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+
 interface NavigationProps {
   onNavigate?: (slide: number) => void;
   currentSlide?: number;
@@ -63,7 +64,7 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
       {/* Fixed top bar — logo + hamburger, aligned to content grid */}
       <div
         className={`fixed top-0 left-0 right-0 z-[210] pointer-events-none transition-colors duration-300 ${
-          menuOpen || currentSlide !== 0 ? "bg-white" : ""
+          menuOpen || currentSlide !== 0 ? "bg-white dark:bg-[#181818]" : ""
         }`}
       >
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 py-4 sm:py-5 md:py-6 flex items-center justify-between">
@@ -82,48 +83,42 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
             aria-label="All2 Capital — go to home"
           >
             <span
-              className="font-bold tracking-[-0.02em] text-2xl min-[380px]:text-2xl sm:text-3xl md:text-3xl transition-colors duration-300"
-              style={{
-                fontFamily: "var(--font-space-grotesk), sans-serif",
-                color: menuOpen || currentSlide !== 0 ? "#000" : "#fff",
-              }}
+              className={`font-medium tracking-[0.12em] sm:tracking-[0.2em] text-sm min-[380px]:text-base sm:text-lg md:text-xl transition-colors duration-300 ${
+                menuOpen || currentSlide !== 0 ? "text-black dark:text-white" : "text-white"
+              }`}
+              style={{ fontFamily: '"Metropolis", sans-serif' }}
             >
-              all2 capital
+              ALL2 CAPITAL
             </span>
           </button>
 
           {/* Hamburger / X */}
-          <button
-            type="button"
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center hover:opacity-70 transition-opacity touch-manipulation pointer-events-auto"
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={menuOpen}
-          >
-            <span className="relative w-6 sm:w-7 h-5 flex flex-col justify-center items-center">
-              <span
-                className="absolute block w-6 sm:w-7 h-[2px] transition-all duration-300 origin-center"
-                style={{
-                  transform: menuOpen ? "rotate(45deg)" : "translateY(-6px)",
-                  backgroundColor: menuOpen || currentSlide !== 0 ? "#333" : "white",
-                }}
-              />
-              <span
-                className="absolute block w-6 sm:w-7 h-[2px] transition-all duration-300"
-                style={{
-                  opacity: menuOpen ? 0 : 1,
-                  backgroundColor: menuOpen || currentSlide !== 0 ? "#333" : "white",
-                }}
-              />
-              <span
-                className="absolute block w-6 sm:w-7 h-[2px] transition-all duration-300 origin-center"
-                style={{
-                  transform: menuOpen ? "rotate(-45deg)" : "translateY(6px)",
-                  backgroundColor: menuOpen || currentSlide !== 0 ? "#333" : "white",
-                }}
-              />
-            </span>
-          </button>
+          <div className={`flex items-center pointer-events-auto ${
+            menuOpen || currentSlide !== 0 ? "text-neutral-800 dark:text-white" : "text-white"
+          }`}>
+            <button
+              type="button"
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center hover:opacity-70 transition-opacity touch-manipulation"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+            >
+              <span className="relative w-6 sm:w-7 h-5 flex flex-col justify-center items-center">
+                <span
+                  className="absolute block w-6 sm:w-7 h-[2px] bg-current transition-all duration-300 origin-center"
+                  style={{ transform: menuOpen ? "rotate(45deg)" : "translateY(-6px)" }}
+                />
+                <span
+                  className="absolute block w-6 sm:w-7 h-[2px] bg-current transition-all duration-300"
+                  style={{ opacity: menuOpen ? 0 : 1 }}
+                />
+                <span
+                  className="absolute block w-6 sm:w-7 h-[2px] bg-current transition-all duration-300 origin-center"
+                  style={{ transform: menuOpen ? "rotate(-45deg)" : "translateY(6px)" }}
+                />
+              </span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -135,7 +130,7 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
             animate={{ y: 0 }}
             exit={{ y: "-100%" }}
             transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="fixed inset-0 z-[200] bg-white flex flex-col items-center justify-center"
+            className="fixed inset-0 z-[200] bg-white dark:bg-[#181818] flex flex-col items-center justify-center"
           >
             <div className="flex flex-col items-center gap-4 sm:gap-6 md:gap-8">
               {menuItems.map(({ label, slide }, i) => (
@@ -146,7 +141,7 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] as const, delay: 0.1 + i * 0.06 }}
                   onClick={() => handleMenuNavigate(slide)}
-                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-neutral-700 hover:text-black transition-colors touch-manipulation"
+                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-neutral-700 dark:text-white hover:text-black dark:hover:text-white transition-colors touch-manipulation"
                 >
                   {label}
                 </motion.button>

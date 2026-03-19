@@ -1,19 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk } from "next/font/google";
-import "@voaii/proxima-nova/latin.css";
+import "@fontsource/metropolis/latin.css";
 import "./globals.css";
-
-export const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  weight: ["700"],
-  variable: "--font-space-grotesk",
-});
 
 export const metadata: Metadata = {
   title: "all2 capital",
   description: "Tech builders and founders investing in AI, software, hardware, space, biotech, and longevity.",
   icons: {
-    icon: "/icon.svg",
+    icon: { url: "/favicon.png", type: "image/png" },
+    apple: "/favicon.png",
   },
 };
 
@@ -31,8 +25,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`dark ${spaceGrotesk.variable}`} suppressHydrationWarning>
-      <body className="antialiased overflow-x-hidden bg-black text-white min-h-[100dvh] min-h-[100svh]" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
+      <body className="antialiased overflow-x-hidden bg-white dark:bg-[#181818] text-neutral-900 dark:text-white min-h-[100dvh] min-h-[100svh]" suppressHydrationWarning>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var t=localStorage.getItem('theme');if(t==='dark'){document.documentElement.classList.add('dark');}else{document.documentElement.classList.remove('dark');}})();`,
+          }}
+        />
         {children}
       </body>
     </html>

@@ -152,20 +152,18 @@ const sectors = [
 
 const team = [
   {
-    name: "Robert Neir",
-    role: "General Partner",
-    bio: "Engineering leader with deep experience in systems and platform architecture. Focused on building and scaling reliable, high-performance infrastructure.",
-    image: "/team-rob.png",
-    linkedin: "https://www.linkedin.com/in/robertmneir/",
-    email: "robertneir@all2capital.com",
-  },
-  {
     name: "Hisham El-Husseini",
     role: "General Partner",
-    bio: "Engineer building products that shape behavior, coordinate users, and scale into durable networks over time.",
     image: "/team-hisham.png",
     linkedin: "https://www.linkedin.com/in/hisham-el-husseini/",
     email: "hisham@all2capital.com",
+  },
+  {
+    name: "Robert Neir",
+    role: "General Partner",
+    image: "/team-rob.png",
+    linkedin: "https://www.linkedin.com/in/robertmneir/",
+    email: "robertneir@all2capital.com",
   },
 ];
 
@@ -383,53 +381,47 @@ function InvestmentsSlide() {
 /* ─── Slide 3: Team ─── */
 function TeamSlide() {
   return (
-    <div className="bg-black min-h-full overflow-y-auto">
-      <div className={`${alignmentWrapper} pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24`}>
-        <motion.h2
-          {...driftUp(0)}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 sm:mb-8 text-white"
-        >
-          Team
-        </motion.h2>
-        <motion.p
-          {...driftUp(0.05)}
-          className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed max-w-3xl mb-14 sm:mb-20"
-        >
-          We&apos;re technical founders and long-term investors with over a decade of experience building systems, shipping products, and working at the edge of emerging technologies. We stay close to the market by continuously building, experimenting, and learning.
-        </motion.p>
-
-        <div className="space-y-14 sm:space-y-20">
+    <div className="min-h-full overflow-y-auto bg-[#181818]">
+      <div className={`${alignmentWrapper} pt-28 md:pt-36 pb-16 sm:pb-20 md:pb-24 flex flex-col items-center`}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 lg:gap-14 w-full max-w-[60%] mx-auto">
           {team.map((member, i) => (
             <motion.div
               key={member.name}
               {...driftUp(0.1 + i * 0.08)}
-              className="flex flex-col sm:flex-row items-start gap-6 sm:gap-8"
+              className="group relative aspect-[3/4] rounded-lg overflow-hidden"
             >
-              {/* Photo */}
-              <div className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 rounded-full overflow-hidden shrink-0">
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  fill
-                  className="object-cover object-[50%_30%] grayscale"
-                  sizes="176px"
-                />
-              </div>
-              {/* Info */}
-              <div>
-                <div className="flex items-center gap-3 mb-1">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white">
+              {/* Photo — object-cover ensures uniform sizing */}
+              <Image
+                src={member.image}
+                alt={member.name}
+                fill
+                unoptimized
+                className="object-cover object-top grayscale group-hover:grayscale-0 transition-[filter] duration-500"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+
+              {/* Name + role + links pinned to top */}
+              <div className="absolute top-0 inset-x-0 flex items-center justify-between px-4 py-3 sm:px-5 sm:py-3.5 z-10"
+                style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, transparent 100%)" }}
+              >
+                <div className="min-w-0">
+                  <h3 className="text-sm sm:text-base font-semibold text-white leading-tight truncate">
                     {member.name}
                   </h3>
+                  <p className="text-[11px] sm:text-xs font-mono text-white/60 leading-tight">
+                    {member.role}
+                  </p>
+                </div>
+                <div className="flex items-center gap-1.5 shrink-0 ml-2">
                   {member.linkedin && (
                     <a
                       href={member.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`${member.name} on LinkedIn`}
-                      className="text-white/30 hover:text-white/70 transition-colors"
+                      className="inline-flex text-white/50 hover:text-white transition-colors [&_svg]:w-3.5 [&_svg]:h-3.5"
                     >
-                      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                       </svg>
                     </a>
@@ -438,21 +430,15 @@ function TeamSlide() {
                     <a
                       href={`mailto:${member.email}`}
                       aria-label={`Email ${member.name}`}
-                      className="text-white/30 hover:text-white/70 transition-colors"
+                      className="inline-flex text-white/50 hover:text-white transition-colors [&_svg]:w-3.5 [&_svg]:h-3.5"
                     >
-                      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <rect width="20" height="16" x="2" y="4" rx="2" />
                         <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                       </svg>
                     </a>
                   )}
                 </div>
-                <p className="text-sm sm:text-base font-medium text-white/30 font-mono mb-3 sm:mb-4">
-                  {member.role}
-                </p>
-                <p className="text-base sm:text-lg text-white/55 leading-relaxed max-w-3xl">
-                  {member.bio}
-                </p>
               </div>
             </motion.div>
           ))}
