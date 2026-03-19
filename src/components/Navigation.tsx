@@ -88,7 +88,7 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
                 color: menuOpen || currentSlide !== 0 ? "#000" : "#fff",
               }}
             >
-              all<sub className="text-[0.65em] relative -bottom-[0.1em]">2</sub> capital
+              all2 capital
             </span>
           </button>
 

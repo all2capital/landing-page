@@ -20,12 +20,12 @@ function faviconUrl(url: string, size = 32) {
 }
 
 const philosophies = [
-  "Most investors read pitch decks. We read the code.",
-  "AI will rewrite every industry. We back the engineers holding the pen.",
-  "Every company is becoming a software company. Most investors still don't understand software.",
-  "The best technical moats are invisible to non-technical investors. That's our edge.",
-  "We don't sit in boardrooms guessing. We build, ship, and invest from the trenches.",
-  "The next century belongs to the people building it right now.",
+  "We build and invest in the technologies shaping the future.",
+  "We learn by building, not just observing.",
+  "We stay close to emerging technologies and the markets around them.",
+  "We build, experiment, and invest with conviction.",
+  "We understand systems by working inside them.",
+  "We invest in what we've spent time building and testing.",
 ];
 
 /* Thesis principles */
@@ -152,17 +152,17 @@ const sectors = [
 
 const team = [
   {
-    name: "Rob",
+    name: "Robert Neir",
     role: "General Partner",
-    bio: "Engineering leader with deep experience in systems and platform architecture.",
+    bio: "Engineering leader with deep experience in systems and platform architecture. Focused on building and scaling reliable, high-performance infrastructure.",
     image: "/team-rob.png",
     linkedin: "https://www.linkedin.com/in/robertmneir/",
     email: "robertneir@all2capital.com",
   },
   {
-    name: "Hisham",
+    name: "Hisham El-Husseini",
     role: "General Partner",
-    bio: "Technical founder turned investor. Focused on infrastructure and developer tools.",
+    bio: "Engineer building products that shape behavior, coordinate users, and scale into durable networks over time.",
     image: "/team-hisham.png",
     linkedin: "https://www.linkedin.com/in/hisham-el-husseini/",
     email: "hisham@all2capital.com",
@@ -395,8 +395,7 @@ function TeamSlide() {
           {...driftUp(0.05)}
           className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed max-w-3xl mb-14 sm:mb-20"
         >
-          We&apos;re builders ourselves — technical founders and engineers
-          who&apos;ve shipped products and scaled systems.
+          We&apos;re technical founders and long-term investors with over a decade of experience building systems, shipping products, and working at the edge of emerging technologies. We stay close to the market by continuously building, experimenting, and learning.
         </motion.p>
 
         <div className="space-y-14 sm:space-y-20">
@@ -451,7 +450,7 @@ function TeamSlide() {
                 <p className="text-sm sm:text-base font-medium text-white/30 font-mono mb-3 sm:mb-4">
                   {member.role}
                 </p>
-                <p className="text-base sm:text-lg text-white/55 leading-relaxed max-w-xl">
+                <p className="text-base sm:text-lg text-white/55 leading-relaxed max-w-3xl">
                   {member.bio}
                 </p>
               </div>

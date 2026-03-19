@@ -10,10 +10,10 @@ export const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "All2 Capital",
+  title: "all2 capital",
   description: "Tech builders and founders investing in AI, software, hardware, space, biotech, and longevity.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/icon.svg",
   },
 };
 
