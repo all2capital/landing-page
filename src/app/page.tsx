@@ -20,11 +20,11 @@ function faviconUrl(url: string, size = 32) {
 }
 
 const philosophies = [
-  "We invest in what matters — the companies reshaping how the world actually works.",
-  "The best founders don't follow markets, they create them.",
-  "Every breakthrough starts with someone technical enough to know it's possible.",
-  "AI isn't a feature. It's the foundation of every company we back.",
-  "We build alongside our founders, not from the sidelines.",
+  "Most investors read pitch decks. We read the code.",
+  "AI will rewrite every industry. We back the engineers holding the pen.",
+  "Every company is becoming a software company. Most investors still don't understand software.",
+  "The best technical moats are invisible to non-technical investors. That's our edge.",
+  "We don't sit in boardrooms guessing. We build, ship, and invest from the trenches.",
   "The next century belongs to the people building it right now.",
 ];
 
