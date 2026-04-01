@@ -73,7 +73,7 @@ export function ShootingStars({
     const topAngle = topMin + Math.random() * (topMax - topMin)
 
     switch (side) {
-      case 0: // Top edge — downward diagonal
+      case 0: // Top edge,downward diagonal
         return { x: Math.random() * width, y: 0, angle: topAngle }
       case 1: // Right edge
         return { x: width, y: Math.random() * height, angle: 135 }

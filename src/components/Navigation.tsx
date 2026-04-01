@@ -38,7 +38,7 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
   }, [menuOpen]);
 
   const handleMenuNavigate = (slide: number) => {
-    // Navigate first — page swaps under the menu overlay
+    // Navigate first,page swaps under the menu overlay
     onNavigate?.(slide);
     // Then close the menu to reveal the new page
     setTimeout(() => setMenuOpen(false), 50);
@@ -46,7 +46,7 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
 
   return (
     <>
-      {/* Header spacer — only on home slide to reserve space */}
+      {/* Header spacer,only on home slide to reserve space */}
       {currentSlide === 0 && (
         <motion.header
           initial={{ opacity: 0, y: -20 }}
@@ -61,7 +61,7 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
         </motion.header>
       )}
 
-      {/* Fixed top bar — logo + hamburger, aligned to content grid */}
+      {/* Fixed top bar,logo + hamburger, aligned to content grid */}
       <div
         className={`fixed top-0 left-0 right-0 z-[210] pointer-events-none transition-colors duration-300 ${
           menuOpen || currentSlide !== 0 ? "bg-white dark:bg-[#181818]" : ""
@@ -80,7 +80,7 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
               }
             }}
             className="flex items-center gap-2 sm:gap-2.5 hover:opacity-80 transition-opacity touch-manipulation pointer-events-auto"
-            aria-label="All2 Capital — go to home"
+            aria-label="All2 Capital,go to home"
           >
             <span
               className={`font-medium tracking-[0.12em] sm:tracking-[0.2em] text-sm min-[380px]:text-base sm:text-lg md:text-xl transition-colors duration-300 ${
@@ -88,7 +88,7 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
               }`}
               style={{ fontFamily: '"Metropolis", sans-serif' }}
             >
-              ALL2 CAPITAL
+              ALL TOGETHER CAPITAL
             </span>
           </button>
 

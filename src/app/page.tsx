@@ -33,17 +33,17 @@ const principles = [
   {
     title: "Operator-Led",
     description:
-      "We've built companies, led engineering teams, and shipped products at scale. Our investment decisions are grounded in the reality of building — not abstract market analysis. When we evaluate a company, we're assessing the architecture, the team's technical depth, and the product's path to scale.",
+      "We've built companies, led engineering teams, and shipped products at scale. Our investment decisions are grounded in the reality of building,not abstract market analysis. When we evaluate a company, we're assessing the architecture, the team's technical depth, and the product's path to scale.",
   },
   {
-    title: "AI-Native Only",
+    title: "AI & HALO",
     description:
-      "Every company in our portfolio is built from the ground up with AI at its foundation. We don't invest in companies that bolt machine learning onto legacy products. We look for founders building entirely new systems — where artificial intelligence isn't a feature but the reason the company can exist at all.",
+      "We invest in two lanes. First, cutting-edge AI companies built from the ground up,where artificial intelligence isn't a feature but the reason the company can exist at all. Second, HALO businesses,Heavy Assets, Low Obsolescence,companies with deep physical moats like energy, infrastructure, and space that AI cannot easily replicate or displace. Together, these lanes let us capture the upside of AI while hedging against its disruption.",
   },
   {
     title: "Technical Conviction",
     description:
-      "Our engineering backgrounds let us underwrite technology risk that generalist investors can't evaluate. We go deep on system architecture, scalability, and technical moats — the things that separate breakout companies from the rest.",
+      "Our engineering backgrounds let us underwrite technology risk that generalist investors can't evaluate. We go deep on system architecture, scalability, and technical moats,the things that separate breakout companies from the rest.",
   },
 ];
 
@@ -85,7 +85,7 @@ const sectors = [
     name: "Energy",
     Icon: Zap,
     description:
-      "Energy may replace currency one day. The energy sector is evolving into a \"Cognitive Grid\"—a self-optimizing ecosystem replacing reactive, manual infrastructure. As volatile renewables challenge legacy systems, AI acts as the grid's \"brain,\" using real-time telemetry to balance supply and demand with millisecond precision.\n\nBeyond management, AI transforms energy exploration into high-precision engineering. By modeling subsurface physics and nuclear dynamics, it makes complex sources like geothermal and fusion both technically viable and economically competitive.",
+      "Energy may replace currency one day. The energy sector is evolving into a \"Cognitive Grid\", a self-optimizing ecosystem replacing reactive, manual infrastructure. As volatile renewables challenge legacy systems, AI acts as the grid's \"brain,\" using real-time telemetry to balance supply and demand with millisecond precision.\n\nBeyond management, AI transforms energy exploration into high-precision engineering. By modeling subsurface physics and nuclear dynamics, it makes complex sources like geothermal and fusion both technically viable and economically competitive.",
     areas: [
       "Next-generation nuclear",
       "Grid-scale energy storage",
@@ -241,6 +241,16 @@ function ThesisSlide() {
             evolves, and what limitations there are within code itself and hardware. Code has
             become as important as the English language.
           </p>
+          <p className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed mt-4">
+            This is why we invest in two lanes. First, cutting-edge AI itself,the companies
+            building the models, the infrastructure, and the tools that are driving this
+            revolution forward. Second, what we call HALO businesses,Heavy Assets, Low
+            Obsolescence,companies rooted in physical assets like energy, infrastructure,
+            and space that AI cannot easily replicate or displace. AI will reshape every
+            software company, but it cannot replace a power plant, a satellite constellation,
+            or a semiconductor fab. By investing in both the sword and the shield, we
+            position ourselves on both sides of AI&apos;s disruption wave.
+          </p>
         </motion.div>
         <motion.div {...driftUp(0.1)} className="max-w-3xl">
           <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-3 sm:mb-4">
@@ -279,8 +289,10 @@ function InvestmentsSlide() {
           {...driftUp(0.05)}
           className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed max-w-3xl mb-10 sm:mb-14"
         >
-          We back technical founders working across six core sectors. Everything we
-          invest in touches AI in some way — these are the industries being reshaped by it.
+          We invest in two lanes: cutting-edge AI companies pushing the frontier, and
+          HALO businesses,Heavy Assets, Low Obsolescence,whose physical moats make them
+          resistant to AI disruption. Together they form a portfolio built for both sides of the
+          AI revolution.
         </motion.p>
 
         {/* Sector tabs */}
@@ -390,7 +402,7 @@ function TeamSlide() {
               {...driftUp(0.1 + i * 0.08)}
               className="group relative aspect-[3/4] rounded-lg overflow-hidden"
             >
-              {/* Photo — object-cover ensures uniform sizing */}
+              {/* Photo,object-cover ensures uniform sizing */}
               <Image
                 src={member.image}
                 alt={member.name}
@@ -464,7 +476,7 @@ export default function Home() {
   const next = useCallback(() => goToSlide(currentSlide + 1), [currentSlide, goToSlide]);
   const prev = useCallback(() => goToSlide(currentSlide - 1), [currentSlide, goToSlide]);
 
-  // Keyboard navigation — only on home slide
+  // Keyboard navigation,only on home slide
   useEffect(() => {
     if (currentSlide !== 0) return;
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -482,7 +494,7 @@ export default function Home() {
   }, [currentSlide, next, prev]);
 
 
-  // Touch/swipe navigation — only on home slide
+  // Touch/swipe navigation,only on home slide
   useEffect(() => {
     if (currentSlide !== 0) return;
     const handleTouchStart = (e: TouchEvent) => {
@@ -505,7 +517,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen h-screen max-h-[100dvh] bg-black overflow-hidden">
-      {/* Video background — hidden instantly on content pages */}
+      {/* Video background,hidden instantly on content pages */}
       <div
         className="fixed inset-0 z-[1] overflow-hidden"
         style={{ visibility: currentSlide === 0 ? "visible" : "hidden" }}
@@ -524,7 +536,7 @@ export default function Home() {
         />
       </div>
 
-      {/* Content — instant page swaps, no AnimatePresence */}
+      {/* Content,instant page swaps, no AnimatePresence */}
       <div className="relative z-10 h-full flex flex-col">
         <Navigation onNavigate={goToSlide} currentSlide={currentSlide} />
 

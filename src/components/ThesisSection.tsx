@@ -18,7 +18,7 @@ export default function ThesisSection() {
             </p>
             <p>
               From AI training pipelines to real-time rendering engines, from developer
-              toolchains to security primitives — we invest at the earliest stages in the
+              toolchains to security primitives,we invest at the earliest stages in the
               technology that becomes the foundation.
             </p>
           </div>

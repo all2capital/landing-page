@@ -141,7 +141,7 @@
   background: #525252;
 }
 
-/* Page background glows — in CSS to avoid hydration mismatch with Dark Reader etc. */
+/* Page background glows,in CSS to avoid hydration mismatch with Dark Reader etc. */
 .bg-glow-rgb {
   background: conic-gradient(from 135deg at 50% 50%, #ff0000, #ff6600, #ffdd00, #00ff44, #0088ff, #6600ff, #ff0066, transparent 75%);
 }
@@ -310,7 +310,7 @@ html {
     0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
-/* Primary (filled) button — soft glow on hover */
+/* Primary (filled) button,soft glow on hover */
 .btn-elegant-primary {
   position: relative;
   overflow: hidden;
@@ -340,7 +340,7 @@ html {
   filter: brightness(1.08);
 }
 
-/* Secondary (outline) button — gentle lift and border glow */
+/* Secondary (outline) button,gentle lift and border glow */
 .btn-elegant-secondary {
   position: relative;
   overflow: hidden;
@@ -364,7 +364,7 @@ html {
   transform: translateY(0);
 }
 
-/* Primary button — softer default, beautiful hover */
+/* Primary button,softer default, beautiful hover */
 .btn-elegant-primary {
   border: 1px solid transparent;
 }
@@ -377,7 +377,7 @@ html {
   border-color: rgba(0, 0, 0, 0.08);
 }
 
-/* Liquid glass button — Apple-style frosted glass, subtle and elegant */
+/* Liquid glass button,Apple-style frosted glass, subtle and elegant */
 .btn-liquid-glass {
   position: relative;
   overflow: hidden;
@@ -421,7 +421,7 @@ html {
     0 1px 2px rgb(0 0 0 / 0.06);
 }
 
-/* Liquid glass form inputs — match button aesthetic */
+/* Liquid glass form inputs,match button aesthetic */
 .input-liquid-glass {
   width: 100%;
   color: rgb(255 255 255 / 0.95);
@@ -455,7 +455,7 @@ html {
   border-radius: 8px;
 }
 
-/* Secondary button — light: gray glass on white; dark: liquid glass (unchanged) */
+/* Secondary button,light: gray glass on white; dark: liquid glass (unchanged) */
 .btn-elegant-secondary {
   background: linear-gradient(
     135deg,

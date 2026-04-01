@@ -79,7 +79,7 @@ export default function JoinLPForm({ className = "" }: { className?: string }) {
 
   return (
     <>
-      {/* Trigger button — stays inline, never moves */}
+      {/* Trigger button, stays inline, never moves */}
       <div className={className}>
         <motion.div
           whileHover={{ scale: 1.02 }}

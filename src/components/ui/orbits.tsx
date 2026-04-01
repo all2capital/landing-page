@@ -76,13 +76,13 @@ export function OrbitsBackground({
       } : { r: 6, g: 182, b: 212 }
     }
 
-    // Planet colors — solar system inspired (Mercury→Neptune)
+    // Planet colors,solar system inspired (Mercury→Neptune)
     const planetColors = [
       "#8B3A3A", "#4A7C4A", "#5B8FB8", "#C4A574", "#D4A574", "#5A9B5A", "#6BB5C4", "#E8B85C",
     ]
     // Relative planet sizes (Mercury→Neptune). Scaled so Jupiter/Saturn are largest, inner small, not exact.
     const planetSizes = [1.4, 2.2, 2.5, 1.6, 5.2, 4.4, 3.0, 2.9]
-    // Semi-major axes in AU (Mercury→Neptune). Inner planets close, outer much farther — normalized to 0–1.
+    // Semi-major axes in AU (Mercury→Neptune). Inner planets close, outer much farther,normalized to 0–1.
     const orbitDistancesAU = [0.39, 0.72, 1.0, 1.52, 5.2, 9.5, 19.2, 30.1]
     const distMin = orbitDistancesAU[0]
     const distMax = orbitDistancesAU[orbitDistancesAU.length - 1]
@@ -97,7 +97,7 @@ export function OrbitsBackground({
         const au = orbitDistancesAU[i % orbitDistancesAU.length] ?? orbitDistancesAU[0] + (i / Math.max(count - 1, 1)) * (distMax - distMin)
         const t = normalizeDist(au)
         const radius = minDim * (minRadiusFraction + t * radiusRange)
-        // Same rotation speed for all orbits — the slower (outer) speed
+        // Same rotation speed for all orbits,the slower (outer) speed
         const rotationSpeed = 0.0004 * speed
         const size = planetSizes[i % planetSizes.length] ?? 2 + (i / count) * 2
         const particles = [{
@@ -144,7 +144,7 @@ export function OrbitsBackground({
     const cx = () => width / 2
     const cy = () => height / 2
 
-    // Light grey orbit paths (reference style — thin, subtle)
+    // Light grey orbit paths (reference style,thin, subtle)
     const orbitLineRgb = { r: 160, g: 162, b: 172 }
 
     const drawOrbit = (orbit: Orbit) => {
@@ -172,7 +172,7 @@ export function OrbitsBackground({
       } : { r: 200, g: 200, b: 200 }
     }
 
-    // Draw planet — solid colored circle (no glow, reference style)
+    // Draw planet,solid colored circle (no glow, reference style)
     const drawParticle = (orbit: Orbit, particle: { angle: number; size: number }) => {
       const x = cx() + Math.cos(particle.angle) * orbit.radius * Math.cos(orbit.tiltY) -
                 Math.sin(particle.angle) * orbit.radius * orbit.tiltX * Math.sin(orbit.tiltY)
@@ -190,7 +190,7 @@ export function OrbitsBackground({
       ctx.stroke()
     }
 
-    // Animation — time-based so rotation speed is constant regardless of frame rate / mouse
+    // Animation,time-based so rotation speed is constant regardless of frame rate / mouse
     const animate = (now: number) => {
       const deltaMs = lastTime ? now - lastTime : 16.67
       lastTime = now
