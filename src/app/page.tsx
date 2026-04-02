@@ -20,7 +20,7 @@ function faviconUrl(url: string, size = 32) {
 }
 
 const philosophies = [
-  "We build and invest in the technologies shaping the future.",
+  "We invest in cutting-edge AI and HALO businesses, Heavy Assets, Low Obsolescence, that AI cannot displace.",
   "We learn by building, not just observing.",
   "We stay close to emerging technologies and the markets around them.",
   "We build, experiment, and invest with conviction.",
