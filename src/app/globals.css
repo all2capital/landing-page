@@ -515,3 +515,68 @@ html {
     0 4px 12px -4px rgba(0, 0, 0, 0.35),
     0 0 0 1px rgba(255, 255, 255, 0.08);
 }
+
+/* Gold metallic text — real gold base with slow unified light sweep */
+.gold-text {
+  position: relative;
+  display: inline-block;
+  background:
+    linear-gradient(
+      180deg,
+      #e0c065 0%,
+      #d4a843 6%,
+      #bf953f 14%,
+      #e8cc70 26%,
+      #c49a2c 36%,
+      #a67c1a 46%,
+      #7a5a14 54%,
+      #a67c1a 62%,
+      #c49a2c 72%,
+      #e8cc70 82%,
+      #bf953f 90%,
+      #e0c065 100%
+    );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter:
+    drop-shadow(0 1px 0 rgba(80, 56, 16, 0.85))
+    drop-shadow(0 2px 2px rgba(30, 20, 5, 0.5))
+    drop-shadow(0 4px 8px rgba(0, 0, 0, 0.35));
+}
+
+/* Slow light source moving across the gold uniformly */
+.gold-text::after {
+  content: "TOGETHER WE BUILD.";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      110deg,
+      transparent 0%,
+      transparent 30%,
+      rgba(232, 204, 112, 0.3) 38%,
+      rgba(240, 216, 130, 0.45) 44%,
+      rgba(232, 204, 112, 0.3) 50%,
+      transparent 58%,
+      transparent 100%
+    );
+  background-size: 350% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gold-light 18s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes gold-light {
+  0%, 10% {
+    background-position: 130% 50%;
+  }
+  50% {
+    background-position: -30% 50%;
+  }
+  90%, 100% {
+    background-position: 130% 50%;
+  }
+}

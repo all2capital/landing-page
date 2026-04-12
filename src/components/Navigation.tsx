@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
 
 interface NavigationProps {
   onNavigate?: (slide: number) => void;
@@ -10,115 +9,89 @@ interface NavigationProps {
 }
 
 const menuItems = [
-  { label: "Manifesto", slide: 1 },
-  { label: "Investments", slide: 2 },
-  { label: "Team", slide: 3 },
+  { label: "MANIFESTO", slide: 1 },
+  { label: "INVESTMENTS", slide: 2 },
+  { label: "TEAM", slide: 3 },
 ];
 
 export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Lock body scroll when menu is open
-  useEffect(() => {
-    if (typeof document === "undefined") return;
-    document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [menuOpen]);
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
 
-  // Close on Escape
   useEffect(() => {
     if (!menuOpen) return;
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setMenuOpen(false);
+      if (e.key === "Escape") closeMenu();
     };
     window.addEventListener("keydown", handleEscape);
     return () => window.removeEventListener("keydown", handleEscape);
+  }, [menuOpen, closeMenu]);
+
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
-  const handleMenuNavigate = (slide: number) => {
-    // Navigate first,page swaps under the menu overlay
+  const handleNavigate = (slide: number) => {
     onNavigate?.(slide);
-    // Then close the menu to reveal the new page
     setTimeout(() => setMenuOpen(false), 50);
   };
 
   return (
     <>
-      {/* Header spacer,only on home slide to reserve space */}
-      {currentSlide === 0 && (
-        <motion.header
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const, delay: 0.2 }}
-          className="relative z-40 pt-safe bg-gradient-to-b from-black/30 to-transparent"
-        >
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 py-4 sm:py-5 md:py-6 flex items-center justify-between">
-            <div className="h-7 sm:h-8 md:h-8" />
-            <div className="w-10 h-10 sm:w-11 sm:h-11" />
-          </div>
-        </motion.header>
-      )}
+      <div className="fixed top-0 left-0 right-0 z-[210]">
+        {/* Gradient fade */}
+        <div
+          className={`absolute inset-0 h-28 pointer-events-none bg-gradient-to-b ${
+            currentSlide === 0 && !menuOpen
+              ? "from-black/50 via-black/20 to-transparent"
+              : "from-black/30 to-transparent"
+          }`}
+        />
 
-      {/* Fixed top bar,logo + hamburger, aligned to content grid */}
-      <div
-        className={`fixed top-0 left-0 right-0 z-[210] pointer-events-none transition-colors duration-300 ${
-          menuOpen || currentSlide !== 0 ? "bg-white dark:bg-[#181818]" : ""
-        }`}
-      >
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 py-4 sm:py-5 md:py-6 flex items-center justify-between">
-          {/* Logo */}
+        <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 py-5 sm:py-6 flex items-center justify-between">
+          {/* Logo — left */}
           <button
             type="button"
             onClick={() => {
-              if (menuOpen) {
-                onNavigate?.(0);
-                setTimeout(() => setMenuOpen(false), 50);
-              } else {
-                onNavigate?.(0);
-              }
+              onNavigate?.(0);
+              setMenuOpen(false);
             }}
-            className="flex items-center gap-2 sm:gap-2.5 hover:opacity-80 transition-opacity touch-manipulation pointer-events-auto"
-            aria-label="All2 Capital,go to home"
+            className="flex items-center gap-2 sm:gap-2.5 hover:opacity-70 transition-opacity touch-manipulation"
+            aria-label="Go to home"
           >
+            <img
+              src="/logo-icon.png"
+              alt=""
+              className="h-5 sm:h-6 md:h-7 w-auto"
+            />
             <span
-              className={`font-medium tracking-[0.12em] sm:tracking-[0.2em] text-sm min-[380px]:text-base sm:text-lg md:text-xl transition-colors duration-300 ${
-                menuOpen || currentSlide !== 0 ? "text-black dark:text-white" : "text-white"
-              }`}
+              className="font-medium tracking-[0.12em] sm:tracking-[0.18em] text-xs min-[380px]:text-sm sm:text-lg md:text-xl text-white"
               style={{ fontFamily: '"Metropolis", sans-serif' }}
             >
               ALL TOGETHER CAPITAL
             </span>
           </button>
 
-          {/* Hamburger / X */}
-          <div className={`flex items-center pointer-events-auto ${
-            menuOpen || currentSlide !== 0 ? "text-neutral-800 dark:text-white" : "text-white"
-          }`}>
-            <button
-              type="button"
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center hover:opacity-70 transition-opacity touch-manipulation"
-              aria-label={menuOpen ? "Close menu" : "Open menu"}
-              aria-expanded={menuOpen}
-            >
-              <span className="relative w-6 sm:w-7 h-5 flex flex-col justify-center items-center">
-                <span
-                  className="absolute block w-6 sm:w-7 h-[2px] bg-current transition-all duration-300 origin-center"
-                  style={{ transform: menuOpen ? "rotate(45deg)" : "translateY(-6px)" }}
-                />
-                <span
-                  className="absolute block w-6 sm:w-7 h-[2px] bg-current transition-all duration-300"
-                  style={{ opacity: menuOpen ? 0 : 1 }}
-                />
-                <span
-                  className="absolute block w-6 sm:w-7 h-[2px] bg-current transition-all duration-300 origin-center"
-                  style={{ transform: menuOpen ? "rotate(-45deg)" : "translateY(6px)" }}
-                />
-              </span>
-            </button>
-          </div>
+          {/* Hamburger — two equal lines */}
+          <button
+            type="button"
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="w-10 h-10 flex flex-col justify-center items-center gap-[6px] hover:opacity-70 transition-opacity touch-manipulation"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+          >
+            <span
+              className="block w-5 h-[2px] bg-white transition-transform duration-300 origin-center"
+              style={{ transform: menuOpen ? "translateY(4px) rotate(45deg)" : "none" }}
+            />
+            <span
+              className="block w-5 h-[2px] bg-white transition-transform duration-300 origin-center"
+              style={{ transform: menuOpen ? "translateY(-4px) rotate(-45deg)" : "none" }}
+            />
+          </button>
         </div>
       </div>
 
@@ -126,22 +99,27 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ y: "-100%" }}
-            animate={{ y: 0 }}
-            exit={{ y: "-100%" }}
-            transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="fixed inset-0 z-[200] bg-white dark:bg-[#181818] flex flex-col items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-[200] bg-black/95 backdrop-blur-sm flex flex-col items-center justify-center"
           >
-            <div className="flex flex-col items-center gap-4 sm:gap-6 md:gap-8">
+            <div className="flex flex-col items-center gap-6 sm:gap-8">
               {menuItems.map(({ label, slide }, i) => (
                 <motion.button
                   key={label}
                   type="button"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] as const, delay: 0.1 + i * 0.06 }}
-                  onClick={() => handleMenuNavigate(slide)}
-                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-neutral-700 dark:text-white hover:text-black dark:hover:text-white transition-colors touch-manipulation"
+                  transition={{ duration: 0.3, delay: 0.05 + i * 0.06 }}
+                  onClick={() => handleNavigate(slide)}
+                  className={`text-3xl sm:text-4xl md:text-5xl font-light tracking-[0.15em] transition-colors touch-manipulation ${
+                    currentSlide === slide
+                      ? "text-white"
+                      : "text-white/50 hover:text-white/90"
+                  }`}
+                  style={{ fontFamily: '"Metropolis", sans-serif' }}
                 >
                   {label}
                 </motion.button>

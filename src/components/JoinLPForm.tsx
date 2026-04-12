@@ -102,7 +102,7 @@ export default function JoinLPForm({ className = "" }: { className?: string }) {
       {/* Modal overlay */}
       <AnimatePresence>
         {open && (
-          <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-[200] flex items-end sm:items-center justify-center sm:p-4">
             {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -119,11 +119,11 @@ export default function JoinLPForm({ className = "" }: { className?: string }) {
               {submitted ? (
                 <motion.div
                   key="success"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
+                  initial={{ opacity: 0, y: 40, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 40, scale: 0.98 }}
                   transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-                  className="relative z-10 btn-liquid-glass w-full max-w-sm p-6 text-left"
+                  className="relative z-10 btn-liquid-glass w-full max-w-sm p-6 pb-[max(1.5rem,env(safe-area-inset-bottom))] sm:pb-6 text-left rounded-t-2xl sm:rounded-2xl"
                 >
                   <p className="text-base font-medium text-white/95 leading-relaxed">
                     We will contact you within 72 hours.
@@ -135,16 +135,17 @@ export default function JoinLPForm({ className = "" }: { className?: string }) {
               ) : (
                 <motion.form
                   key="form"
-                  initial={{ opacity: 0, scale: 0.95, y: 10 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.95, y: 10 }}
+                  initial={{ opacity: 0, y: 40, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 40, scale: 0.98 }}
                   transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
                   onSubmit={handleSubmit}
-                  className="relative z-10 btn-liquid-glass w-full max-w-sm p-5"
+                  className="relative z-10 btn-liquid-glass w-full max-w-sm p-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] sm:pb-5 rounded-t-2xl sm:rounded-2xl"
                 >
-                  <h3 className="text-lg font-semibold text-white/95 mb-4">Join as LP</h3>
+                  <div className="w-10 h-1 rounded-full bg-white/20 mx-auto mb-4 sm:hidden" />
+                  <h3 className="text-lg font-semibold text-white/95 mb-5">Join as LP</h3>
                   <div className="space-y-4 mb-5">
-                    <div className="grid grid-cols-1 min-[400px]:grid-cols-2 gap-3">
+                    <div className="grid grid-cols-1 min-[400px]:grid-cols-2 gap-4">
                       <label className="block">
                         <span className="block text-xs font-medium text-white/60 mb-1.5">
                           First name
@@ -184,14 +185,14 @@ export default function JoinLPForm({ className = "" }: { className?: string }) {
                   {error && (
                     <p className="text-sm text-red-400/90 mb-3">{error}</p>
                   )}
-                  <div className="flex items-center justify-end gap-3">
+                  <div className="flex flex-col-reverse sm:flex-row items-stretch sm:items-center sm:justify-end gap-3">
                     <Button
                       type="button"
                       variant="ghost"
                       size="default"
                       onClick={closeModal}
                       disabled={loading}
-                      className="text-sm text-white/50 hover:text-white/80 transition-colors disabled:opacity-50 h-auto p-0 hover:bg-transparent shadow-none"
+                      className="text-sm text-white/50 hover:text-white/80 transition-colors disabled:opacity-50 h-auto min-h-[48px] sm:min-h-0 sm:p-0 hover:bg-transparent shadow-none rounded-xl sm:rounded-none"
                     >
                       Cancel
                     </Button>
@@ -204,7 +205,7 @@ export default function JoinLPForm({ className = "" }: { className?: string }) {
                         variant="ghost"
                         size="default"
                         disabled={loading}
-                        className="btn-liquid-glass px-5 py-2.5 text-sm font-medium disabled:opacity-70 h-auto rounded-xl border border-white/20 bg-transparent shadow-none hover:bg-transparent"
+                        className="btn-liquid-glass w-full sm:w-auto px-5 py-3 sm:py-2.5 text-sm font-medium disabled:opacity-70 h-auto min-h-[48px] rounded-xl border border-white/20 bg-transparent shadow-none hover:bg-transparent"
                       >
                         {loading ? "Sending\u2026" : "Submit"}
                       </Button>

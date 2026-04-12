@@ -3,8 +3,8 @@ import "@fontsource/metropolis/latin.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "all2 capital",
-  description: "Tech builders and founders investing in AI, software, hardware, space, biotech, and longevity.",
+  title: "All Together Capital | Building AI & Software Together",
+  description: "Founder-led fund investing in cutting-edge AI, robotics, energy, and space. We build with the tech we back.",
   icons: {
     icon: { url: "/favicon.png", type: "image/png" },
     apple: "/favicon.png",

@@ -3,7 +3,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useState, useCallback, useEffect, useRef } from "react";
-import { Cpu, Code2, Zap, Rocket, Bot, Dna } from "lucide-react";
 import JoinLPForm from "@/components/JoinLPForm";
 import Navigation from "@/components/Navigation";
 
@@ -20,12 +19,13 @@ function faviconUrl(url: string, size = 32) {
 }
 
 const philosophies = [
-  "We invest in cutting-edge AI and HALO businesses, Heavy Assets, Low Obsolescence, that AI cannot displace.",
-  "We learn by building, not just observing.",
-  "We stay close to emerging technologies and the markets around them.",
-  "We build, experiment, and invest with conviction.",
-  "We understand systems by working inside them.",
-  "We invest in what we've spent time building and testing.",
+  "Founders first. We build, not just invest.",
+  "AI is mankind's greatest invention. We're all in.",
+  "Early-stage to market leaders. We back the frontier.",
+  "AI, space, energy, robotics. Software to silicon.",
+  "We use the tech we invest in. Every day.",
+  "Compounding capital for the long run.",
+  "Keeping America at the forefront.",
 ];
 
 /* Thesis principles */
@@ -47,107 +47,15 @@ const principles = [
   },
 ];
 
-/* Investment sectors */
-const sectors = [
-  {
-    name: "Hardware",
-    Icon: Cpu,
-    description:
-      "The future of AI hardware lies in the transition from general-purpose GPUs to highly specialized Neuromorphic and LPU (Language Processing Unit) architectures. These systems mimic human neural pathways, enabling \"Edge AI\" where complex reasoning occurs locally with near-zero latency. As silicon reaches its physical limits, the industry is pivoting toward optical computing and 3D-stacked chip designs to meet the global demand for high-speed inference.",
-    areas: [
-      "Custom AI accelerators",
-      "Edge inference hardware",
-      "Semiconductor design automation",
-      "Next-gen memory architectures",
-    ],
-    opportunities: [
-      { name: "Groq", url: "https://groq.com", desc: "Specialists in ultra-fast inference hardware; we have personally invested in this venture and are currently seeing a significant 2.7x return." },
-      { name: "Cerebras Systems", url: "https://cerebras.net", desc: "Innovators of \"Wafer-Scale\" processing designed to handle massive AI workloads with a single, giant chip." },
-    ],
-  },
-  {
-    name: "Software",
-    Icon: Code2,
-    description:
-      "AI software is evolving into a paradigm of Agentic AI, where autonomous systems move beyond simple chat interfaces to independently plan and execute complex workflows. This era features self-healing code and intent-based architectures that allow users to achieve goals through natural language rather than manual configuration. By prioritizing transparency and open-weight models, the industry is shifting toward a more modular and accessible ecosystem that avoids the pitfalls of centralized, \"black-box\" systems.",
-    areas: [
-      "AI development platforms",
-      "Code generation & dev tools",
-      "Enterprise AI infrastructure",
-      "Data pipeline orchestration",
-    ],
-    opportunities: [
-      { name: "Google", url: "https://google.com", desc: "Having effectively shifted into \"startup mode,\" Google is now shipping hundreds of AI-integrated products and features monthly, reclaiming its position as a rapid-response leader in the space." },
-      { name: "Hugging Face", url: "https://huggingface.co", desc: "The central hub for the open-source community, facilitating the democratization of AI models and datasets for developers globally." },
-    ],
-  },
-  {
-    name: "Energy",
-    Icon: Zap,
-    description:
-      "Energy may replace currency one day. The energy sector is evolving into a \"Cognitive Grid\", a self-optimizing ecosystem replacing reactive, manual infrastructure. As volatile renewables challenge legacy systems, AI acts as the grid's \"brain,\" using real-time telemetry to balance supply and demand with millisecond precision.\n\nBeyond management, AI transforms energy exploration into high-precision engineering. By modeling subsurface physics and nuclear dynamics, it makes complex sources like geothermal and fusion both technically viable and economically competitive.",
-    areas: [
-      "Next-generation nuclear",
-      "Grid-scale energy storage",
-      "AI-optimized power management",
-      "Sustainable data center infrastructure",
-    ],
-    opportunities: [
-      { name: "Fervo Energy", url: "https://fervoenergy.com", desc: "A leader in enhanced geothermal systems." },
-      { name: "Zanskar", url: "https://zanskar.us", desc: "Utilizes AI to identify naturally occurring reservoirs with high precision." },
-      { name: "Oklo", url: "https://oklo.com", desc: "Pioneering a \"Nuclear as a Service\" model with its Aurora powerhouse." },
-      { name: "NuScale Power", url: "https://nuscalepower.com", desc: "Holds the first NRC-certified SMR design." },
-      { name: "Nextracker", url: "https://nextracker.com", desc: "The global leader in AI-driven solar tracking." },
-      { name: "Terabase Energy", url: "https://terabase.energy", desc: "Uses automation and digital twins to scale utility-scale solar construction." },
-    ],
-  },
-  {
-    name: "Space",
-    Icon: Rocket,
-    description:
-      "Space exploration is being redefined by Autonomous Orbitals, allowing satellites to process data in-situ and make real-time decisions without waiting for ground control. AI is the foundational pilot for deep-space missions, providing terrain-relative navigation and autonomous hazard avoidance in environments where communication lag is a barrier. Furthermore, AI-driven situational awareness is now vital for coordinating satellite traffic and maintaining orbital safety in increasingly crowded corridors.",
-    areas: [
-      "Autonomous launch vehicles",
-      "Small satellite platforms",
-      "Space-based edge computing",
-      "Earth observation & analytics",
-    ],
-    opportunities: [
-      { name: "SpaceX", url: "https://spacex.com", desc: "Leveraging AI for autonomous launch vehicle recovery and Starlink constellation management; notably, they are currently pushing for orbital computing platforms to handle AI workloads directly in space." },
-      { name: "Planet Labs", url: "https://planet.com", desc: "Operates the world's largest fleet of Earth observation satellites, using AI to turn a massive archive of daily global imagery into actionable geospatial intelligence." },
-      { name: "Slingshot Aerospace", url: "https://slingshotaerospace.com", desc: "Provides AI-powered analytics for space traffic coordination, helping to prevent collisions and manage the growing \"space junk\" problem." },
-    ],
-  },
-  {
-    name: "Robotics",
-    Icon: Bot,
-    description:
-      "The robotics sector is moving from specialized industrial automation to General-Purpose Humanoids capable of learning through observation and natural language instruction. The integration of Large Behavior Models (LBMs) allows robots to navigate unstructured environments, such as homes and construction sites, with human-like dexterity. This transition marks the shift from robots as programmed tools to collaborative partners capable of performing multifaceted, high-dexterity tasks.",
-    areas: [
-      "Autonomous mobile robots",
-      "Precision manipulation",
-      "Humanoid & legged systems",
-      "3D perception & planning",
-    ],
-    opportunities: [
-      { name: "Boston Dynamics", url: "https://bostondynamics.com", desc: "The world leader in advanced mobile robotics, setting the standard for agility and dynamic balance in machines." },
-    ],
-  },
-  {
-    name: "Biotech",
-    Icon: Dna,
-    description:
-      "Biotechnology has shifted from a trial-and-error discipline to a predictive digital science, where therapeutic compounds are designed computationally rather than discovered through traditional lab work. AI models are successfully solving the \"protein folding\" problem, allowing for the creation of custom enzymes and personalized medicine tailored to individual genetic profiles. This digital transformation is significantly reducing the time and cost required to bring life-saving treatments to market.",
-    areas: [
-      "AI-powered drug discovery",
-      "Protein design & engineering",
-      "Synthetic biology platforms",
-      "Computational genomics & diagnostics",
-    ],
-    opportunities: [
-      { name: "Isomorphic Labs", url: "https://isomorphiclabs.com", desc: "An Alphabet subsidiary building on the success of AlphaFold to radically accelerate drug design and understand the fundamental molecular building blocks of life." },
-    ],
-  },
+/* Investments */
+const investments = [
+  { name: "Groq", url: "https://groq.com", logo: "/logos/groq.png" },
+  { name: "Figure AI", url: "https://www.figure.ai/", logo: "/logos/figure.png" },
+  { name: "1X Technologies", url: "https://www.1x.tech/", logo: "/logos/1x.png" },
+  { name: "SmartGun", url: "https://smartgun.com/", logo: "/logos/smartgun.png" },
+  { name: "Bitcoin", url: "https://bitcoin.org/", logo: "/logos/bitcoin.png" },
+  { name: "Ethereum", url: "https://ethereum.org/", logo: "/logos/ethereum.png" },
+  { name: "TAO", url: "https://bittensor.com/", logo: "/logos/tao.png" },
 ];
 
 const team = [
@@ -191,7 +99,16 @@ function HomeSlide() {
     <div className="flex-1 min-h-0 relative flex flex-col">
       <div className="relative z-10 flex flex-col flex-1 min-h-0 justify-end pb-20 sm:pb-20 md:pb-24 lg:pb-28">
         <div className={alignmentWrapper}>
-          <div className="max-w-2xl w-full">
+          <div className="w-full">
+            <h1
+              className="gold-text text-2xl min-[380px]:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-[0.04em] mb-6 sm:mb-8 whitespace-nowrap"
+              style={{
+                fontFamily: '"Metropolis", sans-serif',
+                fontStretch: 'condensed',
+              }}
+            >
+              TOGETHER WE BUILD.
+            </h1>
             <AnimatePresence mode="wait">
               <motion.p
                 key={currentPhrase}
@@ -199,7 +116,7 @@ function HomeSlide() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -16 }}
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-snug text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]"
+                className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light leading-snug text-white/70 drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]"
               >
                 {philosophies[currentPhrase]}
               </motion.p>
@@ -220,12 +137,6 @@ function ThesisSlide() {
   return (
     <div className="bg-black min-h-full overflow-y-auto">
       <div className={`${alignmentWrapper} pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24`}>
-        <motion.h2
-          {...driftUp(0)}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 sm:mb-8 text-white"
-        >
-          Manifesto
-        </motion.h2>
         <motion.div {...driftUp(0.05)} className="max-w-3xl mb-8 sm:mb-10">
           <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-3 sm:mb-4">
             What is going on with AI?
@@ -242,14 +153,10 @@ function ThesisSlide() {
             become as important as the English language.
           </p>
           <p className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed mt-4">
-            This is why we invest in two lanes. First, cutting-edge AI itself,the companies
-            building the models, the infrastructure, and the tools that are driving this
-            revolution forward. Second, what we call HALO businesses,Heavy Assets, Low
-            Obsolescence,companies rooted in physical assets like energy, infrastructure,
-            and space that AI cannot easily replicate or displace. AI will reshape every
-            software company, but it cannot replace a power plant, a satellite constellation,
-            or a semiconductor fab. By investing in both the sword and the shield, we
-            position ourselves on both sides of AI&apos;s disruption wave.
+            We understand code, use the latest AI religiously, and build our own businesses
+            with these tools every day. That insight lets us place big bets on the most
+            innovative companies emerging from the AI explosion we are in the middle of.
+            We want to be part of it. We want to be in the arena, building and investing.
           </p>
         </motion.div>
         <motion.div {...driftUp(0.1)} className="max-w-3xl">
@@ -273,118 +180,35 @@ function ThesisSlide() {
 
 /* ─── Slide 2: Portfolio ─── */
 function InvestmentsSlide() {
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const selected = sectors[selectedIndex];
-
   return (
     <div className="bg-black min-h-full overflow-y-auto">
       <div className={`${alignmentWrapper} pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24`}>
-        <motion.h2
-          {...driftUp(0)}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 sm:mb-8 text-white"
-        >
-          Investments
-        </motion.h2>
-        <motion.p
-          {...driftUp(0.05)}
-          className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed max-w-3xl mb-10 sm:mb-14"
-        >
-          We invest in two lanes: cutting-edge AI companies pushing the frontier, and
-          HALO businesses,Heavy Assets, Low Obsolescence,whose physical moats make them
-          resistant to AI disruption. Together they form a portfolio built for both sides of the
-          AI revolution.
-        </motion.p>
-
-        {/* Sector tabs */}
         <motion.div
           {...driftUp(0.1)}
-          className="flex flex-wrap items-end gap-x-3 gap-y-2 sm:gap-x-5 sm:gap-y-3 mb-8 sm:mb-10"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-5"
         >
-          {sectors.map(({ name, Icon }, i) => {
-            const isSelected = i === selectedIndex;
-            return (
-              <button
-                key={name}
-                type="button"
-                onClick={() => setSelectedIndex(i)}
-                className={`inline-flex items-center gap-1.5 sm:gap-2 py-2 px-1 transition-colors duration-200 touch-manipulation cursor-pointer ${
-                  isSelected
-                    ? "text-white font-semibold"
-                    : "text-white/40 hover:text-white/70"
-                }`}
-              >
-                <Icon
-                  className={isSelected ? "w-5 h-5 sm:w-6 sm:h-6" : "w-4 h-4 sm:w-5 sm:h-5"}
-                  strokeWidth={isSelected ? 2 : 1.5}
-                />
-                <span
-                  className={`whitespace-nowrap transition-all duration-200 ${
-                    isSelected
-                      ? "text-base sm:text-lg md:text-xl lg:text-2xl"
-                      : "text-sm sm:text-base md:text-lg"
-                  }`}
-                >
-                  {name}
-                </span>
-              </button>
-            );
-          })}
+          {investments.map((inv, i) => (
+            <motion.a
+              key={inv.name}
+              href={inv.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              {...driftUp(0.1 + i * 0.03)}
+              className="group flex flex-col items-center justify-center gap-3 aspect-square rounded-xl p-6 transition-colors duration-300 hover:bg-white/[0.06]"
+            >
+              <img
+                src={inv.logo}
+                alt={inv.name}
+                width={48}
+                height={48}
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg object-contain opacity-50 group-hover:opacity-100 transition-opacity duration-300"
+              />
+              <span className="text-xs sm:text-sm font-medium text-white/40 group-hover:text-white/90 transition-colors duration-300 text-center leading-tight">
+                {inv.name}
+              </span>
+            </motion.a>
+          ))}
         </motion.div>
-
-        {/* Selected sector description + opportunities */}
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.div
-            key={selectedIndex}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.15, ease: "easeOut" }}
-          >
-            <div className="flex flex-col lg:flex-row gap-10 lg:gap-16">
-              {/* Description */}
-              <div className="max-w-2xl">
-                <p className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed whitespace-pre-line">
-                  {selected.description}
-                </p>
-              </div>
-
-              {/* Opportunities */}
-              {selected.opportunities.length > 0 && (
-                <div className="shrink-0 lg:w-[380px]">
-                  <h4 className="text-lg sm:text-xl font-semibold text-white mb-4">
-                    Opportunities
-                  </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-                    {selected.opportunities.map((opp) => (
-                      <div key={opp.name}>
-                        <a
-                          href={opp.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-white/90 hover:text-white transition-colors group"
-                        >
-                          <img
-                            src={faviconUrl(opp.url)}
-                            alt=""
-                            width={18}
-                            height={18}
-                            className="w-[18px] h-[18px] rounded shrink-0"
-                          />
-                          <span className="font-medium underline decoration-white/30 underline-offset-2 group-hover:decoration-white/60 text-sm sm:text-base">
-                            {opp.name}
-                          </span>
-                        </a>
-                        <p className="text-xs sm:text-sm text-white/45 leading-relaxed mt-1">
-                          {opp.desc}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          </motion.div>
-        </AnimatePresence>
       </div>
     </div>
   );
@@ -395,7 +219,7 @@ function TeamSlide() {
   return (
     <div className="min-h-full overflow-y-auto bg-[#181818]">
       <div className={`${alignmentWrapper} pt-28 md:pt-36 pb-16 sm:pb-20 md:pb-24 flex flex-col items-center`}>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 lg:gap-14 w-full max-w-[60%] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 lg:gap-14 w-full max-w-[90%] sm:max-w-[75%] md:max-w-[60%] mx-auto">
           {team.map((member, i) => (
             <motion.div
               key={member.name}
