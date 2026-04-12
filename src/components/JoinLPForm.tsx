@@ -92,7 +92,13 @@ export default function JoinLPForm({ className = "" }: { className?: string }) {
             variant="ghost"
             size="lg"
             onClick={() => setOpen(true)}
-            className="btn-liquid-glass px-6 sm:px-8 py-3.5 font-medium text-base h-auto min-h-[48px] rounded-xl border border-white/20 bg-transparent shadow-none hover:bg-transparent w-full sm:w-auto"
+            className="px-6 sm:px-8 py-3.5 font-medium text-base text-white/95 h-auto min-h-[48px] rounded-xl border border-white/25 w-full sm:w-auto"
+            style={{
+              background: 'linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.08) 100%)',
+              backdropFilter: 'blur(20px) saturate(150%)',
+              WebkitBackdropFilter: 'blur(20px) saturate(150%)',
+              boxShadow: 'inset 0 1px 0 0 rgba(255,255,255,0.2), 0 2px 8px rgba(0,0,0,0.15)',
+            }}
           >
             Join as LP
           </Button>
@@ -154,7 +160,7 @@ export default function JoinLPForm({ className = "" }: { className?: string }) {
                           type="text"
                           value={firstName}
                           onChange={(e) => setFirstName(e.target.value)}
-                          className="input-liquid-glass w-full h-auto min-h-[44px] border-white/10 bg-white/5"
+                          className="input-liquid-glass w-full h-auto min-h-[44px] border-white/25 bg-white/12"
                           autoFocus
                         />
                       </label>
@@ -166,7 +172,7 @@ export default function JoinLPForm({ className = "" }: { className?: string }) {
                           type="text"
                           value={lastName}
                           onChange={(e) => setLastName(e.target.value)}
-                          className="input-liquid-glass w-full h-auto min-h-[44px] border-white/10 bg-white/5"
+                          className="input-liquid-glass w-full h-auto min-h-[44px] border-white/25 bg-white/12"
                         />
                       </label>
                     </div>
@@ -178,7 +184,7 @@ export default function JoinLPForm({ className = "" }: { className?: string }) {
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="input-liquid-glass w-full h-auto min-h-[44px] border-white/10 bg-white/5"
+                        className="input-liquid-glass w-full h-auto min-h-[44px] border-white/25 bg-white/12"
                       />
                     </label>
                   </div>
@@ -205,7 +211,7 @@ export default function JoinLPForm({ className = "" }: { className?: string }) {
                         variant="ghost"
                         size="default"
                         disabled={loading}
-                        className="btn-liquid-glass w-full sm:w-auto px-5 py-3 sm:py-2.5 text-sm font-medium disabled:opacity-70 h-auto min-h-[48px] rounded-xl border border-white/20 bg-transparent shadow-none hover:bg-transparent"
+                        className="w-full sm:w-auto px-5 py-3 sm:py-2.5 text-sm font-medium text-white disabled:opacity-70 h-auto min-h-[48px] rounded-xl border border-white/30 bg-white/20 hover:bg-white/25 transition-colors"
                       >
                         {loading ? "Sending\u2026" : "Submit"}
                       </Button>
