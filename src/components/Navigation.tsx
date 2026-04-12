@@ -66,6 +66,7 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
               src="/logo-icon.png"
               alt=""
               className="h-5 sm:h-6 md:h-7 w-auto"
+              style={{ filter: 'none', mixBlendMode: 'normal' }}
             />
             <span
               className="font-medium tracking-[0.12em] sm:tracking-[0.18em] text-xs min-[380px]:text-sm sm:text-lg md:text-xl text-white"
@@ -84,12 +85,12 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
             aria-expanded={menuOpen}
           >
             <span
-              className="block w-5 h-[2px] bg-white transition-transform duration-300 origin-center"
-              style={{ transform: menuOpen ? "translateY(4px) rotate(45deg)" : "none" }}
+              className="block w-5 h-[2px] transition-transform duration-300 origin-center"
+              style={{ transform: menuOpen ? "translateY(4px) rotate(45deg)" : "none", backgroundColor: '#ffffff' }}
             />
             <span
-              className="block w-5 h-[2px] bg-white transition-transform duration-300 origin-center"
-              style={{ transform: menuOpen ? "translateY(-4px) rotate(-45deg)" : "none" }}
+              className="block w-5 h-[2px] transition-transform duration-300 origin-center"
+              style={{ transform: menuOpen ? "translateY(-4px) rotate(-45deg)" : "none", backgroundColor: '#ffffff' }}
             />
           </button>
         </div>

@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning style={{ colorScheme: 'dark' }}>
       <body className="antialiased overflow-x-hidden bg-white dark:bg-[#181818] text-neutral-900 dark:text-white min-h-[100dvh] min-h-[100svh]" suppressHydrationWarning>
         <script
           dangerouslySetInnerHTML={{

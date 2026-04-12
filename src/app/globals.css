@@ -523,18 +523,18 @@ html {
   background:
     linear-gradient(
       180deg,
-      #e0c065 0%,
-      #d4a843 6%,
-      #bf953f 14%,
-      #e8cc70 26%,
-      #c49a2c 36%,
-      #a67c1a 46%,
-      #7a5a14 54%,
-      #a67c1a 62%,
-      #c49a2c 72%,
-      #e8cc70 82%,
-      #bf953f 90%,
-      #e0c065 100%
+      #ecd488 0%,
+      #deb954 6%,
+      #c9a040 14%,
+      #f0d878 26%,
+      #d4a843 36%,
+      #b38728 46%,
+      #8a6914 54%,
+      #b38728 62%,
+      #d4a843 72%,
+      #f0d878 82%,
+      #c9a040 90%,
+      #ecd488 100%
     );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -554,29 +554,30 @@ html {
     linear-gradient(
       110deg,
       transparent 0%,
-      transparent 30%,
-      rgba(232, 204, 112, 0.3) 38%,
-      rgba(240, 216, 130, 0.45) 44%,
-      rgba(232, 204, 112, 0.3) 50%,
-      transparent 58%,
+      transparent 25%,
+      rgba(240, 216, 120, 0.35) 32%,
+      rgba(248, 228, 150, 0.55) 40%,
+      rgba(248, 228, 150, 0.55) 45%,
+      rgba(240, 216, 120, 0.35) 52%,
+      transparent 60%,
       transparent 100%
     );
   background-size: 350% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: gold-light 18s ease-in-out infinite;
+  animation: gold-light 12s ease-in-out infinite;
   pointer-events: none;
 }
 
 @keyframes gold-light {
-  0%, 10% {
+  0%, 8% {
     background-position: 130% 50%;
   }
   50% {
     background-position: -30% 50%;
   }
-  90%, 100% {
+  92%, 100% {
     background-position: 130% 50%;
   }
 }
