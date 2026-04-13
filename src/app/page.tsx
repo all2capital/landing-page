@@ -64,14 +64,14 @@ const team = [
     role: "General Partner",
     image: "/team-hisham.png",
     linkedin: "https://www.linkedin.com/in/hisham-el-husseini/",
-    email: "hisham@all2capital.com",
+    email: "hisham@alltogethercapital.com",
   },
   {
     name: "Robert Neir",
     role: "General Partner",
     image: "/team-rob.png",
     linkedin: "https://www.linkedin.com/in/robertmneir/",
-    email: "robertneir@all2capital.com",
+    email: "robertneir@alltogethercapital.com",
   },
 ];
 
@@ -96,12 +96,12 @@ function HomeSlide() {
   }, []);
 
   return (
-    <div className="flex-1 min-h-0 relative flex flex-col">
-      <div className="relative z-10 flex flex-col flex-1 min-h-0 justify-end pb-20 sm:pb-20 md:pb-24 lg:pb-28">
+    <div className="flex-1 min-h-0 relative flex flex-col overflow-hidden">
+      <div className="relative z-10 flex flex-col flex-1 min-h-0 justify-end pb-4 sm:pb-6">
         <div className={alignmentWrapper}>
           <div className="w-full">
             <h1
-              className="gold-text text-2xl min-[380px]:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-[0.04em] mb-6 sm:mb-8 whitespace-nowrap"
+              className="gold-text text-2xl min-[380px]:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-[0.04em] mb-3 sm:mb-6"
               style={{
                 fontFamily: '"Metropolis", sans-serif',
                 fontStretch: 'condensed',
@@ -116,16 +116,25 @@ function HomeSlide() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light leading-snug text-white/70 drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]"
+                className="text-sm sm:text-xl md:text-2xl lg:text-3xl font-light leading-snug text-white/70 drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]"
               >
                 {philosophies[currentPhrase]}
               </motion.p>
             </AnimatePresence>
 
-            <div className="mt-8 sm:mt-10">
+            <div className="mt-4 sm:mt-8">
               <JoinLPForm />
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Bottom bar — desktop only */}
+      <div className="relative z-10 shrink-0 border-t border-white/10 hidden sm:block">
+        <div className={`${alignmentWrapper} py-4`}>
+          <p className="text-[11px] text-white/30">
+            © {new Date().getFullYear()} All Together Capital
+          </p>
         </div>
       </div>
     </div>
