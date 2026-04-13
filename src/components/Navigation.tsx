@@ -70,14 +70,14 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
             />
           </button>
 
-          {/* Brand name — centered, stacked */}
+          {/* Brand name — centered, top-aligned with hamburger/email */}
           <button
             type="button"
             onClick={() => {
               onNavigate?.(0);
               setMenuOpen(false);
             }}
-            className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center hover:opacity-70 transition-opacity touch-manipulation"
+            className="absolute left-1/2 -translate-x-1/2 top-5 sm:top-6 flex flex-col items-center hover:opacity-70 transition-opacity touch-manipulation pt-[10px]"
             aria-label="Go to home"
           >
             <span
