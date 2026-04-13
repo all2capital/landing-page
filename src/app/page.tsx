@@ -101,10 +101,10 @@ function HomeSlide() {
         <div className={alignmentWrapper}>
           <div className="w-full">
             <h1
-              className="gold-text text-2xl min-[380px]:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-[0.04em] mb-3 sm:mb-6"
+              className="gold-text text-2xl min-[380px]:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-[0.04em] mb-3 sm:mb-6"
               style={{
-                fontFamily: '"Metropolis", sans-serif',
-                fontStretch: 'condensed',
+                fontFamily: '"Oswald", sans-serif',
+                fontWeight: 300,
               }}
             >
               TOGETHER WE BUILD.
