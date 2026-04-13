@@ -51,32 +51,8 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
           }`}
         />
 
-        <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 py-5 sm:py-6 flex items-center justify-between">
-          {/* Logo — left */}
-          <button
-            type="button"
-            onClick={() => {
-              onNavigate?.(0);
-              setMenuOpen(false);
-            }}
-            className="flex items-center gap-2 sm:gap-2.5 hover:opacity-70 transition-opacity touch-manipulation"
-            aria-label="Go to home"
-          >
-            <img
-              src="/logo-icon.png"
-              alt=""
-              className="h-5 sm:h-6 md:h-7 w-auto"
-              style={{ filter: 'none', mixBlendMode: 'normal' }}
-            />
-            <span
-              className="font-medium tracking-[0.12em] sm:tracking-[0.18em] text-xs min-[380px]:text-sm sm:text-lg md:text-xl text-white"
-              style={{ fontFamily: '"Metropolis", sans-serif' }}
-            >
-              ALL TOGETHER CAPITAL
-            </span>
-          </button>
-
-          {/* Hamburger — two equal lines */}
+        <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 py-5 sm:py-6 flex items-start">
+          {/* Hamburger — top left */}
           <button
             type="button"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -93,6 +69,42 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
               style={{ transform: menuOpen ? "translateY(-4px) rotate(-45deg)" : "none", backgroundColor: '#ffffff' }}
             />
           </button>
+
+          {/* Brand name — centered, stacked */}
+          <button
+            type="button"
+            onClick={() => {
+              onNavigate?.(0);
+              setMenuOpen(false);
+            }}
+            className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center hover:opacity-70 transition-opacity touch-manipulation"
+            aria-label="Go to home"
+          >
+            <span
+              className="font-medium tracking-[0.18em] sm:tracking-[0.22em] text-xs min-[380px]:text-sm sm:text-base text-white whitespace-nowrap leading-tight"
+              style={{ fontFamily: '"Metropolis", sans-serif' }}
+            >
+              ALL TOGETHER
+            </span>
+            <span
+              className="font-medium tracking-[0.22em] sm:tracking-[0.28em] text-[9px] min-[380px]:text-[10px] sm:text-xs text-white/70 whitespace-nowrap leading-tight"
+              style={{ fontFamily: '"Metropolis", sans-serif' }}
+            >
+              CAPITAL
+            </span>
+          </button>
+
+          {/* Email icon — top right */}
+          <a
+            href="mailto:robertneir@alltogethercapital.com,hisham@alltogethercapital.com"
+            className="ml-auto w-10 h-10 flex items-center justify-center hover:opacity-70 transition-opacity touch-manipulation"
+            aria-label="Contact us via email"
+          >
+            <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+          </a>
         </div>
       </div>
 

@@ -516,68 +516,44 @@ html {
     0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
-/* Gold metallic text — real gold base with slow unified light sweep */
+/* Gold metallic text — W2 broad waves with vertical/diagonal drift */
 .gold-text {
   position: relative;
   display: inline-block;
   background:
+    repeating-linear-gradient(
+      160deg,
+      #a07038 0px,
+      #b88848 10px,
+      #d0a858 20px,
+      #e8c870 30px,
+      #f0d480 35px,
+      #e8c870 40px,
+      #d0a858 48px,
+      #b88848 54px,
+      #a07038 60px
+    ),
     linear-gradient(
-      180deg,
-      #ecd488 0%,
-      #deb954 6%,
-      #c9a040 14%,
-      #f0d878 26%,
-      #d4a843 36%,
-      #b38728 46%,
-      #8a6914 54%,
-      #b38728 62%,
-      #d4a843 72%,
-      #f0d878 82%,
-      #c9a040 90%,
-      #ecd488 100%
+      170deg,
+      #e8c870 0%,
+      #d0a050 25%,
+      #a87840 50%,
+      #a07038 70%,
+      #b88848 100%
     );
+  background-size: 60px 60px, 100% 100%;
+  background-blend-mode: soft-light, normal;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: gold-grain 30s linear infinite;
   filter:
-    drop-shadow(0 1px 0 rgba(80, 56, 16, 0.85))
-    drop-shadow(0 2px 2px rgba(30, 20, 5, 0.5))
-    drop-shadow(0 4px 8px rgba(0, 0, 0, 0.35));
+    drop-shadow(0 2px 1px rgba(30, 16, 4, 0.95))
+    drop-shadow(0 4px 4px rgba(15, 8, 2, 0.8))
+    drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5));
 }
 
-/* Slow light source moving across the gold uniformly */
-.gold-text::after {
-  content: "TOGETHER WE BUILD.";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(
-      110deg,
-      transparent 0%,
-      transparent 25%,
-      rgba(240, 216, 120, 0.35) 32%,
-      rgba(248, 228, 150, 0.55) 40%,
-      rgba(248, 228, 150, 0.55) 45%,
-      rgba(240, 216, 120, 0.35) 52%,
-      transparent 60%,
-      transparent 100%
-    );
-  background-size: 350% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gold-light 12s ease-in-out infinite;
-  pointer-events: none;
-}
-
-@keyframes gold-light {
-  0%, 8% {
-    background-position: 130% 50%;
-  }
-  50% {
-    background-position: -30% 50%;
-  }
-  92%, 100% {
-    background-position: 130% 50%;
-  }
+@keyframes gold-grain {
+  0% { background-position: 0px 0px, 0% 0%; }
+  100% { background-position: 180px 240px, 0% 0%; }
 }
