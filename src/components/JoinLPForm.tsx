@@ -92,7 +92,7 @@ export default function JoinLPForm({ className = "" }: { className?: string }) {
             variant="ghost"
             size="lg"
             onClick={() => setOpen(true)}
-            className="px-6 sm:px-8 py-2.5 sm:py-3.5 font-medium text-sm sm:text-base text-white/95 h-auto min-h-[40px] sm:min-h-[48px] rounded-xl border border-white/25 w-full sm:w-auto"
+            className="px-8 sm:px-8 py-3 sm:py-3.5 font-medium text-base sm:text-base text-white/95 h-auto min-h-[48px] sm:min-h-[48px] rounded-xl border border-white/25 w-full sm:w-auto"
             style={{
               background: 'linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.08) 100%)',
               backdropFilter: 'blur(20px) saturate(150%)',
