@@ -97,7 +97,7 @@ function HomeSlide() {
 
   return (
     <div className="flex-1 min-h-0 relative flex flex-col overflow-hidden">
-      <div className="relative z-10 flex flex-col flex-1 min-h-0 justify-end pb-4 sm:pb-6">
+      <div className="relative z-10 flex flex-col flex-1 min-h-0 justify-end pb-3 sm:pb-6">
         <div className={alignmentWrapper}>
           <div className="w-full">
             <h1
@@ -349,7 +349,7 @@ export default function Home() {
   }, [currentSlide, next, prev]);
 
   return (
-    <div className="min-h-screen h-screen max-h-[100dvh] bg-black overflow-hidden">
+    <div className="h-[100dvh] bg-black overflow-hidden">
       {/* Video background,hidden instantly on content pages */}
       <div
         className="fixed inset-0 z-[1] overflow-hidden"

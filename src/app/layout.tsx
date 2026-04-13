@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning style={{ colorScheme: 'dark' }}>
-      <body className="antialiased overflow-x-hidden bg-white dark:bg-[#181818] text-neutral-900 dark:text-white min-h-[100dvh] min-h-[100svh]" suppressHydrationWarning>
+      <body className="antialiased bg-black text-white h-[100dvh] overflow-hidden" suppressHydrationWarning>
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){var t=localStorage.getItem('theme');if(t==='dark'){document.documentElement.classList.add('dark');}else{document.documentElement.classList.remove('dark');}})();`,
