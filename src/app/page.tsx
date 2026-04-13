@@ -101,7 +101,7 @@ function HomeSlide() {
         <div className={alignmentWrapper}>
           <div className="w-full">
             <h1
-              className="gold-text text-2xl min-[380px]:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-[0.04em] mb-3 sm:mb-6"
+              className="gold-text text-[2.35rem] min-[380px]:text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-[0.04em] mb-3 sm:mb-6 whitespace-nowrap"
               style={{
                 fontFamily: '"Oswald", sans-serif',
                 fontWeight: 300,
@@ -116,7 +116,7 @@ function HomeSlide() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                className="text-sm sm:text-xl md:text-2xl lg:text-3xl font-light leading-snug text-white/70 drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]"
+                className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light leading-snug text-white/70 drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]"
               >
                 {philosophies[currentPhrase]}
               </motion.p>
