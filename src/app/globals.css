@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Press+Start+2P&family=Jura:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Press+Start+2P&family=Jura:wght@400;500;600;700&family=Oswald:wght@300&display=swap');
 @import "tailwindcss";
 
 /* Hide scrollbars but keep scrolling */
@@ -517,37 +517,37 @@ html, body {
     0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
-/* Gold metallic text — W2 broad waves with vertical/diagonal drift */
+/* Gold metallic text — W2 broad waves with diagonal drift + white shine */
 .gold-text {
   position: relative;
   display: inline-block;
   background:
     repeating-linear-gradient(
       160deg,
-      #a07038 0px,
-      #b88848 10px,
-      #d0a858 20px,
-      #e8c870 30px,
-      #f0d480 35px,
-      #e8c870 40px,
-      #d0a858 48px,
-      #b88848 54px,
-      #a07038 60px
+      #7a5a2a 0px,
+      #9a7840 8px,
+      #b89858 16px,
+      #ccb070 24px,
+      #d4ba78 28px,
+      #ccb070 32px,
+      #b89858 38px,
+      #9a7840 42px,
+      #7a5a2a 45px
     ),
     linear-gradient(
       170deg,
-      #e8c870 0%,
-      #d0a050 25%,
-      #a87840 50%,
-      #a07038 70%,
-      #b88848 100%
+      #ccb070 0%,
+      #b09048 25%,
+      #8a6a30 50%,
+      #7a5a2a 70%,
+      #9a7840 100%
     );
-  background-size: 60px 60px, 100% 100%;
-  background-blend-mode: soft-light, normal;
+  background-size: 45px 45px, 100% 100%;
+  background-blend-mode: overlay, normal;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: gold-grain 30s linear infinite;
+  animation: gold-grain 40s linear infinite;
   filter:
     drop-shadow(0 2px 1px rgba(30, 16, 4, 0.95))
     drop-shadow(0 4px 4px rgba(15, 8, 2, 0.8))
