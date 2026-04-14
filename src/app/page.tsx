@@ -3,7 +3,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useState, useCallback, useEffect, useRef } from "react";
-import JoinLPForm from "@/components/JoinLPForm";
 import Navigation from "@/components/Navigation";
 
 const TOTAL_SLIDES = 4;
@@ -101,9 +100,9 @@ function HomeSlide() {
         <div className={alignmentWrapper}>
           <div className="w-full">
             <h1
-              className="gold-text text-3xl min-[380px]:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-[0.04em] mb-3 sm:mb-6 whitespace-nowrap"
+              className="gold-text text-2xl min-[380px]:text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-[0.04em] mb-2 sm:mb-4 whitespace-nowrap"
               style={{
-                fontFamily: '"Oswald", sans-serif',
+                fontFamily: '"Metropolis", sans-serif',
                 fontWeight: 300,
               }}
             >
@@ -116,15 +115,11 @@ function HomeSlide() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light leading-snug text-white/70 drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]"
+                className="text-base sm:text-base md:text-lg lg:text-xl font-light leading-snug text-white/70 drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]"
               >
                 {philosophies[currentPhrase]}
               </motion.p>
             </AnimatePresence>
-
-            <div className="mt-4 sm:mt-8">
-              <JoinLPForm />
-            </div>
           </div>
         </div>
       </div>
