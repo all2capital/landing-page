@@ -96,6 +96,14 @@ function HomeSlide() {
 
   return (
     <div className="flex-1 min-h-0 relative flex flex-col overflow-hidden">
+      {/* Subtle bottom gradient for text legibility */}
+      <div
+        className="absolute inset-x-0 bottom-0 h-1/2 z-[2] pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 40%, transparent 100%)",
+        }}
+      />
       <div className="relative z-10 flex flex-col flex-1 min-h-0 justify-end pb-3 sm:pb-6">
         <div className={alignmentWrapper}>
           <div className="w-full">
@@ -104,6 +112,8 @@ function HomeSlide() {
               style={{
                 fontFamily: '"Metropolis", sans-serif',
                 fontWeight: 300,
+                filter:
+                  "drop-shadow(0 2px 4px rgba(0,0,0,0.8)) drop-shadow(0 4px 12px rgba(0,0,0,0.6)) drop-shadow(0 0 20px rgba(0,0,0,0.4))",
               }}
             >
               TOGETHER WE BUILD.
@@ -381,10 +391,6 @@ export default function Home() {
           muted
           loop
           playsInline
-        />
-        <div
-          className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70"
-          aria-hidden
         />
       </div>
 
