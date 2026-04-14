@@ -383,7 +383,7 @@ export default function Home() {
           playsInline
         />
         <div
-          className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70"
+          className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40"
           aria-hidden
         />
       </div>
