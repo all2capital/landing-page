@@ -245,9 +245,9 @@ function InvestmentsSlide() {
                 alt={inv.name}
                 width={48}
                 height={48}
-                className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg object-contain opacity-50 group-hover:opacity-100 transition-opacity duration-300"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
               />
-              <span className="text-xs sm:text-sm font-medium text-black/40 group-hover:text-black/90 transition-colors duration-300 text-center leading-tight">
+              <span className="text-xs sm:text-sm font-medium text-black/70 group-hover:text-black transition-colors duration-300 text-center leading-tight">
                 {inv.name}
               </span>
             </motion.a>
