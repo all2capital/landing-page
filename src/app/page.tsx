@@ -98,10 +98,18 @@ function HomeSlide() {
     <div className="flex-1 min-h-0 relative flex flex-col overflow-hidden">
       {/* Subtle bottom gradient for text legibility */}
       <div
-        className="absolute inset-x-0 bottom-0 h-1/2 z-[2] pointer-events-none"
+        className="absolute inset-x-0 bottom-0 h-2/3 z-[2] pointer-events-none"
         style={{
           background:
-            "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 40%, transparent 100%)",
+            "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 25%, rgba(0,0,0,0.2) 55%, transparent 100%)",
+        }}
+      />
+      {/* Subtle top gradient for nav legibility */}
+      <div
+        className="absolute inset-x-0 top-0 h-2/3 z-[2] pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 25%, rgba(0,0,0,0.2) 55%, transparent 100%)",
         }}
       />
       <div className="relative z-10 flex flex-col flex-1 min-h-0 justify-end pb-3 sm:pb-6">
