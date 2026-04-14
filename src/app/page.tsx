@@ -155,13 +155,13 @@ function HomeSlide() {
 /* ─── Slide 1: Thesis ─── */
 function ThesisSlide() {
   return (
-    <div className="bg-black min-h-full overflow-y-auto">
+    <div className="bg-white min-h-full overflow-y-auto">
       <div className={`${alignmentWrapper} pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24`}>
         <motion.div {...driftUp(0.05)} className="max-w-3xl mb-8 sm:mb-10">
-          <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-3 sm:mb-4">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-black mb-3 sm:mb-4">
             What is going on with AI?
           </h3>
-          <p className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-black/70 leading-relaxed">
             Times are changing in software as AI&apos;s creative destruction wave forces us to
             re-underwrite every company globally. All industries will be disrupted, and software
             will be the medium through which this disruption occurs. Code is so far the only way
@@ -172,7 +172,7 @@ function ThesisSlide() {
             evolves, and what limitations there are within code itself and hardware. Code has
             become as important as the English language.
           </p>
-          <p className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed mt-4">
+          <p className="text-base sm:text-lg md:text-xl text-black/70 leading-relaxed mt-4">
             We understand code, use the latest AI religiously, and build our own businesses
             with these tools every day. That insight lets us place big bets on the most
             innovative companies emerging from the AI explosion we are in the middle of.
@@ -180,10 +180,10 @@ function ThesisSlide() {
           </p>
         </motion.div>
         <motion.div {...driftUp(0.1)} className="max-w-3xl mb-8 sm:mb-10">
-          <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-3 sm:mb-4">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-black mb-3 sm:mb-4">
             Why we are starting this?
           </h3>
-          <p className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-black/70 leading-relaxed">
             Our team consists only of software dev entrepreneurs. We code and build companies.
             We&apos;re technical enough to build software, and wise enough to know why something
             should or shouldn&apos;t be built. Since we operate our own software businesses and
@@ -194,10 +194,10 @@ function ThesisSlide() {
           </p>
         </motion.div>
         <motion.div {...driftUp(0.15)} className="max-w-3xl mb-8 sm:mb-10">
-          <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-3 sm:mb-4">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-black mb-3 sm:mb-4">
             What we invest in
           </h3>
-          <p className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-black/70 leading-relaxed">
             We invest in two lanes. AI-native companies where intelligence isn&apos;t a feature,
             it&apos;s the reason the company can exist at all. And HALO businesses &mdash; Heavy Assets,
             Low Obsolescence &mdash; companies with deep physical moats like energy, infrastructure,
@@ -207,10 +207,10 @@ function ThesisSlide() {
           </p>
         </motion.div>
         <motion.div {...driftUp(0.2)} className="max-w-3xl">
-          <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-3 sm:mb-4">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-black mb-3 sm:mb-4">
             AI is rewriting the rules. We&apos;re writing the code.
           </h3>
-          <p className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-black/70 leading-relaxed">
             Every tool we invest in, we use. Every thesis we write, we pressure-test against our
             own businesses first. We don&apos;t evaluate companies from pitch decks &mdash; we evaluate
             them from the command line. This is what we were built for. The builders, the
@@ -225,7 +225,7 @@ function ThesisSlide() {
 /* ─── Slide 2: Portfolio ─── */
 function InvestmentsSlide() {
   return (
-    <div className="bg-black min-h-full overflow-y-auto">
+    <div className="bg-white min-h-full overflow-y-auto">
       <div className={`${alignmentWrapper} pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24`}>
         <motion.div
           {...driftUp(0.1)}
@@ -238,7 +238,7 @@ function InvestmentsSlide() {
               target="_blank"
               rel="noopener noreferrer"
               {...driftUp(0.1 + i * 0.03)}
-              className="group flex flex-col items-center justify-center gap-3 aspect-square rounded-xl p-6 transition-colors duration-300 hover:bg-white/[0.06]"
+              className="group flex flex-col items-center justify-center gap-3 aspect-square rounded-xl p-6 transition-colors duration-300 hover:bg-black/[0.06]"
             >
               <img
                 src={inv.logo}
@@ -247,7 +247,7 @@ function InvestmentsSlide() {
                 height={48}
                 className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg object-contain opacity-50 group-hover:opacity-100 transition-opacity duration-300"
               />
-              <span className="text-xs sm:text-sm font-medium text-white/40 group-hover:text-white/90 transition-colors duration-300 text-center leading-tight">
+              <span className="text-xs sm:text-sm font-medium text-black/40 group-hover:text-black/90 transition-colors duration-300 text-center leading-tight">
                 {inv.name}
               </span>
             </motion.a>
@@ -261,7 +261,7 @@ function InvestmentsSlide() {
 /* ─── Slide 3: Team ─── */
 function TeamSlide() {
   return (
-    <div className="min-h-full overflow-y-auto bg-[#181818]">
+    <div className="min-h-full overflow-y-auto bg-gray-50">
       <div className={`${alignmentWrapper} pt-28 md:pt-36 pb-16 sm:pb-20 md:pb-24 flex flex-col items-center`}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 lg:gap-14 w-full max-w-[90%] sm:max-w-[75%] md:max-w-[60%] mx-auto">
           {team.map((member, i) => (
@@ -384,7 +384,7 @@ export default function Home() {
   }, [currentSlide, next, prev]);
 
   return (
-    <div className="h-[100dvh] bg-black overflow-hidden">
+    <div className="h-[100dvh] bg-white overflow-hidden">
       {/* Video background,hidden instantly on content pages */}
       <div
         className="fixed inset-0 z-[1] overflow-hidden"
