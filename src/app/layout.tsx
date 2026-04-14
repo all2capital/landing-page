@@ -16,7 +16,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   viewportFit: "cover",
-  themeColor: "#08080c",
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({
@@ -25,13 +25,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning style={{ colorScheme: 'dark' }}>
-      <body className="antialiased bg-black text-white h-[100dvh] overflow-hidden" suppressHydrationWarning>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){var t=localStorage.getItem('theme');if(t==='dark'){document.documentElement.classList.add('dark');}else{document.documentElement.classList.remove('dark');}})();`,
-          }}
-        />
+    <html lang="en" suppressHydrationWarning style={{ colorScheme: 'light' }}>
+      <body className="antialiased bg-white text-black h-[100dvh] overflow-hidden" suppressHydrationWarning>
         {children}
       </body>
     </html>

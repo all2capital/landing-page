@@ -39,15 +39,20 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
     setTimeout(() => setMenuOpen(false), 50);
   };
 
+  const isHome = currentSlide === 0;
+  const textColor = isHome || menuOpen ? "text-white" : "text-black";
+  const textColorMuted = isHome || menuOpen ? "text-white/70" : "text-black/60";
+  const barColor = isHome || menuOpen ? "#ffffff" : "#000000";
+
   return (
     <>
       <div className="fixed top-0 left-0 right-0 z-[210]">
         {/* Gradient fade */}
         <div
           className={`absolute inset-0 h-28 pointer-events-none bg-gradient-to-b ${
-            currentSlide === 0 && !menuOpen
+            isHome && !menuOpen
               ? "from-black/50 via-black/20 to-transparent"
-              : "from-black/30 to-transparent"
+              : "from-transparent to-transparent"
           }`}
         />
 
@@ -62,11 +67,11 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
           >
             <span
               className="block w-5 h-[2px] transition-transform duration-300 origin-center"
-              style={{ transform: menuOpen ? "translateY(4px) rotate(45deg)" : "none", backgroundColor: '#ffffff' }}
+              style={{ transform: menuOpen ? "translateY(4px) rotate(45deg)" : "none", backgroundColor: barColor }}
             />
             <span
               className="block w-5 h-[2px] transition-transform duration-300 origin-center"
-              style={{ transform: menuOpen ? "translateY(-4px) rotate(-45deg)" : "none", backgroundColor: '#ffffff' }}
+              style={{ transform: menuOpen ? "translateY(-4px) rotate(-45deg)" : "none", backgroundColor: barColor }}
             />
           </button>
 
@@ -81,13 +86,13 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
             aria-label="Go to home"
           >
             <span
-              className="font-medium tracking-[0.18em] sm:tracking-[0.22em] text-xs min-[380px]:text-sm sm:text-base text-white whitespace-nowrap leading-tight"
+              className={`font-medium tracking-[0.18em] sm:tracking-[0.22em] text-xs min-[380px]:text-sm sm:text-base ${textColor} whitespace-nowrap leading-tight`}
               style={{ fontFamily: '"Metropolis", sans-serif' }}
             >
               ALL TOGETHER
             </span>
             <span
-              className="font-medium tracking-[0.22em] sm:tracking-[0.28em] text-[9px] min-[380px]:text-[10px] sm:text-xs text-white/70 whitespace-nowrap leading-tight"
+              className={`font-medium tracking-[0.22em] sm:tracking-[0.28em] text-[9px] min-[380px]:text-[10px] sm:text-xs ${textColorMuted} whitespace-nowrap leading-tight`}
               style={{ fontFamily: '"Metropolis", sans-serif' }}
             >
               CAPITAL
@@ -100,7 +105,7 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
             className="ml-auto w-10 h-10 flex items-center justify-center hover:opacity-70 transition-opacity touch-manipulation"
             aria-label="Contact us via email"
           >
-            <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg className={`w-5 h-5 ${textColor}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <rect width="20" height="16" x="2" y="4" rx="2" />
               <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
             </svg>
