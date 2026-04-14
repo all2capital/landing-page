@@ -163,11 +163,11 @@ function ThesisSlide() {
             We want to be part of it. We want to be in the arena, building and investing.
           </p>
         </motion.div>
-        <motion.div {...driftUp(0.1)} className="max-w-3xl">
+        <motion.div {...driftUp(0.1)} className="max-w-3xl mb-8 sm:mb-10">
           <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-3 sm:mb-4">
             Why we are starting this?
           </h3>
-          <p className="text-sm sm:text-base md:text-lg text-white/55 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed">
             Our team consists only of software dev entrepreneurs. We code and build companies.
             We&apos;re technical enough to build software, and wise enough to know why something
             should or shouldn&apos;t be built. Since we operate our own software businesses and
@@ -175,6 +175,30 @@ function ThesisSlide() {
             gives us a chance to prognosticate on how other businesses will be affected by the
             new AI tools and progress we see on a daily basis. Not many people choose to sit or
             can sit at the front of the rollercoaster ride. We&apos;re there.
+          </p>
+        </motion.div>
+        <motion.div {...driftUp(0.15)} className="max-w-3xl mb-8 sm:mb-10">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-3 sm:mb-4">
+            What we invest in
+          </h3>
+          <p className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed">
+            We invest in two lanes. AI-native companies where intelligence isn&apos;t a feature,
+            it&apos;s the reason the company can exist at all. And HALO businesses &mdash; Heavy Assets,
+            Low Obsolescence &mdash; companies with deep physical moats like energy, infrastructure,
+            and space that AI cannot easily replicate or displace. Software to silicon. Algorithms
+            to atoms. Together, these lanes let us capture the upside of AI while hedging against
+            its disruption.
+          </p>
+        </motion.div>
+        <motion.div {...driftUp(0.2)} className="max-w-3xl">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-3 sm:mb-4">
+            AI is rewriting the rules. We&apos;re writing the code.
+          </h3>
+          <p className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed">
+            Every tool we invest in, we use. Every thesis we write, we pressure-test against our
+            own businesses first. We don&apos;t evaluate companies from pitch decks &mdash; we evaluate
+            them from the command line. This is what we were built for. The builders, the
+            operators, the ones who ship. Together we build what&apos;s next.
           </p>
         </motion.div>
       </div>
