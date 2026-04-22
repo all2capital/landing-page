@@ -168,16 +168,16 @@ function ThesisSlide() {
             re-underwrite every company globally. All industries will be disrupted, and software
             will be the medium through which this disruption occurs. Code is so far the only way
             AI successfully manifests itself, which means understanding code deeply is more
-            important now than any other time in history (even the dotcom era). You may be able
-            to use AI tools without knowing how to code, but you are much less positioned to
-            predict how AI tools will progress without understanding code, its structure, how it
-            evolves, and what limitations there are within code itself and hardware. Code has
-            become as important as the English language.
+            important now than at any other time in history (even the dotcom era). You may be
+            able to use AI tools without knowing how to code, but you are much less positioned
+            to predict how AI tools will progress without understanding code, its structure,
+            how it evolves, and what limitations exist within code itself and hardware. Code
+            has become as important as the English language.
           </p>
           <p className="text-base sm:text-lg md:text-xl text-black/70 leading-relaxed mt-4">
             We understand code, use the latest AI religiously, and build our own businesses
             with these tools every day. That insight lets us place big bets on the most
-            innovative companies emerging from the AI explosion we are in the middle of.
+            innovative companies emerging from the AI explosion we are living through.
             We want to be part of it. We want to be in the arena, building and investing.
           </p>
         </motion.div>
@@ -188,11 +188,11 @@ function ThesisSlide() {
           <p className="text-base sm:text-lg md:text-xl text-black/70 leading-relaxed">
             Our team consists only of software dev entrepreneurs. We code and build companies.
             We&apos;re technical enough to build software, and wise enough to know why something
-            should or shouldn&apos;t be built. Since we operate our own software businesses and
-            have for many years, we see how AI is changing our personal businesses daily. This
-            gives us a chance to prognosticate on how other businesses will be affected by the
-            new AI tools and progress we see on a daily basis. Not many people choose to sit or
-            can sit at the front of the rollercoaster ride. We&apos;re there.
+            should or shouldn&apos;t be built. Since we operate our own software businesses, and
+            have for many years, we see how AI is changing our own businesses daily. That gives
+            us a chance to prognosticate on how other businesses will be affected by the new AI
+            tools and progress we see every day. Not many people choose to sit, or can sit, at
+            the front of the rollercoaster ride. We&apos;re there.
           </p>
         </motion.div>
         <motion.div {...driftUp(0.15)} className="max-w-3xl mb-8 sm:mb-10">
@@ -200,12 +200,12 @@ function ThesisSlide() {
             What we invest in
           </h3>
           <p className="text-base sm:text-lg md:text-xl text-black/70 leading-relaxed">
-            We invest in two lanes. AI-native companies where intelligence isn&apos;t a feature,
-            it&apos;s the reason the company can exist at all. And HALO businesses &mdash; Heavy Assets,
-            Low Obsolescence &mdash; companies with deep physical moats like energy, infrastructure,
-            and space that AI cannot easily replicate or displace. Software to silicon. Algorithms
-            to atoms. Together, these lanes let us capture the upside of AI while hedging against
-            its disruption.
+            We invest in two lanes. AI-native companies, where intelligence isn&apos;t a feature,
+            it&apos;s the reason the company can exist at all. And HALO businesses (Heavy Assets,
+            Low Obsolescence): companies with deep physical moats like energy, infrastructure,
+            and space that AI cannot easily replicate or displace. Software to silicon.
+            Algorithms to atoms. Together, these lanes let us capture the upside of AI while
+            hedging against its disruption.
           </p>
         </motion.div>
         <motion.div {...driftUp(0.2)} className="max-w-3xl">
@@ -214,7 +214,7 @@ function ThesisSlide() {
           </h3>
           <p className="text-base sm:text-lg md:text-xl text-black/70 leading-relaxed">
             Every tool we invest in, we use. Every thesis we write, we pressure-test against our
-            own businesses first. We don&apos;t evaluate companies from pitch decks &mdash; we evaluate
+            own businesses first. We don&apos;t evaluate companies from pitch decks. We evaluate
             them from the command line. This is what we were built for. The builders, the
             operators, the ones who ship. Together we build what&apos;s next.
           </p>
@@ -334,6 +334,11 @@ function TeamSlide() {
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const touchStartRef = useRef(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) videoRef.current.playbackRate = 1.5;
+  }, []);
 
   const goToSlide = useCallback(
     (index: number) => {
@@ -393,6 +398,7 @@ export default function Home() {
         style={{ visibility: currentSlide === 0 ? "visible" : "hidden" }}
       >
         <video
+          ref={videoRef}
           className="absolute inset-0 w-full h-full object-cover grayscale"
           src="/home_video.mp4"
           autoPlay
