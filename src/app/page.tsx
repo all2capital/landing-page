@@ -52,7 +52,9 @@ const investments = [
   { name: "Figure AI", url: "https://www.figure.ai/", logo: "/logos/figure.png" },
   { name: "1X Technologies", url: "https://www.1x.tech/", logo: "/logos/1x.png" },
   { name: "SmartGun", url: "https://smartgun.com/", logo: "/logos/smartgun.png" },
-{ name: "TAO", url: "https://bittensor.com/", logo: "/logos/tao.png" },
+  { name: "Exowatt", url: "https://www.exowatt.com/", logo: "/logos/exowatt.svg" },
+  { name: "Unspun", url: "https://www.unspun.io/", logo: "/logos/unspun.png" },
+  { name: "Budbreak Innovations", url: "https://www.budbreakinnovations.com/", logo: "/logos/budbreak.png" },
 ];
 
 const team = [
