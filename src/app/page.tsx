@@ -233,26 +233,26 @@ const alignmentWrapper = "max-w-[1400px] mx-auto w-full px-4 sm:px-6 md:px-10 lg
 function HomeSlide({ onNavigate }: { onNavigate: (slide: number) => void }) {
   return (
     <div className="relative flex min-h-full flex-col">
-      <div className="relative z-10 flex min-h-full flex-col justify-center pb-[10vh] pt-16 sm:pt-20 md:pt-24">
+      <div className="relative z-10 flex min-h-full flex-col justify-center pb-16 pt-16 sm:pt-20 md:pb-[10vh] md:pt-24">
         <div className={alignmentWrapper}>
-          <div className="w-full max-w-[650px] -translate-y-[2vh] text-[var(--at-ink)] sm:-translate-y-[4vh]">
+          <div className="w-full max-w-[650px] text-[var(--at-ink)] sm:-translate-y-[2vh] min-[900px]:-translate-y-[4vh]">
             <motion.div {...driftUp(0.08)}>
               <h1
-                className="m-0 text-[clamp(2.65rem,8.4vw,6rem)] font-medium uppercase leading-[0.9] tracking-normal text-[var(--at-ink)]"
+                className="m-0 text-[clamp(2.45rem,7.4vw,6rem)] font-medium uppercase leading-[0.9] tracking-normal text-[var(--at-ink)]"
                 style={{ fontFamily: "var(--at-font-body)" }}
               >
                 Build Together
               </h1>
-              <p className="mt-2 font-display text-[clamp(2.25rem,6vw,5rem)] font-normal italic leading-[0.98] tracking-normal text-[rgb(var(--at-ink-rgb)_/_0.82)]">
+              <p className="mt-2 font-display text-[clamp(2.05rem,5.3vw,5rem)] font-normal italic leading-[0.98] tracking-normal text-[rgb(var(--at-ink-rgb)_/_0.82)]">
                 from AI to atoms.
               </p>
-              <p className="mt-6 max-w-[45ch] text-[15px] leading-[1.65] text-[rgb(var(--at-ink-rgb)_/_0.72)] sm:text-base">
+              <p className="mt-5 max-w-[45ch] text-[15px] leading-[1.6] text-[rgb(var(--at-ink-rgb)_/_0.72)] sm:text-base md:mt-6 md:leading-[1.65]">
                 We partner with founders building software, AI, robotics, and space.
                 We don&apos;t evaluate companies from pitch decks — we evaluate them
                 from the command line.
               </p>
 
-              <div className="mt-8 flex flex-wrap items-center gap-4 sm:gap-5">
+              <div className="mt-7 flex flex-wrap items-center gap-4 sm:gap-5 md:mt-8">
                 <button
                   type="button"
                   onClick={() => onNavigate(2)}
@@ -592,13 +592,13 @@ export default function Home() {
       </div>
 
       {/* Content — instant page swaps, no AnimatePresence */}
-      <div className="relative z-10 h-full flex flex-col">
+      <div className="relative z-10 flex h-full min-h-0 flex-col">
         <Navigation onNavigate={goToSlide} currentSlide={currentSlide} />
 
         <div
           ref={slideViewportRef}
           key={currentSlide}
-          className={`flex-1 ${
+          className={`min-h-0 flex-1 ${
             currentSlide === 0
               ? "flex flex-col overflow-y-auto"
               : currentSlide === 1
