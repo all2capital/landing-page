@@ -70,7 +70,7 @@ export default function StatsSection() {
   return (
     <section className="py-24 md:py-40 relative overflow-hidden">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-neutral-50 to-white dark:from-black dark:via-neutral-950 dark:to-black" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[var(--at-paper)] via-[var(--at-paper-tint)] to-[var(--at-paper)] dark:from-[var(--at-deep)] dark:via-[var(--at-tide)] dark:to-[var(--at-deep)]" />
       
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12">
         <motion.div

@@ -17,7 +17,7 @@ export default function GlassCard({ children, className, delay = 0 }: GlassCardP
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay }}
       className={cn(
-        "rounded-2xl border border-white/[0.08] bg-[rgba(10,10,10,0.6)] backdrop-blur-[20px] p-8 md:p-10",
+        "rounded-2xl border border-[rgb(var(--at-paper-rgb)_/_0.08)] bg-[rgb(var(--at-deep-rgb)_/_0.6)] backdrop-blur-[20px] p-8 md:p-10",
         className
       )}
     >

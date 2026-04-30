@@ -2,10 +2,13 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 
-export default function JoinLPForm({ className = "" }: { className?: string }) {
+type JoinLPFormProps = {
+  className?: string;
+  tone?: "dark" | "light";
+};
+
+export default function JoinLPForm({ className = "", tone = "dark" }: JoinLPFormProps) {
   const [open, setOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -77,137 +80,151 @@ export default function JoinLPForm({ className = "" }: { className?: string }) {
     }
   };
 
+  const triggerToneClass =
+    tone === "light"
+      ? "border-[rgb(var(--at-ink-rgb)_/_0.64)] text-[var(--at-ink)] hover:border-[var(--at-ink)] hover:bg-[var(--at-ink)] hover:text-[var(--at-paper)] focus-visible:ring-[var(--at-ink)]"
+      : "border-[rgb(var(--at-paper-rgb)_/_0.72)] text-[var(--at-paper)] hover:border-[var(--at-paper-tint)] hover:bg-[var(--at-paper-tint)] hover:text-[var(--at-ink)] focus-visible:ring-[var(--at-paper)]";
+
   return (
     <>
-      {/* Trigger button — stays inline, never moves */}
       <div className={className}>
         <motion.div
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          transition={{ type: "spring", stiffness: 400, damping: 28 }}
+          whileTap={{ y: 1 }}
           className="inline-block"
         >
-          <Button
+          <button
             type="button"
-            variant="ghost"
-            size="lg"
             onClick={() => setOpen(true)}
-            className="btn-liquid-glass px-6 sm:px-8 py-3.5 font-medium text-base h-auto min-h-[48px] rounded-xl border border-white/20 bg-transparent shadow-none hover:bg-transparent w-full sm:w-auto"
+            className={`group inline-flex min-h-11 w-full items-center justify-center gap-3 border px-5 py-3 font-mono text-[11px] font-medium uppercase tracking-[0.18em] transition duration-300 focus-visible:outline-none focus-visible:ring-1 sm:w-auto ${triggerToneClass}`}
           >
-            Join as LP
-          </Button>
+            <span>Join as LP</span>
+            <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-0.5">
+              →
+            </span>
+          </button>
         </motion.div>
       </div>
 
-      {/* Modal overlay */}
       <AnimatePresence>
         {open && (
-          <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
-            {/* Backdrop */}
+          <div className="fixed inset-0 z-[300] flex items-center justify-center p-4">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              className="absolute inset-0 bg-[rgb(var(--at-deep-rgb)_/_0.78)]"
               onClick={closeModal}
               aria-hidden
             />
 
-            {/* Modal content */}
             <AnimatePresence mode="wait">
               {submitted ? (
                 <motion.div
                   key="success"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-                  className="relative z-10 btn-liquid-glass w-full max-w-sm p-6 text-left"
+                  initial={{ opacity: 0, y: 14 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 14 }}
+                  transition={{ duration: 0.34, ease: [0.22, 1, 0.36, 1] }}
+                  className="relative z-10 w-full max-w-sm border border-[var(--at-rule)] bg-[var(--at-paper)] p-6 text-left text-[var(--at-ink)] shadow-[0_24px_80px_rgb(var(--at-ink-rgb)_/_0.24)]"
                 >
-                  <p className="text-base font-medium text-white/95 leading-relaxed">
+                  <p className="font-display text-2xl font-normal leading-tight text-[var(--at-ink)]">
                     We will contact you within 72 hours.
                   </p>
-                  <p className="mt-2 text-sm text-white/60">
-                    Thank you for your interest in All2 Capital.
+                  <p className="mt-3 text-sm leading-relaxed text-[var(--at-ink-3)]">
+                    Thank you for your interest in All Together Capital.
                   </p>
                 </motion.div>
               ) : (
                 <motion.form
                   key="form"
-                  initial={{ opacity: 0, scale: 0.95, y: 10 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.95, y: 10 }}
-                  transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  initial={{ opacity: 0, y: 14 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 14 }}
+                  transition={{ duration: 0.34, ease: [0.22, 1, 0.36, 1] }}
                   onSubmit={handleSubmit}
-                  className="relative z-10 btn-liquid-glass w-full max-w-sm p-5"
+                  className="relative z-10 w-full max-w-[420px] border border-[var(--at-rule)] bg-[var(--at-paper)] p-5 text-[var(--at-ink)] shadow-[0_24px_80px_rgb(var(--at-ink-rgb)_/_0.24)] sm:p-6"
                 >
-                  <h3 className="text-lg font-semibold text-white/95 mb-4">Join as LP</h3>
-                  <div className="space-y-4 mb-5">
+                  <div className="mb-5 flex items-start justify-between gap-5 border-b border-[var(--at-rule)] pb-4">
+                    <div>
+                      <p className="mb-2 font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-[var(--at-ink-3)]">
+                        Investor access
+                      </p>
+                      <h3 className="font-display text-3xl font-normal leading-none text-[var(--at-ink)]">
+                        Join as LP
+                      </h3>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={closeModal}
+                      disabled={loading}
+                      aria-label="Close"
+                      className="flex h-8 w-8 shrink-0 items-center justify-center border border-transparent font-mono text-2xl leading-none text-[var(--at-ink)] transition hover:border-[var(--at-rule)] hover:bg-[var(--at-paper-soft)] disabled:opacity-50"
+                    >
+                      ×
+                    </button>
+                  </div>
+
+                  <div className="mb-5 space-y-4">
                     <div className="grid grid-cols-1 min-[400px]:grid-cols-2 gap-3">
                       <label className="block">
-                        <span className="block text-xs font-medium text-white/60 mb-1.5">
+                        <span className="mb-1.5 block font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-[var(--at-ink-3)]">
                           First name
                         </span>
-                        <Input
+                        <input
                           type="text"
                           value={firstName}
                           onChange={(e) => setFirstName(e.target.value)}
-                          className="input-liquid-glass w-full h-auto min-h-[44px] border-white/10 bg-white/5"
+                          className="h-11 w-full border border-[var(--at-rule)] bg-[var(--at-paper-tint)] px-3 text-[15px] text-[var(--at-ink)] outline-none transition focus:border-[var(--at-ink)]"
                           autoFocus
                         />
                       </label>
                       <label className="block">
-                        <span className="block text-xs font-medium text-white/60 mb-1.5">
+                        <span className="mb-1.5 block font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-[var(--at-ink-3)]">
                           Last name
                         </span>
-                        <Input
+                        <input
                           type="text"
                           value={lastName}
                           onChange={(e) => setLastName(e.target.value)}
-                          className="input-liquid-glass w-full h-auto min-h-[44px] border-white/10 bg-white/5"
+                          className="h-11 w-full border border-[var(--at-rule)] bg-[var(--at-paper-tint)] px-3 text-[15px] text-[var(--at-ink)] outline-none transition focus:border-[var(--at-ink)]"
                         />
                       </label>
                     </div>
                     <label className="block">
-                      <span className="block text-xs font-medium text-white/60 mb-1.5">
+                      <span className="mb-1.5 block font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-[var(--at-ink-3)]">
                         Email
                       </span>
-                      <Input
+                      <input
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="input-liquid-glass w-full h-auto min-h-[44px] border-white/10 bg-white/5"
+                        className="h-11 w-full border border-[var(--at-rule)] bg-[var(--at-paper-tint)] px-3 text-[15px] text-[var(--at-ink)] outline-none transition focus:border-[var(--at-ink)]"
                       />
                     </label>
                   </div>
                   {error && (
-                    <p className="text-sm text-red-400/90 mb-3">{error}</p>
+                    <p className="mb-3 text-sm text-[var(--at-accent-warm)]">{error}</p>
                   )}
-                  <div className="flex items-center justify-end gap-3">
-                    <Button
+                  <div className="flex items-center justify-between gap-3 border-t border-[var(--at-rule)] pt-4">
+                    <button
                       type="button"
-                      variant="ghost"
-                      size="default"
                       onClick={closeModal}
                       disabled={loading}
-                      className="text-sm text-white/50 hover:text-white/80 transition-colors disabled:opacity-50 h-auto p-0 hover:bg-transparent shadow-none"
+                      className="font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-[var(--at-ink-3)] transition hover:text-[var(--at-ink)] disabled:opacity-50"
                     >
                       Cancel
-                    </Button>
+                    </button>
                     <motion.div
-                      whileHover={loading ? undefined : { scale: 1.02 }}
-                      whileTap={loading ? undefined : { scale: 0.98 }}
+                      whileTap={loading ? undefined : { y: 1 }}
                     >
-                      <Button
+                      <button
                         type="submit"
-                        variant="ghost"
-                        size="default"
                         disabled={loading}
-                        className="btn-liquid-glass px-5 py-2.5 text-sm font-medium disabled:opacity-70 h-auto rounded-xl border border-white/20 bg-transparent shadow-none hover:bg-transparent"
+                        className="inline-flex min-h-10 items-center justify-center border border-[var(--at-ink)] px-4 py-2 font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-[var(--at-ink)] transition hover:bg-[var(--at-ink)] hover:text-[var(--at-paper-tint)] disabled:opacity-60"
                       >
                         {loading ? "Sending\u2026" : "Submit"}
-                      </Button>
+                      </button>
                     </motion.div>
                   </div>
                 </motion.form>

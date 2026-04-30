@@ -10,7 +10,7 @@ export default function ThesisSection() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mb-6">
             Our Thesis
           </h2>
-          <div className="space-y-4 text-base md:text-lg text-white/70 max-w-3xl">
+          <div className="space-y-4 text-base md:text-lg text-[rgb(var(--at-paper-rgb)_/_0.7)] max-w-3xl">
             <p>
               The next decade of technology will be defined by the infrastructure beneath it.
               We back technical founders building the systems, tools, and platforms that

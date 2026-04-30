@@ -41,7 +41,7 @@ export async function POST(request: Request) {
       from: FROM_EMAIL,
       to: ROBERT_EMAIL,
       cc: [HISHAM_EMAIL],
-      subject: "Potential All2 Capital LP",
+      subject: "Potential All Together Capital LP",
       text: textBody,
     });
 

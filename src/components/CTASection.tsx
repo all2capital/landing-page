@@ -24,7 +24,7 @@ export default function CTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-            className="text-sm sm:text-base md:text-lg text-white/60 max-w-lg mx-auto mb-8 sm:mb-10"
+            className="text-sm sm:text-base md:text-lg text-[rgb(var(--at-paper-rgb)_/_0.6)] max-w-lg mx-auto mb-8 sm:mb-10"
           >
             We back founders at the earliest stages. If you&apos;re working on infrastructure
             that will power the next generation of technology, we want to hear from you.

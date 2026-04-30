@@ -12,14 +12,14 @@ export default function Hero() {
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 2 }}
         className="mb-6"
       >
-        <Logo width={120} height={120} className="border-3 border-white rounded-sm" />
+        <Logo width={120} height={120} className="border-3 border-[var(--at-paper)] rounded-sm" />
       </motion.div>
 
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 2.3 }}
-        className="text-lg md:text-xl text-white/60 text-center max-w-md font-light tracking-wide"
+        className="text-lg md:text-xl text-[rgb(var(--at-paper-rgb)_/_0.6)] text-center max-w-md font-light tracking-wide"
       >
         Early-stage infrastructure for what comes next.
       </motion.p>

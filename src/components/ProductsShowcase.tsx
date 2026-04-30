@@ -30,7 +30,7 @@ export default function ProductsShowcase() {
           {focusAreas.map((area, index) => (
             <GlassCard key={area.name} delay={index * 0.08}>
               <h3 className="text-lg md:text-xl font-semibold mb-2">{area.name}</h3>
-              <p className="text-sm md:text-base text-white/50">{area.description}</p>
+              <p className="text-sm md:text-base text-[rgb(var(--at-paper-rgb)_/_0.5)]">{area.description}</p>
             </GlassCard>
           ))}
         </div>

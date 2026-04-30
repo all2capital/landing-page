@@ -61,9 +61,9 @@ export default function VideoSection({
                 whileTap={{ scale: 0.95 }}
                 className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
               >
-                <div className="w-16 h-16 bg-white/90 dark:bg-black/90 rounded-full flex items-center justify-center shadow-2xl">
+                <div className="w-16 h-16 bg-[rgb(var(--at-paper-rgb)_/_0.9)] dark:bg-[rgb(var(--at-deep-rgb)_/_0.9)] rounded-full flex items-center justify-center shadow-2xl">
                   <svg
-                    className="w-6 h-6 text-black dark:text-white ml-1"
+                    className="w-6 h-6 text-[var(--at-ink)] dark:text-[var(--at-paper)] ml-1"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -77,7 +77,7 @@ export default function VideoSection({
                 <svg viewBox="0 0 100 100" className="w-full h-full">
                   <defs>
                     <pattern id={`dots-${index}`} width="8" height="8" patternUnits="userSpaceOnUse">
-                      <circle cx="2" cy="2" r="1.5" fill="currentColor" className="text-black dark:text-white" />
+                      <circle cx="2" cy="2" r="1.5" fill="currentColor" className="text-[var(--at-ink)] dark:text-[var(--at-paper)]" />
                     </pattern>
                   </defs>
                   <path d="M0,0 L100,0 L0,100 Z" fill={`url(#dots-${index})`} />

@@ -9,9 +9,9 @@ interface NavigationProps {
 }
 
 const menuItems = [
-  { label: "Manifesto", slide: 1 },
-  { label: "Investments", slide: 2 },
-  { label: "Team", slide: 3 },
+  { num: "01", label: "Philosophy", slide: 1 },
+  { num: "02", label: "Investments", slide: 2 },
+  { num: "03", label: "Team", slide: 3 },
 ];
 
 export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationProps) {
@@ -43,6 +43,9 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
     setTimeout(() => setMenuOpen(false), 50);
   };
 
+  const logoColor = "var(--at-ink)";
+  const menuLineColor = "var(--at-ink)";
+
   return (
     <>
       {/* Header spacer — only on home slide to reserve space */}
@@ -51,7 +54,7 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const, delay: 0.2 }}
-          className="relative z-40 pt-safe bg-gradient-to-b from-black/30 to-transparent"
+          className="relative z-40 pt-safe bg-gradient-to-b from-[rgb(var(--at-paper-rgb)_/_0.58)] to-transparent"
         >
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 py-4 sm:py-5 md:py-6 flex items-center justify-between">
             <div className="h-7 sm:h-8 md:h-8" />
@@ -63,10 +66,13 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
       {/* Fixed top bar — logo + hamburger, aligned to content grid */}
       <div
         className={`fixed top-0 left-0 right-0 z-[210] pointer-events-none transition-colors duration-300 ${
-          menuOpen || currentSlide !== 0 ? "bg-white" : ""
+          menuOpen || currentSlide !== 0 ? "bg-[var(--at-paper)]" : ""
         }`}
       >
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 py-4 sm:py-5 md:py-6 flex items-center justify-between">
+        <div
+          className="mx-auto flex items-center justify-between px-4 py-4 sm:px-6 sm:py-5 md:px-10 md:py-6 lg:px-16"
+          style={{ maxWidth: "1400px" }}
+        >
           {/* Logo */}
           <button
             type="button"
@@ -78,17 +84,28 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
                 onNavigate?.(0);
               }
             }}
-            className="flex items-center gap-2 sm:gap-2.5 hover:opacity-80 transition-opacity touch-manipulation pointer-events-auto"
-            aria-label="All2 Capital — go to home"
+            className="flex items-start gap-3.5 hover:opacity-80 transition-opacity touch-manipulation pointer-events-auto"
+            aria-label="All Together Capital — go to home"
           >
             <span
-              className="font-bold tracking-[-0.02em] text-2xl min-[380px]:text-2xl sm:text-3xl md:text-3xl transition-colors duration-300"
+              className="text-[30px] font-medium leading-none transition-colors duration-300 sm:text-[34px]"
               style={{
-                fontFamily: "var(--font-space-grotesk), sans-serif",
-                color: menuOpen || currentSlide !== 0 ? "#000" : "#fff",
+                fontFamily: "var(--at-font-code)",
+                color: logoColor,
               }}
             >
-              all2 capital
+              at
+            </span>
+            <span
+              className="pt-0.5 text-left text-[10px] font-medium uppercase leading-[1.35] tracking-[0.18em] transition-colors duration-300 sm:text-[11px]"
+              style={{
+                fontFamily: "var(--at-font-body)",
+                color: logoColor,
+              }}
+            >
+              All Together
+              <br />
+              Capital
             </span>
           </button>
 
@@ -96,7 +113,7 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
           <button
             type="button"
             onClick={() => setMenuOpen(!menuOpen)}
-            className="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center hover:opacity-70 transition-opacity touch-manipulation pointer-events-auto"
+            className="flex h-10 w-10 items-center justify-center border-0 bg-transparent outline-none transition-opacity hover:opacity-70 focus:outline-none focus-visible:outline-none focus-visible:ring-0 touch-manipulation pointer-events-auto sm:h-11 sm:w-11"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
           >
@@ -105,21 +122,21 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
                 className="absolute block w-6 sm:w-7 h-[2px] transition-all duration-300 origin-center"
                 style={{
                   transform: menuOpen ? "rotate(45deg)" : "translateY(-6px)",
-                  backgroundColor: menuOpen || currentSlide !== 0 ? "#333" : "white",
+                  backgroundColor: menuLineColor,
                 }}
               />
               <span
                 className="absolute block w-6 sm:w-7 h-[2px] transition-all duration-300"
                 style={{
                   opacity: menuOpen ? 0 : 1,
-                  backgroundColor: menuOpen || currentSlide !== 0 ? "#333" : "white",
+                  backgroundColor: menuLineColor,
                 }}
               />
               <span
                 className="absolute block w-6 sm:w-7 h-[2px] transition-all duration-300 origin-center"
                 style={{
                   transform: menuOpen ? "rotate(-45deg)" : "translateY(6px)",
-                  backgroundColor: menuOpen || currentSlide !== 0 ? "#333" : "white",
+                  backgroundColor: menuLineColor,
                 }}
               />
             </span>
@@ -135,22 +152,69 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
             animate={{ y: 0 }}
             exit={{ y: "-100%" }}
             transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="fixed inset-0 z-[200] bg-white flex flex-col items-center justify-center"
+            className="fixed inset-x-0 top-0 bottom-[-100vh] z-[200] overflow-x-hidden bg-[var(--at-paper)]"
           >
-            <div className="flex flex-col items-center gap-4 sm:gap-6 md:gap-8">
-              {menuItems.map(({ label, slide }, i) => (
-                <motion.button
-                  key={label}
-                  type="button"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] as const, delay: 0.1 + i * 0.06 }}
-                  onClick={() => handleMenuNavigate(slide)}
-                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-neutral-700 hover:text-black transition-colors touch-manipulation"
-                >
-                  {label}
-                </motion.button>
-              ))}
+            <div className="flex h-[100dvh] min-h-[100svh] flex-col overflow-hidden pt-20 sm:pt-24 md:pt-28">
+              <nav className="mx-auto flex w-full max-w-[1280px] flex-1 flex-col justify-center px-5 sm:px-6 md:px-10 lg:px-16">
+                {menuItems.map(({ num, label, slide }, i) => {
+                  const isCurrent = currentSlide === slide;
+                  return (
+                    <motion.button
+                      key={label}
+                      type="button"
+                      aria-current={isCurrent ? "page" : undefined}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{
+                        duration: 0.3,
+                        ease: [0.16, 1, 0.3, 1] as const,
+                        delay: 0.1 + i * 0.06,
+                      }}
+                      onClick={() => handleMenuNavigate(slide)}
+                      className={`group flex min-w-0 items-center gap-3 border-t border-[var(--at-rule)] py-4 text-left transition-colors duration-300 last:border-b sm:gap-7 sm:py-5 ${
+                        isCurrent
+                          ? "text-[var(--at-accent-primary)]"
+                          : "text-[var(--at-ink)] hover:text-[var(--at-accent-primary)]"
+                      }`}
+                    >
+                      <span
+                        className={`flex w-8 shrink-0 items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.08em] sm:w-14 sm:gap-2 sm:text-xs ${
+                          isCurrent ? "text-[var(--at-accent-primary)]" : "text-[var(--at-ink-3)]"
+                        }`}
+                      >
+                        <span>{num}</span>
+                        {isCurrent && (
+                          <span
+                            aria-hidden="true"
+                            className="h-1.5 w-1.5 rounded-full bg-current"
+                          />
+                        )}
+                      </span>
+                      <span className="min-w-0 font-sans text-[clamp(1.875rem,9.4vw,3.1rem)] font-medium uppercase leading-none tracking-normal sm:text-6xl md:text-7xl lg:text-[76px]">
+                        {label}
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        className={`ml-auto hidden shrink-0 self-center font-mono text-lg transition-opacity duration-300 sm:block ${
+                          isCurrent ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+                        }`}
+                      >
+                        →
+                      </span>
+                    </motion.button>
+                  );
+                })}
+              </nav>
+
+              <div className="mx-auto flex w-full max-w-[1280px] flex-wrap items-baseline justify-between gap-4 border-t border-[var(--at-rule)] px-5 py-6 sm:px-6 md:px-10 lg:px-16">
+                <span className="font-display text-base italic text-[var(--at-ink)] sm:text-lg">
+                  Founders first. We build, not just{" "}
+                  <span className="text-[var(--at-accent-primary)]">invest.</span>
+                </span>
+                <span className="font-mono text-[10px] uppercase tracking-[0.04em] text-[var(--at-ink-3)] sm:text-xs">
+                  © 2026 All Together Capital
+                </span>
+              </div>
             </div>
           </motion.div>
         )}
