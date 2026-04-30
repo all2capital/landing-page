@@ -195,7 +195,6 @@ h3,
 .at-philosophy-slide {
   position: relative;
   min-height: 100%;
-  overflow: hidden;
   background: var(--at-deep);
   color: var(--at-paper);
 }

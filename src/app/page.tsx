@@ -232,8 +232,8 @@ const alignmentWrapper = "max-w-[1400px] mx-auto w-full px-4 sm:px-6 md:px-10 lg
 /* ─── Slide 0: Home ─── */
 function HomeSlide({ onNavigate }: { onNavigate: (slide: number) => void }) {
   return (
-    <div className="flex-1 min-h-0 relative flex flex-col">
-      <div className="relative z-10 flex flex-col flex-1 min-h-0 justify-center pb-[10vh] pt-16 sm:pt-20 md:pt-24">
+    <div className="relative flex min-h-full flex-col">
+      <div className="relative z-10 flex min-h-full flex-col justify-center pb-[10vh] pt-16 sm:pt-20 md:pt-24">
         <div className={alignmentWrapper}>
           <div className="w-full max-w-[650px] -translate-y-[2vh] text-[var(--at-ink)] sm:-translate-y-[4vh]">
             <motion.div {...driftUp(0.08)}>
@@ -282,10 +282,10 @@ function HomeSlide({ onNavigate }: { onNavigate: (slide: number) => void }) {
 /* ─── Slide 1: Thesis ─── */
 function ThesisSlide() {
   return (
-    <div className="at-philosophy-slide min-h-full lg:h-full">
+    <div className="at-philosophy-slide min-h-full">
       <div className="at-philosophy-scene" aria-hidden />
 
-      <main className="relative z-[1] mx-auto grid min-h-full max-w-[1280px] grid-cols-1 content-start gap-8 px-6 pb-14 pt-28 sm:px-8 md:pt-32 lg:h-full lg:grid-cols-[minmax(320px,0.78fr)_minmax(560px,1.22fr)] lg:items-start lg:gap-x-16 lg:gap-y-9 lg:px-14 lg:pb-8 lg:pt-[128px]">
+      <main className="relative z-[1] mx-auto grid min-h-full max-w-[1280px] grid-cols-1 content-start gap-8 px-6 pb-14 pt-28 sm:px-8 md:pt-32 lg:grid-cols-[minmax(320px,0.78fr)_minmax(560px,1.22fr)] lg:items-start lg:gap-x-16 lg:gap-y-9 lg:px-14 lg:pb-12 lg:pt-[128px]">
         <PageHeader title="Philosophy" className="lg:col-span-2" />
 
         <div className="w-full min-w-0 lg:max-w-[430px] lg:pt-1">
@@ -600,9 +600,9 @@ export default function Home() {
           key={currentSlide}
           className={`flex-1 ${
             currentSlide === 0
-              ? "flex flex-col"
+              ? "flex flex-col overflow-y-auto"
               : currentSlide === 1
-                ? "overflow-y-auto lg:overflow-hidden"
+                ? "overflow-y-auto"
                 : "overflow-y-auto"
           }`}
         >
