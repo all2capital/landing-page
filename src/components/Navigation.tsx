@@ -152,9 +152,9 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
             animate={{ y: 0 }}
             exit={{ y: "-100%" }}
             transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="fixed inset-x-0 top-0 bottom-[-100vh] z-[200] overflow-x-hidden bg-[var(--at-paper)]"
+            className="fixed inset-0 z-[200] overflow-hidden bg-[var(--at-paper)]"
           >
-            <div className="flex h-[100dvh] min-h-[100svh] flex-col overflow-hidden pt-20 sm:pt-24 md:pt-28">
+            <div className="flex h-full min-h-[100svh] flex-col overflow-hidden pt-20 sm:pt-24 md:pt-28">
               <nav className="mx-auto flex w-full max-w-[1280px] flex-1 flex-col justify-center px-5 sm:px-6 md:px-10 lg:px-16">
                 {menuItems.map(({ num, label, slide }, i) => {
                   const isCurrent = currentSlide === slide;

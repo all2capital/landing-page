@@ -265,7 +265,7 @@ function AssetWarmup() {
 /* ─── Slide 0: Home ─── */
 function HomeSlide({ onNavigate }: { onNavigate: (slide: number) => void }) {
   return (
-    <div className="relative flex min-h-full flex-col">
+    <div className="at-home-slide relative isolate flex flex-1 flex-col overflow-hidden">
       <div className="relative z-10 flex min-h-full flex-col justify-center pb-16 pt-16 sm:pt-20 md:pb-[10vh] md:pt-24">
         <div className={alignmentWrapper}>
           <div className="w-full max-w-[650px] text-[var(--at-ink)] sm:-translate-y-[2vh] min-[900px]:-translate-y-[4vh]">
@@ -538,7 +538,7 @@ function TeamSlide() {
 /* ─── Main ─── */
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const touchStartRef = useRef(0);
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
   const slideViewportRef = useRef<HTMLDivElement>(null);
 
   const goToSlide = useCallback(
@@ -590,55 +590,52 @@ export default function Home() {
   useEffect(() => {
     if (currentSlide !== 0) return;
     const handleTouchStart = (e: TouchEvent) => {
-      touchStartRef.current = e.touches[0].clientX;
+      if (e.touches.length !== 1) {
+        touchStartRef.current = null;
+        return;
+      }
+
+      touchStartRef.current = {
+        x: e.touches[0].clientX,
+        y: e.touches[0].clientY,
+      };
     };
     const handleTouchEnd = (e: TouchEvent) => {
-      const diff = touchStartRef.current - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 60) {
-        if (diff > 0) next();
+      const start = touchStartRef.current;
+      touchStartRef.current = null;
+      if (!start || e.changedTouches.length !== 1) return;
+
+      const diffX = start.x - e.changedTouches[0].clientX;
+      const diffY = start.y - e.changedTouches[0].clientY;
+      const absX = Math.abs(diffX);
+      const absY = Math.abs(diffY);
+
+      if (absX > 70 && absX > absY * 1.35) {
+        if (diffX > 0) next();
         else prev();
       }
     };
-    window.addEventListener("touchstart", handleTouchStart);
-    window.addEventListener("touchend", handleTouchEnd);
+    const touchOptions: AddEventListenerOptions = { passive: true };
+
+    window.addEventListener("touchstart", handleTouchStart, touchOptions);
+    window.addEventListener("touchend", handleTouchEnd, touchOptions);
     return () => {
-      window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchend", handleTouchEnd);
+      window.removeEventListener("touchstart", handleTouchStart, touchOptions);
+      window.removeEventListener("touchend", handleTouchEnd, touchOptions);
     };
   }, [currentSlide, next, prev]);
 
   return (
-    <div className="min-h-screen h-screen max-h-[100dvh] bg-[var(--at-paper)] overflow-hidden">
-      {/* Home image background — hidden instantly on content pages */}
-      <div
-        className="fixed inset-0 z-[1] overflow-hidden"
-        style={{ visibility: currentSlide === 0 ? "visible" : "hidden" }}
-      >
-        <Image
-          src="/design-assets/home-launch-city.png"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[62%_center] md:object-center"
-        />
-      </div>
-
+    <div className={`at-site-shell ${currentSlide === 0 ? "bg-[var(--at-paper)]" : "bg-[var(--at-deep)]"}`}>
       {/* Content — instant page swaps, no AnimatePresence */}
-      <div className="relative z-10 flex h-full min-h-0 flex-col">
+      <div className="at-page-frame relative z-10 flex flex-col">
         <AssetWarmup />
         <Navigation onNavigate={goToSlide} currentSlide={currentSlide} />
 
         <div
           ref={slideViewportRef}
           key={currentSlide}
-          className={`min-h-0 flex-1 ${
-            currentSlide === 0
-              ? "flex flex-col overflow-y-auto"
-              : currentSlide === 1
-                ? "overflow-y-auto"
-                : "overflow-y-auto"
-          }`}
+          className="touch-scroll flex min-h-0 flex-1 flex-col overflow-visible"
         >
           {currentSlide === 0 && <HomeSlide onNavigate={goToSlide} />}
           {currentSlide === 1 && <ThesisSlide />}

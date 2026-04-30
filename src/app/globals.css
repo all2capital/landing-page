@@ -194,27 +194,66 @@ h3,
 
 .at-philosophy-slide {
   position: relative;
-  min-height: 100%;
+  min-height: 100svh;
   background: var(--at-deep);
   color: var(--at-paper);
+  isolation: isolate;
+  overflow-x: hidden;
 }
 
 .at-team-slide {
   position: relative;
-  min-height: 100%;
+  min-height: 100svh;
   background: var(--at-deep);
+  isolation: isolate;
+  overflow-x: hidden;
 }
 
 .at-investments-slide {
   position: relative;
-  min-height: 100%;
+  min-height: 100svh;
   background: var(--at-deep);
+  isolation: isolate;
+  overflow-x: hidden;
+}
+
+.at-site-shell {
+  position: relative;
+  min-height: 100svh;
+  overflow-x: hidden;
+}
+
+.at-page-frame {
+  min-height: 100svh;
+}
+
+.at-home-slide {
+  min-height: 0;
+  background-image: url("/design-assets/home-launch-city.png");
+  background-position: 62% center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@supports (height: 100dvh) {
+  .at-page-frame,
+  .at-philosophy-slide,
+  .at-investments-slide,
+  .at-team-slide {
+    min-height: 100dvh;
+  }
+}
+
+@media (min-width: 768px) {
+  .at-home-slide {
+    background-position: center center;
+  }
 }
 
 .at-philosophy-scene,
 .at-investments-scene,
 .at-team-scene {
-  position: fixed;
+  position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
