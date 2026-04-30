@@ -162,6 +162,18 @@ const founders = [
   },
 ];
 
+const warmupImageSources = [
+  "/design-assets/bg-philosophy-space.png",
+  "/design-assets/bg-investments-underwater.png",
+  "/design-assets/bg-team-desert.png",
+  "/design-assets/founder-hisham.png",
+  "/design-assets/founder-robert.png",
+  "/design-assets/logos/openai.svg",
+  "/design-assets/logos/exowatt.png",
+  "/design-assets/logos/unspun.png",
+  ...investments.flatMap((company) => company.logoSources.slice(0, 1)),
+];
+
 /* Drift-up animation for content page elements */
 const driftUp = (delay: number = 0) => ({
   initial: { opacity: 0, y: 40 },
@@ -228,6 +240,27 @@ function InvestmentLogo({
 }
 
 const alignmentWrapper = "max-w-[1400px] mx-auto w-full px-4 sm:px-6 md:px-10 lg:px-16";
+
+function AssetWarmup() {
+  useEffect(() => {
+    const uniqueSources = Array.from(new Set(warmupImageSources.filter(Boolean)));
+    const handles = uniqueSources.map((src) => {
+      const image = new window.Image();
+      image.decoding = "async";
+      image.src = src;
+      return image;
+    });
+
+    return () => {
+      handles.forEach((image) => {
+        image.onload = null;
+        image.onerror = null;
+      });
+    };
+  }, []);
+
+  return null;
+}
 
 /* ─── Slide 0: Home ─── */
 function HomeSlide({ onNavigate }: { onNavigate: (slide: number) => void }) {
@@ -593,6 +626,7 @@ export default function Home() {
 
       {/* Content — instant page swaps, no AnimatePresence */}
       <div className="relative z-10 flex h-full min-h-0 flex-col">
+        <AssetWarmup />
         <Navigation onNavigate={goToSlide} currentSlide={currentSlide} />
 
         <div
