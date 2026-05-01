@@ -20,7 +20,7 @@ export function PortfolioSlide() {
           >
             We back the best founders
             <br />
-            <em className="font-normal text-[rgb(var(--at-paper-rgb)_/_0.6)]">with the boldest vision.</em>
+            <em className="font-normal text-[rgb(var(--at-paper-rgb)_/_0.6)]">with the boldest visions.</em>
           </motion.h2>
           <motion.p
             {...driftUp(0.08)}
