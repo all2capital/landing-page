@@ -30,12 +30,6 @@ const philosophyTenets = [
   },
 ];
 
-const philosophySignals = [
-  { label: "Stage", value: "Earliest checks" },
-  { label: "Scope", value: "AI to atoms" },
-  { label: "Mode", value: "Operators" },
-];
-
 function logoSources(domain: string, simpleIcon?: string, localSrc?: string) {
   const sources: string[] = [];
   if (localSrc) sources.push(localSrc);
@@ -181,15 +175,35 @@ const driftUp = (delay: number = 0) => ({
   transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const, delay },
 });
 
-function PageHeader({ title, className = "" }: { title: string; className?: string }) {
+function PageHeader({
+  title,
+  className = "",
+  tone = "light",
+}: {
+  title: string;
+  className?: string;
+  tone?: "light" | "dark";
+}) {
+  const ruleClass =
+    tone === "dark"
+      ? "border-[rgb(var(--at-ink-rgb)_/_0.2)]"
+      : "border-[rgb(var(--at-paper-rgb)_/_0.2)]";
+  const lineClass =
+    tone === "dark"
+      ? "bg-[rgb(var(--at-ink-rgb)_/_0.42)]"
+      : "bg-[rgb(var(--at-paper-rgb)_/_0.42)]";
+  const textClass =
+    tone === "dark"
+      ? "text-[rgb(var(--at-ink-rgb)_/_0.68)]"
+      : "text-[rgb(var(--at-paper-rgb)_/_0.68)]";
   return (
     <motion.div
       {...driftUp(0)}
-      className={`flex items-center gap-5 border-b border-[rgb(var(--at-paper-rgb)_/_0.2)] pb-[18px] ${className}`}
+      className={`flex items-center gap-5 border-b ${ruleClass} pb-[18px] ${className}`}
     >
       <div className="flex min-w-0 items-center gap-4">
-        <span className="h-px w-14 shrink-0 bg-[rgb(var(--at-paper-rgb)_/_0.42)]" />
-        <p className="m-0 font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-[rgb(var(--at-paper-rgb)_/_0.68)]">
+        <span className={`h-px w-14 shrink-0 ${lineClass}`} />
+        <p className={`m-0 font-mono text-[11px] font-medium uppercase tracking-[0.22em] ${textClass}`}>
           {title}
         </p>
       </div>
@@ -266,39 +280,64 @@ function AssetWarmup() {
 function HomeSlide({ onNavigate }: { onNavigate: (slide: number) => void }) {
   return (
     <div className="at-home-slide relative isolate flex flex-1 flex-col overflow-hidden">
-      <div className="relative z-10 flex min-h-full flex-col justify-center pb-16 pt-16 sm:pt-20 md:pb-[10vh] md:pt-24">
-        <div className={alignmentWrapper}>
-          <div className="w-full max-w-[650px] text-[var(--at-ink)] sm:-translate-y-[2vh] min-[900px]:-translate-y-[4vh]">
+      {/* Bottom-up scrim — preserves the image, anchors the hero */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-[55%]"
+        style={{
+          background:
+            "linear-gradient(to top, rgba(8,12,20,0.6) 0%, rgba(8,12,20,0.35) 35%, rgba(8,12,20,0.12) 65%, rgba(8,12,20,0) 100%)",
+        }}
+      />
+      {/* Email link — bottom-right */}
+      <a
+        href="mailto:robertneir@alltogethercapital.com"
+        aria-label="Email Robert Neir"
+        className="absolute bottom-4 right-4 z-20 inline-flex h-11 w-11 items-center justify-center text-[#F4EFE6] [filter:drop-shadow(0_1px_2px_rgba(0,0,0,0.6))] transition-colors duration-200 hover:text-[var(--at-accent-primary)] sm:bottom-5 sm:right-5 md:bottom-6 md:right-6"
+      >
+        <svg
+          className="h-5 w-5 sm:h-[22px] sm:w-[22px]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden
+        >
+          <rect x="2.5" y="5" width="19" height="14" rx="0.5" />
+          <path d="M3 6l9 7 9-7" />
+        </svg>
+      </a>
+
+      <div className="relative z-10 flex flex-1 flex-col justify-end px-4 pb-6 pt-16 sm:px-5 sm:pb-8 sm:pt-20 md:px-6 md:pb-10 md:pt-24">
+        <div className="w-full max-w-[520px] text-[#F4EFE6]">
+          <div>
             <motion.div {...driftUp(0.08)}>
               <h1
-                className="m-0 text-[clamp(2.45rem,7.4vw,6rem)] font-medium uppercase leading-[0.9] tracking-normal text-[var(--at-ink)]"
+                className="m-0 text-[clamp(1.75rem,5vw,3.75rem)] font-medium uppercase leading-[0.92] tracking-normal text-[#F4EFE6] [text-shadow:0_1px_2px_rgba(0,0,0,0.45),_0_2px_18px_rgba(0,0,0,0.25)]"
                 style={{ fontFamily: "var(--at-font-body)" }}
               >
                 Build Together
               </h1>
-              <p className="mt-2 font-display text-[clamp(2.05rem,5.3vw,5rem)] font-normal italic leading-[0.98] tracking-normal text-[rgb(var(--at-ink-rgb)_/_0.82)]">
+              <p className="mt-2 font-display text-[clamp(1.4rem,3.6vw,3rem)] font-normal italic leading-[1] tracking-normal text-[#F4EFE6] [text-shadow:0_1px_2px_rgba(0,0,0,0.4),_0_2px_18px_rgba(0,0,0,0.2)]">
                 from AI to atoms.
-              </p>
-              <p className="mt-5 max-w-[45ch] text-[15px] leading-[1.6] text-[rgb(var(--at-ink-rgb)_/_0.72)] sm:text-base md:mt-6 md:leading-[1.65]">
-                We partner with founders building software, AI, robotics, and space.
-                We don&apos;t evaluate companies from pitch decks — we evaluate them
-                from the command line.
               </p>
 
               <div className="mt-7 flex flex-wrap items-center gap-4 sm:gap-5 md:mt-8">
                 <button
                   type="button"
                   onClick={() => onNavigate(2)}
-                  className="relative inline-flex min-h-11 items-center justify-center bg-[var(--at-ink)] px-6 py-3 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--at-paper)] transition duration-300 after:absolute after:-bottom-1 after:-right-1 after:h-full after:w-full after:border-r-4 after:border-b-4 after:border-[var(--at-accent-warm)] after:content-[''] hover:bg-[var(--at-accent-primary)] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--at-accent-primary)]"
+                  className="relative inline-flex min-h-11 items-center justify-center bg-[var(--at-ink)] px-6 py-3 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--at-paper)] shadow-[0_8px_24px_-12px_rgba(0,0,0,0.6)] transition duration-300 after:absolute after:-bottom-1 after:-right-1 after:h-full after:w-full after:border-r-4 after:border-b-4 after:border-[var(--at-accent-warm)] after:content-[''] hover:bg-[var(--at-accent-primary)] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--at-accent-primary)]"
                 >
-                  Investments
+                  Companies
                 </button>
                 <button
                   type="button"
                   onClick={() => onNavigate(1)}
-                  className="group inline-flex min-h-11 items-center gap-3 border-b border-[rgb(var(--at-ink-rgb)_/_0.42)] px-1 py-3 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--at-ink)] transition duration-300 hover:border-[var(--at-accent-primary)] hover:text-[var(--at-accent-primary)] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--at-accent-primary)]"
+                  className="group inline-flex min-h-11 items-center gap-3 border-b border-[rgb(244,239,230_/_0.5)] px-1 py-3 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-[#F4EFE6] transition duration-300 hover:border-[var(--at-accent-primary)] hover:text-[var(--at-accent-primary)] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--at-accent-primary)]"
                 >
-                  <span>What we build</span>
+                  <span>Philosophy</span>
                   <span aria-hidden className="text-[var(--at-accent-warm)] transition-transform duration-300 group-hover:translate-x-1">
                     →
                   </span>
@@ -315,72 +354,51 @@ function HomeSlide({ onNavigate }: { onNavigate: (slide: number) => void }) {
 /* ─── Slide 1: Thesis ─── */
 function ThesisSlide() {
   return (
-    <div className="at-philosophy-slide min-h-full">
+    <div className="at-philosophy-slide min-h-full text-[var(--at-ink)]">
       <div className="at-philosophy-scene" aria-hidden />
 
-      <main className="relative z-[1] mx-auto grid min-h-full max-w-[1280px] grid-cols-1 content-start gap-8 px-6 pb-14 pt-28 sm:px-8 md:pt-32 lg:grid-cols-[minmax(320px,0.78fr)_minmax(560px,1.22fr)] lg:items-start lg:gap-x-16 lg:gap-y-9 lg:px-14 lg:pb-12 lg:pt-[128px]">
-        <PageHeader title="Philosophy" className="lg:col-span-2" />
+      <main className="relative z-[1] mx-auto flex min-h-full w-full max-w-[1280px] flex-col gap-8 px-6 pb-14 pt-28 sm:px-8 md:pt-32 lg:px-14 lg:pb-12 lg:pt-[128px]">
+        <PageHeader title="Philosophy" tone="dark" />
 
-        <div className="w-full min-w-0 lg:max-w-[430px] lg:pt-1">
+        <div className="w-full min-w-0 max-w-[820px]">
           <motion.h1
             {...driftUp(0.02)}
-            className="mb-5 max-w-[11ch] font-display text-[40px] font-normal leading-[1.04] tracking-normal text-[var(--at-paper)] sm:text-[52px] lg:text-[58px]"
+            className="mb-5 font-display text-[34px] font-normal leading-[1.06] tracking-normal text-[var(--at-ink)] min-[420px]:text-[40px] sm:text-[58px] sm:whitespace-nowrap sm:leading-[1.04] lg:text-[72px]"
           >
             We invest in builders
             <br />
-            <em className="font-normal text-[var(--at-mist)]">working at the edges</em>
-            <br />
-            of what&apos;s possible.
+            <em className="font-normal text-[var(--at-ink-3)]">working at the edges</em>
           </motion.h1>
 
           <motion.p
             {...driftUp(0.08)}
-            className="max-w-[39ch] text-[15px] leading-[1.65] text-[rgb(var(--at-paper-rgb)_/_0.72)]"
+            className="max-w-[44ch] text-[15px] leading-[1.65] text-[var(--at-ink-3)]"
           >
             Five convictions that shape every check we write — from the first call to
             the long arc of partnership.
           </motion.p>
 
-          <motion.div
-            {...driftUp(0.12)}
-            className="mt-8 grid max-w-[430px] grid-cols-1 border border-[rgb(var(--at-paper-rgb)_/_0.2)] sm:grid-cols-3"
-          >
-            {philosophySignals.map((signal) => (
-              <div
-                key={signal.label}
-                className="border-b border-[rgb(var(--at-paper-rgb)_/_0.2)] p-4 last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0"
+          <div className="mt-8 border-t border-[rgb(var(--at-ink-rgb)_/_0.2)]">
+            {philosophyTenets.map((tenet, index) => (
+              <motion.article
+                key={tenet.title}
+                {...driftUp(0.14 + index * 0.05)}
+                className="grid grid-cols-[2rem_1fr] gap-4 border-b border-[rgb(var(--at-ink-rgb)_/_0.2)] py-5 sm:grid-cols-[2.25rem_1fr]"
               >
-                <div className="font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-[rgb(var(--at-paper-rgb)_/_0.45)]">
-                  {signal.label}
+                <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center bg-[var(--at-marker)] font-mono text-[11px] font-medium text-[var(--at-paper-tint)]">
+                  {index + 1}
+                </span>
+                <div className="min-w-0">
+                  <h2 className="m-0 font-display text-[19px] font-medium leading-[1.15] text-[var(--at-ink)] lg:text-[21px]">
+                    {tenet.title}
+                  </h2>
+                  <p className="m-0 mt-2 max-w-[58ch] text-[13px] leading-[1.55] text-[var(--at-ink-3)] lg:text-[13.5px]">
+                    {tenet.body}
+                  </p>
                 </div>
-                <div className="mt-2 font-display text-[18px] italic leading-[1.1] text-[rgb(var(--at-paper-rgb)_/_0.88)]">
-                  {signal.value}
-                </div>
-              </div>
+              </motion.article>
             ))}
-          </motion.div>
-        </div>
-
-        <div className="min-w-0 border-t border-[rgb(var(--at-paper-rgb)_/_0.24)] lg:pt-0">
-          {philosophyTenets.map((tenet, index) => (
-            <motion.article
-              key={tenet.title}
-              {...driftUp(0.14 + index * 0.05)}
-              className="grid grid-cols-[2rem_1fr] gap-4 border-b border-[rgb(var(--at-paper-rgb)_/_0.2)] py-4 sm:grid-cols-[2.25rem_1fr] lg:py-[15px]"
-            >
-              <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center bg-[var(--at-marker)] font-mono text-[11px] font-medium text-[var(--at-paper-tint)]">
-                {index + 1}
-              </span>
-              <div className="min-w-0">
-                <h2 className="m-0 font-display text-[19px] font-medium leading-[1.15] text-[var(--at-paper)] lg:text-[21px]">
-                  {tenet.title}
-                </h2>
-                <p className="m-0 mt-2 max-w-[62ch] text-[13px] leading-[1.52] text-[rgb(var(--at-paper-rgb)_/_0.7)] lg:text-[13.5px]">
-                  {tenet.body}
-                </p>
-              </div>
-            </motion.article>
-          ))}
+          </div>
         </div>
       </main>
     </div>
@@ -395,13 +413,13 @@ function InvestmentsSlide() {
 
       <main className="relative z-[1] mx-auto max-w-[1160px] px-5 pb-24 pt-34 sm:px-6 sm:pt-40 md:px-10 lg:px-14 lg:pb-36 lg:pt-[192px]">
         <PageHeader
-          title="Investments"
+          title="Companies"
           className="mb-12 sm:mb-18 lg:mb-20"
         />
 
         <section
           className="grid grid-cols-1 border-l border-t border-[rgb(var(--at-paper-rgb)_/_0.14)] sm:grid-cols-2 lg:grid-cols-4"
-          aria-label="Investments"
+          aria-label="Companies"
         >
           {investments.map((company, index) => (
             <motion.a
@@ -416,7 +434,7 @@ function InvestmentsSlide() {
                 ease: [0.22, 1, 0.36, 1] as const,
                 delay: 0.1 + index * 0.06,
               }}
-              className="at-investment-cell group relative isolate flex min-h-[190px] flex-col items-center justify-center overflow-hidden border-b border-r border-[rgb(var(--at-paper-rgb)_/_0.14)] px-4 py-8 text-center sm:min-h-[220px] sm:px-5"
+              className="at-investment-cell group relative isolate flex min-h-[150px] flex-col items-center justify-center overflow-hidden border-b border-r border-[rgb(var(--at-paper-rgb)_/_0.14)] px-4 py-6 text-center sm:min-h-[220px] sm:px-5 sm:py-8"
             >
               <InvestmentLogo
                 name={company.name}
@@ -443,91 +461,60 @@ function InvestmentsSlide() {
 /* ─── Slide 3: Team ─── */
 function TeamSlide() {
   return (
-    <div className="at-team-slide min-h-full overflow-y-auto text-[var(--at-paper)]">
-      <div className="at-team-scene" aria-hidden />
-
+    <div className="at-team-slide min-h-full overflow-y-auto text-[var(--at-ink)]">
       <main className="relative z-[1] mx-auto w-full max-w-[1120px] px-5 pb-20 pt-28 sm:px-6 md:px-10 md:pb-24 md:pt-32 lg:px-14">
-        <PageHeader title="Team" className="mb-7" />
+        <PageHeader title="Team" tone="dark" className="mb-12" />
 
-        <motion.div
-          {...driftUp(0.04)}
-          className="mb-8 grid gap-4 border-b border-[rgb(var(--at-paper-rgb)_/_0.2)] pb-7 md:grid-cols-[minmax(0,0.8fr)_minmax(320px,1fr)] md:items-end"
-        >
-          <h1 className="m-0 max-w-[10ch] font-display text-[38px] font-normal leading-[1.04] tracking-normal text-[var(--at-paper)] sm:text-[48px]">
-            Builders backing builders.
-          </h1>
-          <p className="m-0 max-w-[56ch] text-sm leading-[1.65] text-[rgb(var(--at-paper-rgb)_/_0.68)] md:justify-self-end">
-            We work with technical founders from the first product questions through
-            the long, quiet years of building.
-          </p>
-        </motion.div>
-
-        <section className="grid grid-cols-1 justify-center gap-10 md:grid-cols-[minmax(0,440px)_minmax(0,440px)] md:gap-12 lg:gap-14" aria-label="Team">
-          {founders.map((member, index) => (
-            <motion.article
+        <section className="grid grid-cols-1 justify-center gap-8 md:grid-cols-[minmax(0,440px)_minmax(0,440px)] md:gap-10 lg:gap-12" aria-label="Team">
+          {founders.map((member) => (
+            <article
               key={member.name}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.7,
-                ease: [0.22, 1, 0.36, 1] as const,
-                delay: 0.08 + index * 0.12,
-              }}
-              className="group flex flex-col"
+              className="group relative aspect-[4/5] w-full overflow-hidden bg-[var(--at-paper-soft)]"
             >
-              <div className="relative mb-[18px] aspect-square w-full overflow-hidden bg-[var(--at-tide)] shadow-[inset_0_0_0_1px_rgb(var(--at-paper-rgb)_/_0.08)]">
-                <Image
-                  src={member.image}
-                  alt={`Portrait of ${member.name}`}
-                  fill
-                  className="object-cover grayscale transition duration-700 group-hover:scale-[1.015] group-hover:grayscale-0"
-                  sizes="(min-width: 1024px) 440px, (min-width: 768px) 42vw, 100vw"
-                />
-              </div>
+              <Image
+                src={member.image}
+                alt={`Portrait of ${member.name}`}
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 440px, (min-width: 768px) 42vw, 100vw"
+              />
 
-              <div className="mb-3.5 flex flex-wrap items-baseline justify-between gap-4 border-b border-[rgb(var(--at-paper-rgb)_/_0.2)] pb-2.5">
-                <h2 className="m-0 font-sans text-2xl font-medium uppercase leading-[1.05] tracking-normal text-[rgb(var(--at-paper-rgb)_/_0.86)] transition-colors duration-300 group-hover:text-[var(--at-paper)]">
-                  {member.name}
-                </h2>
-                <span className="font-display text-sm italic text-[rgb(var(--at-paper-rgb)_/_0.58)]">
-                  {member.role}
-                </span>
-              </div>
+              {/* Hover overlay — instant, no fade */}
+              <div className="pointer-events-none absolute inset-0 hidden bg-[rgb(var(--at-ink-rgb)_/_0.55)] group-hover:block group-focus-within:block">
+                <div className="pointer-events-auto absolute inset-x-0 top-0 px-5 pt-5 sm:px-6 sm:pt-6">
+                  <h2 className="m-0 font-sans text-xl font-medium uppercase leading-[1.05] tracking-normal text-[#F4EFE6] sm:text-2xl">
+                    {member.name}
+                  </h2>
+                  <p className="m-0 mt-1 font-display text-sm italic text-[rgb(244,239,230_/_0.78)]">
+                    Founding Partner
+                  </p>
+                </div>
 
-              <p className="mb-4 text-sm leading-[1.6] text-[rgb(var(--at-paper-rgb)_/_0.68)] transition-colors duration-300 group-hover:text-[rgb(var(--at-paper-rgb)_/_0.78)]">
-                {member.bioBefore}{" "}
-                <em className="font-display text-[15px] font-normal text-[var(--at-paper)]">
-                  {member.emphasis}
-                </em>{" "}
-                {member.bioAfter}
-              </p>
-
-              <div className="flex flex-wrap gap-2">
-                <a
-                  href={member.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${member.name} on LinkedIn`}
-                  className="inline-flex items-center gap-2 border border-[rgb(var(--at-paper-rgb)_/_0.75)] px-3 py-2 text-[10px] font-medium uppercase tracking-[0.18em] text-[var(--at-paper)] transition duration-200 hover:border-[var(--at-paper-tint)] hover:bg-[var(--at-paper-tint)] hover:text-[var(--at-ink)]"
-                >
-                  <svg className="h-[13px] w-[13px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-                    <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z" />
-                  </svg>
-                  LinkedIn
-                </a>
-                <a
-                  href={`mailto:${member.email}`}
-                  aria-label={`Email ${member.name}`}
-                  className="inline-flex items-center gap-2 border border-[rgb(var(--at-paper-rgb)_/_0.75)] px-3 py-2 text-[10px] font-medium uppercase tracking-[0.18em] text-[var(--at-paper)] transition duration-200 hover:border-[var(--at-paper-tint)] hover:bg-[var(--at-paper-tint)] hover:text-[var(--at-ink)]"
-                >
-                  <svg className="h-[13px] w-[13px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>
-                    <rect x="2.5" y="5" width="19" height="14" rx="0.5" />
-                    <path d="M3 6l9 7 9-7" />
-                  </svg>
-                  Email
-                </a>
+                <div className="pointer-events-auto absolute inset-x-0 bottom-0 flex gap-2 px-5 pb-5 sm:px-6 sm:pb-6">
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${member.name} on LinkedIn`}
+                    className="inline-flex h-11 w-11 items-center justify-center border border-[rgb(244,239,230_/_0.7)] text-[#F4EFE6] touch-manipulation hover:border-[#F4EFE6] hover:bg-[#F4EFE6] hover:text-[var(--at-ink)] sm:h-10 sm:w-10"
+                  >
+                    <svg className="h-[14px] w-[14px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                      <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z" />
+                    </svg>
+                  </a>
+                  <a
+                    href={`mailto:${member.email}`}
+                    aria-label={`Email ${member.name}`}
+                    className="inline-flex h-11 w-11 items-center justify-center border border-[rgb(244,239,230_/_0.7)] text-[#F4EFE6] touch-manipulation hover:border-[#F4EFE6] hover:bg-[#F4EFE6] hover:text-[var(--at-ink)] sm:h-10 sm:w-10"
+                  >
+                    <svg className="h-[14px] w-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>
+                      <rect x="2.5" y="5" width="19" height="14" rx="0.5" />
+                      <path d="M3 6l9 7 9-7" />
+                    </svg>
+                  </a>
+                </div>
               </div>
-            </motion.article>
+            </article>
           ))}
         </section>
       </main>
@@ -626,7 +613,7 @@ export default function Home() {
   }, [currentSlide, next, prev]);
 
   return (
-    <div className={`at-site-shell ${currentSlide === 0 ? "bg-[var(--at-paper)]" : "bg-[var(--at-deep)]"}`}>
+    <div className={`at-site-shell ${currentSlide === 2 ? "bg-[var(--at-deep)]" : "bg-[var(--at-paper)]"}`}>
       {/* Content — instant page swaps, no AnimatePresence */}
       <div className="at-page-frame relative z-10 flex flex-col">
         <AssetWarmup />

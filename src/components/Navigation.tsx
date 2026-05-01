@@ -10,7 +10,7 @@ interface NavigationProps {
 
 const menuItems = [
   { num: "01", label: "Philosophy", slide: 1 },
-  { num: "02", label: "Investments", slide: 2 },
+  { num: "02", label: "Companies", slide: 2 },
   { num: "03", label: "Team", slide: 3 },
 ];
 
@@ -43,8 +43,11 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
     setTimeout(() => setMenuOpen(false), 50);
   };
 
-  const logoColor = "var(--at-ink)";
-  const menuLineColor = "var(--at-ink)";
+  // Wordmark + hamburger adapt to the page background.
+  // Logo square (orange + white "at") stays the same on all pages.
+  const isDarkSlide = currentSlide === 2;
+  const logoColor = isDarkSlide ? "var(--at-paper)" : "var(--at-ink)";
+  const menuLineColor = isDarkSlide ? "var(--at-paper)" : "var(--at-ink)";
 
   return (
     <>
@@ -54,7 +57,7 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const, delay: 0.2 }}
-          className="relative z-40 pt-safe bg-gradient-to-b from-[rgb(var(--at-paper-rgb)_/_0.58)] to-transparent"
+          className="relative z-40 pt-safe"
         >
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 py-4 sm:py-5 md:py-6 flex items-center justify-between">
             <div className="h-7 sm:h-8 md:h-8" />
@@ -63,17 +66,14 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
         </motion.header>
       )}
 
-      {/* Fixed top bar — logo + hamburger, aligned to content grid */}
+      {/* Fixed top bar — logo + hamburger, transparent always */}
       <div
-        className={`fixed top-0 left-0 right-0 z-[210] pointer-events-none transition-colors duration-300 ${
-          menuOpen || currentSlide !== 0 ? "bg-[var(--at-paper)]" : ""
-        }`}
+        className="fixed top-0 left-0 right-0 z-[210] pointer-events-none"
       >
         <div
-          className="mx-auto flex items-center justify-between px-4 py-4 sm:px-6 sm:py-5 md:px-10 md:py-6 lg:px-16"
-          style={{ maxWidth: "1400px" }}
+          className="relative flex w-full items-center justify-between px-4 py-4 sm:px-5 sm:py-5 md:px-6 md:py-6"
         >
-          {/* Logo */}
+          {/* Logo — square mark only */}
           <button
             type="button"
             onClick={() => {
@@ -84,27 +84,39 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
                 onNavigate?.(0);
               }
             }}
-            className="flex items-start gap-3.5 hover:opacity-80 transition-opacity touch-manipulation pointer-events-auto"
+            className="flex h-11 w-11 items-center justify-center bg-[var(--at-accent-primary)] touch-manipulation pointer-events-auto sm:h-12 sm:w-12"
             aria-label="All Together Capital — go to home"
           >
             <span
-              className="text-[30px] font-medium leading-none transition-colors duration-300 sm:text-[34px]"
-              style={{
-                fontFamily: "var(--at-font-code)",
-                color: logoColor,
-              }}
+              className="text-[20px] font-medium leading-none text-white sm:text-[22px]"
+              style={{ fontFamily: "var(--at-font-code)" }}
             >
               at
             </span>
-            <span
-              className="pt-0.5 text-left text-[10px] font-medium uppercase leading-[1.35] tracking-[0.18em] transition-colors duration-300 sm:text-[11px]"
-              style={{
-                fontFamily: "var(--at-font-body)",
-                color: logoColor,
-              }}
-            >
+          </button>
+
+          {/* Centered wordmark — clickable, hidden on mobile */}
+          <button
+            type="button"
+            onClick={() => {
+              if (menuOpen) {
+                onNavigate?.(0);
+                setTimeout(() => setMenuOpen(false), 50);
+              } else {
+                onNavigate?.(0);
+              }
+            }}
+            className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 flex-col items-center text-center touch-manipulation pointer-events-auto sm:flex"
+            style={{
+              fontFamily: "var(--at-font-body)",
+              color: logoColor,
+            }}
+            aria-label="All Together Capital — go to home"
+          >
+            <span className="text-[14px] font-medium uppercase leading-[1.1] tracking-[0.2em] sm:text-[15px]">
               All Together
-              <br />
+            </span>
+            <span className="mt-0.5 text-[9px] font-medium uppercase leading-[1.1] tracking-[0.32em] sm:text-[10px]">
               Capital
             </span>
           </button>
@@ -113,7 +125,7 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
           <button
             type="button"
             onClick={() => setMenuOpen(!menuOpen)}
-            className="flex h-10 w-10 items-center justify-center border-0 bg-transparent outline-none transition-opacity hover:opacity-70 focus:outline-none focus-visible:outline-none focus-visible:ring-0 touch-manipulation pointer-events-auto sm:h-11 sm:w-11"
+            className="flex h-11 w-11 items-center justify-center border-0 bg-transparent outline-none focus:outline-none focus-visible:outline-none focus-visible:ring-0 touch-manipulation pointer-events-auto sm:h-12 sm:w-12"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
           >
@@ -121,21 +133,14 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
               <span
                 className="absolute block w-6 sm:w-7 h-[2px] transition-all duration-300 origin-center"
                 style={{
-                  transform: menuOpen ? "rotate(45deg)" : "translateY(-6px)",
-                  backgroundColor: menuLineColor,
-                }}
-              />
-              <span
-                className="absolute block w-6 sm:w-7 h-[2px] transition-all duration-300"
-                style={{
-                  opacity: menuOpen ? 0 : 1,
+                  transform: menuOpen ? "rotate(45deg)" : "translateY(-4px)",
                   backgroundColor: menuLineColor,
                 }}
               />
               <span
                 className="absolute block w-6 sm:w-7 h-[2px] transition-all duration-300 origin-center"
                 style={{
-                  transform: menuOpen ? "rotate(-45deg)" : "translateY(6px)",
+                  transform: menuOpen ? "rotate(-45deg)" : "translateY(4px)",
                   backgroundColor: menuLineColor,
                 }}
               />
