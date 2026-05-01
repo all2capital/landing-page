@@ -246,7 +246,7 @@ h3,
 .at-philosophy-scene,
 .at-investments-scene,
 .at-team-scene {
-  position: absolute;
+  position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
