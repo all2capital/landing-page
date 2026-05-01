@@ -10,11 +10,27 @@ const preloadedImages = [
 ];
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://alltogethercapital.com"),
   title: "All Together Capital",
-  description: "Tech builders and founders investing in AI, software, hardware, space, biotech, and longevity.",
+  description:
+    "Tech builders and founders investing in AI, software, hardware, space, biotech, and longevity.",
   icons: {
     icon: { url: "/favicon.png", type: "image/png" },
     apple: "/favicon.png",
+  },
+  openGraph: {
+    title: "All Together Capital",
+    description:
+      "Build Together — from AI to atoms. Tech builders and founders investing in AI, software, hardware, space, biotech, and longevity.",
+    siteName: "All Together Capital",
+    type: "website",
+    url: "https://alltogethercapital.com",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "All Together Capital",
+    description:
+      "Build Together — from AI to atoms. Tech builders and founders investing in AI, software, hardware, space, biotech, and longevity.",
   },
 };
 
