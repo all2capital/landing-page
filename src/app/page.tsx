@@ -363,8 +363,8 @@ function ThesisSlide() {
             {...driftUp(0.08)}
             className="max-w-[44ch] text-[15px] leading-[1.65] text-[var(--at-ink-3)]"
           >
-            Five convictions that shape every check we write — from the first call to
-            the long arc of partnership.
+            Five convictions that shape how we partner with founders — from the first
+            call through the long arc of building a company together.
           </motion.p>
 
           <div className="mt-8 border-t border-[rgb(var(--at-ink-rgb)_/_0.2)]">
@@ -402,9 +402,28 @@ function InvestmentsSlide() {
 
       <main className="relative z-[1] mx-auto max-w-[1160px] px-5 pb-24 pt-34 sm:px-6 sm:pt-40 md:px-10 lg:px-14 lg:pb-36 lg:pt-[192px]">
         <PageHeader
-          title="Companies"
-          className="mb-12 sm:mb-18 lg:mb-20"
+          title="Partners"
+          className="mb-8 sm:mb-10"
         />
+
+        <div className="mb-12 max-w-[640px] sm:mb-16 lg:mb-20">
+          <motion.h2
+            {...driftUp(0.02)}
+            className="font-display text-[34px] font-normal leading-[1.06] tracking-normal text-[var(--at-paper)] min-[420px]:text-[40px] sm:text-[52px] lg:text-[60px]"
+          >
+            The companies we&apos;re
+            <br />
+            <em className="font-normal text-[rgb(var(--at-paper-rgb)_/_0.6)]">proud to build with.</em>
+          </motion.h2>
+          <motion.p
+            {...driftUp(0.08)}
+            className="mt-5 max-w-[52ch] text-[15px] leading-[1.65] text-[rgb(var(--at-paper-rgb)_/_0.7)]"
+          >
+            Once we partner, we&apos;re in the work — for the long arcs, the hard quarters, and
+            the moments that don&apos;t make the deck. These are the founders we&apos;re lucky to
+            stand beside.
+          </motion.p>
+        </div>
 
         <section
           className="grid grid-cols-1 border-l border-t border-[rgb(var(--at-paper-rgb)_/_0.14)] sm:grid-cols-2 lg:grid-cols-4"
