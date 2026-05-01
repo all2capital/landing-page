@@ -18,9 +18,9 @@ export function PortfolioSlide() {
             {...driftUp(0.02)}
             className="font-display text-[34px] font-normal leading-[1.06] tracking-normal text-[var(--at-paper)] min-[420px]:text-[40px] sm:text-[52px] lg:text-[60px]"
           >
-            The companies we
+            We back the best founders
             <br />
-            <em className="font-normal text-[rgb(var(--at-paper-rgb)_/_0.6)]">build with and support.</em>
+            <em className="font-normal text-[rgb(var(--at-paper-rgb)_/_0.6)]">and build alongside them.</em>
           </motion.h2>
           <motion.p
             {...driftUp(0.08)}
