@@ -304,7 +304,7 @@ function HomeSlide({ onNavigate }: { onNavigate: (index: number) => void }) {
                 className="m-0 text-[clamp(1.75rem,5vw,3.75rem)] font-medium uppercase leading-[0.92] tracking-normal text-[#F4EFE6] [text-shadow:0_1px_2px_rgba(0,0,0,0.45),_0_2px_18px_rgba(0,0,0,0.25)]"
                 style={{ fontFamily: "var(--at-font-body)" }}
               >
-                Build Together
+                Build Our Future Together
               </h1>
               <p className="mt-2 font-display text-[clamp(1.4rem,3.6vw,3rem)] font-normal italic leading-[1] tracking-normal text-[#F4EFE6] [text-shadow:0_1px_2px_rgba(0,0,0,0.4),_0_2px_18px_rgba(0,0,0,0.2)]">
                 from AI to atoms.
@@ -411,17 +411,17 @@ function InvestmentsSlide() {
             {...driftUp(0.02)}
             className="font-display text-[34px] font-normal leading-[1.06] tracking-normal text-[var(--at-paper)] min-[420px]:text-[40px] sm:text-[52px] lg:text-[60px]"
           >
-            The companies we&apos;re
+            The companies we
             <br />
-            <em className="font-normal text-[rgb(var(--at-paper-rgb)_/_0.6)]">proud to build with.</em>
+            <em className="font-normal text-[rgb(var(--at-paper-rgb)_/_0.6)]">build with and support.</em>
           </motion.h2>
           <motion.p
             {...driftUp(0.08)}
             className="mt-5 max-w-[52ch] text-[15px] leading-[1.65] text-[rgb(var(--at-paper-rgb)_/_0.7)]"
           >
             Once we partner, we&apos;re in the work — for the long arcs, the hard quarters, and
-            the moments that don&apos;t make the deck. These are the founders we&apos;re lucky to
-            stand beside.
+            the moments that don&apos;t make the deck. These are the founders we build with
+            and support.
           </motion.p>
         </div>
 
