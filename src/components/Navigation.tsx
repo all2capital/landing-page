@@ -45,9 +45,8 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
 
   // Wordmark + hamburger adapt to the page background.
   // Logo square (orange + white "at") stays the same on all pages.
-  const isDarkSlide = currentSlide === 2;
-  const logoColor = menuOpen ? "var(--at-ink)" : isDarkSlide ? "var(--at-paper)" : "var(--at-ink)";
-  const menuLineColor = menuOpen ? "var(--at-ink)" : isDarkSlide ? "var(--at-paper)" : "var(--at-ink)";
+  const logoColor = "var(--at-ink)";
+  const menuLineColor = "var(--at-ink)";
 
   return (
     <>
@@ -66,9 +65,9 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
         </motion.header>
       )}
 
-      {/* Fixed top bar — logo + hamburger, transparent always */}
+      {/* Fixed top bar — logo + hamburger */}
       <div
-        className="fixed top-0 left-0 right-0 z-[210] pointer-events-none"
+        className="fixed top-0 left-0 right-0 z-[210] bg-[var(--at-paper)] pointer-events-none"
       >
         <div
           className="relative flex w-full items-center justify-between px-4 py-4 sm:px-5 sm:py-5 md:px-6 md:py-6"
