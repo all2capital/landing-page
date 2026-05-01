@@ -15,18 +15,18 @@ export function PhilosophySlide() {
         <div className="w-full min-w-0 max-w-[820px]">
           <motion.h1
             {...driftUp(0.02)}
-            className="mb-5 font-display text-[34px] font-normal leading-[1.06] tracking-normal text-[var(--at-ink)] min-[420px]:text-[40px] sm:text-[58px] sm:whitespace-nowrap sm:leading-[1.04] lg:text-[72px]"
+            className="mb-5 font-display text-[34px] font-normal leading-[1.06] tracking-normal text-[var(--at-ink)] min-[420px]:text-[40px] sm:text-[58px] sm:leading-[1.04] lg:text-[72px]"
           >
-            We invest in builders
+            We invest in the best
             <br />
-            <em className="font-normal text-[var(--at-ink-3)]">working at the edges</em>
+            <em className="font-normal text-[var(--at-ink-3)]">Working at the edge of technology</em>
           </motion.h1>
 
           <motion.p
             {...driftUp(0.08)}
             className="max-w-[44ch] text-[15px] leading-[1.65] text-[var(--at-ink-3)]"
           >
-            Five convictions that shape how we partner with founders — from the first
+            Five convictions that shape how we partner with founders, from the first
             call through the long arc of building a company together.
           </motion.p>
 

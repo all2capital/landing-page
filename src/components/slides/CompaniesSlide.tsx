@@ -26,7 +26,7 @@ export function CompaniesSlide() {
             {...driftUp(0.08)}
             className="mt-5 max-w-[52ch] text-[15px] leading-[1.65] text-[rgb(var(--at-paper-rgb)_/_0.7)]"
           >
-            Once we partner, we&apos;re in the work — for the long arcs, the hard quarters, and
+            Once we partner, we&apos;re in the work, for the long arcs, the hard quarters, and
             the moments that don&apos;t make the deck. These are the founders we build with
             and support.
           </motion.p>

@@ -77,7 +77,7 @@ export default function Navigation() {
             type="button"
             onClick={handleHomeClick}
             className="flex h-11 w-11 items-center justify-center bg-[var(--at-accent-primary)] touch-manipulation pointer-events-auto sm:h-12 sm:w-12"
-            aria-label="All Together Capital — go to home"
+            aria-label="All Together Capital, go to home"
           >
             <span
               className="text-[20px] font-medium leading-none text-white sm:text-[22px]"
@@ -95,7 +95,7 @@ export default function Navigation() {
               fontFamily: "var(--at-font-body)",
               color: logoColor,
             }}
-            aria-label="All Together Capital — go to home"
+            aria-label="All Together Capital, go to home"
           >
             <span className="text-[14px] font-medium uppercase leading-[1.1] tracking-[0.2em] sm:text-[15px]">
               All Together
