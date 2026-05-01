@@ -13,11 +13,7 @@ export const metadata: Metadata = {
   title: "All Together Capital",
   description: "Tech builders and founders investing in AI, software, hardware, space, biotech, and longevity.",
   icons: {
-    icon: [
-      { url: "/favicon.png", sizes: "512x512", type: "image/png" },
-      { url: "/icon.svg", type: "image/svg+xml" },
-    ],
-    shortcut: "/favicon.ico",
+    icon: { url: "/favicon.png", type: "image/png" },
     apple: "/favicon.png",
   },
 };
