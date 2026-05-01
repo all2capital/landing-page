@@ -74,8 +74,8 @@
 }
 
 :root {
-  --at-paper-rgb: 244 240 232;
-  --at-paper-tint-rgb: 244 240 232;
+  --at-paper-rgb: 255 255 255;
+  --at-paper-tint-rgb: 255 255 255;
   --at-stone-rgb: 217 208 195;
   --at-ink-rgb: 31 35 40;
   --at-purple-rgb: 91 58 115;
@@ -83,10 +83,10 @@
   --at-gold-rgb: 184 134 59;
   --at-copper-rgb: 184 97 60;
   --at-deep-rgb: var(--at-ink-rgb);
-  --at-paper: #F4F0E8;
+  --at-paper: #ffffff;
   --at-paper-soft: #D9D0C3;
   --at-paper-deep: #D9D0C3;
-  --at-paper-tint: #F4F0E8;
+  --at-paper-tint: #ffffff;
   --at-stone: #D9D0C3;
   --at-ink: #1F2328;
   --at-ink-2: #1F2328;
@@ -99,10 +99,12 @@
   --at-teal: #2F7C85;
   --at-gold: #B8863B;
   --at-copper: #B8613C;
-  --at-accent-primary: var(--at-purple);
-  --at-accent-secondary: var(--at-gold);
-  --at-accent-warm: var(--at-copper);
-  --at-marker: var(--at-accent-secondary);
+  --at-brand-rgb: 193 68 5;
+  --at-brand: #c14405;
+  --at-accent-primary: var(--at-brand);
+  --at-accent-secondary: var(--at-brand);
+  --at-accent-warm: var(--at-brand);
+  --at-marker: var(--at-brand);
   --at-deep: var(--at-ink);
   --at-tide: var(--at-teal);
   --at-sea: var(--at-teal);
@@ -195,7 +197,6 @@ h3,
 .at-philosophy-slide {
   position: relative;
   min-height: 100svh;
-  background: var(--at-deep);
   color: var(--at-paper);
   isolation: isolate;
   overflow-x: hidden;
@@ -204,7 +205,6 @@ h3,
 .at-team-slide {
   position: relative;
   min-height: 100svh;
-  background: var(--at-deep);
   isolation: isolate;
   overflow-x: hidden;
 }
@@ -212,7 +212,6 @@ h3,
 .at-investments-slide {
   position: relative;
   min-height: 100svh;
-  background: var(--at-deep);
   isolation: isolate;
   overflow-x: hidden;
 }
@@ -229,8 +228,8 @@ h3,
 
 .at-home-slide {
   min-height: 0;
-  background-image: url("/design-assets/home-launch-city.png");
-  background-position: 62% center;
+  background-image: url("/design-assets/landing.jpg");
+  background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -263,31 +262,31 @@ h3,
 }
 
 .at-philosophy-scene {
-  background: url("/design-assets/bg-philosophy-space.png") no-repeat center center;
+  background-color: #ffffff;
+  background-image: url("/design-assets/philosophy.png");
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: cover;
 }
 
 .at-investments-scene {
-  background-image: url("/design-assets/bg-investments-underwater.png");
-  background-position: center top;
-}
-
-.at-team-scene {
-  background-image: url("/design-assets/bg-team-desert.png");
+  background-image: url("/design-assets/investments.png");
   background-position: center center;
 }
 
-@media (max-width: 980px) {
-  .at-philosophy-scene {
-    background-position: 68% center;
-  }
+.at-team-scene {
+  display: none;
+}
+
+@media (max-width: 768px) {
   .at-investments-scene {
-    background-position: 66% top;
+    background-position: 66% center;
   }
-  .at-team-scene {
-    background-position: 62% center;
+  .at-philosophy-scene {
+    background-position: 70% center;
   }
 }
+
 
 .at-investment-cell::before {
   content: "";
