@@ -7,7 +7,7 @@ import { usePathname, useRouter } from "next/navigation";
 
 const menuItems = [
   { label: "Philosophy", href: "/philosophy" },
-  { label: "Companies", href: "/companies" },
+  { label: "Portfolio", href: "/portfolio" },
   { label: "Team", href: "/team" },
 ];
 
