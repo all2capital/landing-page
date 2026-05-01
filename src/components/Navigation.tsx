@@ -192,8 +192,8 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
 
               <div className="mx-auto flex w-full max-w-[1280px] flex-wrap items-baseline justify-between gap-4 border-t border-[var(--at-rule)] px-5 py-6 sm:px-6 md:px-10 lg:px-16">
                 <span className="font-display text-base italic text-[var(--at-ink)] sm:text-lg">
-                  Founders first. We build, not just{" "}
-                  <span className="text-[var(--at-accent-primary)]">invest.</span>
+                  Partners to founders. We build alongside,{" "}
+                  <span className="text-[var(--at-accent-primary)]">for the long arc.</span>
                 </span>
                 <span className="font-mono text-[10px] uppercase tracking-[0.04em] text-[var(--at-ink-3)] sm:text-xs">
                   © 2026 All Together Capital
