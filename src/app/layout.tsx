@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "All Together Capital",
     description:
-      "Build Together — from AI to atoms. Tech builders and founders investing in AI, software, hardware, space, biotech, and longevity.",
+      "Build Together. From AI to atoms. Tech builders and founders investing in AI, software, hardware, space, biotech, and longevity.",
     siteName: "All Together Capital",
     type: "website",
     url: "https://alltogethercapital.com",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "All Together Capital",
     description:
-      "Build Together — from AI to atoms. Tech builders and founders investing in AI, software, hardware, space, biotech, and longevity.",
+      "Build Together. From AI to atoms. Tech builders and founders investing in AI, software, hardware, space, biotech, and longevity.",
   },
 };
 

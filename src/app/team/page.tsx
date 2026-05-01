@@ -3,7 +3,7 @@ import { SiteShell } from "@/components/site/SiteShell";
 import { TeamSlide } from "@/components/slides/TeamSlide";
 
 export const metadata: Metadata = {
-  title: "Team — All Together Capital",
+  title: "Team | All Together Capital",
   description: "The founding partners of All Together Capital.",
 };
 

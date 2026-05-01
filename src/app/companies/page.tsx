@@ -3,9 +3,9 @@ import { SiteShell } from "@/components/site/SiteShell";
 import { CompaniesSlide } from "@/components/slides/CompaniesSlide";
 
 export const metadata: Metadata = {
-  title: "Companies — All Together Capital",
+  title: "Companies | All Together Capital",
   description:
-    "The companies we build with and support — from AI to atoms.",
+    "The companies we build with and support. From AI to atoms.",
 };
 
 export default function CompaniesPage() {
