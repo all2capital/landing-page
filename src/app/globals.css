@@ -229,7 +229,7 @@ h3,
 .at-home-slide {
   min-height: 0;
   background-image: url("/design-assets/landing.jpg");
-  background-position: center center;
+  background-position: right bottom;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -240,12 +240,6 @@ h3,
   .at-investments-slide,
   .at-team-slide {
     min-height: 100dvh;
-  }
-}
-
-@media (min-width: 768px) {
-  .at-home-slide {
-    background-position: center center;
   }
 }
 
@@ -293,14 +287,14 @@ h3,
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: var(--at-paper-tint);
+  background: var(--at-brand);
   transform: translateY(101%);
   transition: transform 480ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .at-investment-cell:hover,
 .at-investment-cell:focus-visible {
-  border-color: rgb(var(--at-ink-rgb) / 0.16);
+  border-color: rgb(var(--at-brand-rgb) / 0.6);
 }
 
 .at-investment-cell:hover::before,
@@ -310,11 +304,6 @@ h3,
 
 .at-investment-logo {
   filter: brightness(0) invert(1);
-}
-
-.at-investment-cell:hover .at-investment-logo,
-.at-investment-cell:focus-visible .at-investment-logo {
-  filter: brightness(0);
 }
 
 /* Custom scrollbar */
