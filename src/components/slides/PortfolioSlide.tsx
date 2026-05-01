@@ -16,7 +16,7 @@ export function PortfolioSlide() {
         <div className="mb-12 max-w-[820px] sm:mb-16 lg:mb-20">
           <motion.h2
             {...driftUp(0.02)}
-            className="font-display text-[34px] font-normal leading-[1.06] tracking-normal text-[var(--at-paper)] min-[420px]:text-[40px] sm:text-[52px] lg:text-[60px]"
+            className="font-display text-[32px] font-normal leading-[1.06] tracking-normal text-[var(--at-paper)] min-[420px]:text-[38px] sm:text-[46px] lg:text-[52px]"
           >
             We back the best founders
             <br />

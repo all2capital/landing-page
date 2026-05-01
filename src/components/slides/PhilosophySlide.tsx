@@ -15,11 +15,11 @@ export function PhilosophySlide() {
         <div className="w-full min-w-0 max-w-[820px]">
           <motion.h1
             {...driftUp(0.02)}
-            className="mb-5 font-display text-[34px] font-normal leading-[1.06] tracking-normal text-[var(--at-ink)] min-[420px]:text-[40px] sm:text-[58px] sm:leading-[1.04] lg:text-[72px]"
+            className="mb-5 font-display text-[32px] font-normal leading-[1.06] tracking-normal text-[var(--at-ink)] min-[420px]:text-[38px] sm:text-[46px] sm:leading-[1.04] lg:text-[52px]"
           >
             We invest in the best
             <br />
-            <em className="font-normal text-[var(--at-ink-3)]">Working at the edge of technology</em>
+            <em className="font-normal text-[var(--at-ink-3)]">Working at technology&apos;s edge</em>
           </motion.h1>
 
           <motion.p
