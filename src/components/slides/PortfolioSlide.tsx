@@ -13,14 +13,14 @@ export function PortfolioSlide() {
       <main className="relative z-[1] mx-auto max-w-[1160px] px-5 pb-24 pt-34 sm:px-6 sm:pt-40 md:px-10 lg:px-14 lg:pb-36 lg:pt-[192px]">
         <PageHeader title="Partners" className="mb-8 sm:mb-10" />
 
-        <div className="mb-12 max-w-[640px] sm:mb-16 lg:mb-20">
+        <div className="mb-12 max-w-[820px] sm:mb-16 lg:mb-20">
           <motion.h2
             {...driftUp(0.02)}
             className="font-display text-[34px] font-normal leading-[1.06] tracking-normal text-[var(--at-paper)] min-[420px]:text-[40px] sm:text-[52px] lg:text-[60px]"
           >
             We back the best founders
             <br />
-            <em className="font-normal text-[rgb(var(--at-paper-rgb)_/_0.6)]">and build alongside them.</em>
+            <em className="font-normal text-[rgb(var(--at-paper-rgb)_/_0.6)]">with the boldest vision.</em>
           </motion.h2>
           <motion.p
             {...driftUp(0.08)}
