@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
 import { SiteShell } from "@/components/site/SiteShell";
-import { CompaniesSlide } from "@/components/slides/CompaniesSlide";
+import { PortfolioSlide } from "@/components/slides/PortfolioSlide";
 
 export const metadata: Metadata = {
-  title: "Companies | All Together Capital",
+  title: "Portfolio | All Together Capital",
   description:
     "The companies we build with and support. From AI to atoms.",
 };
 
-export default function CompaniesPage() {
+export default function PortfolioPage() {
   return (
     <SiteShell variant="deep">
-      <CompaniesSlide />
+      <PortfolioSlide />
     </SiteShell>
   );
 }

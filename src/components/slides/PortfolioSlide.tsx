@@ -5,7 +5,7 @@ import { driftUp, investments } from "@/lib/site-content";
 import { PageHeader } from "@/components/site/PageHeader";
 import { InvestmentLogo } from "@/components/site/InvestmentLogo";
 
-export function CompaniesSlide() {
+export function PortfolioSlide() {
   return (
     <div className="at-investments-slide min-h-full overflow-y-auto text-[var(--at-paper)]">
       <div className="at-investments-scene" aria-hidden />
@@ -34,7 +34,7 @@ export function CompaniesSlide() {
 
         <section
           className="grid grid-cols-1 border-l border-t border-[rgb(var(--at-paper-rgb)_/_0.14)] sm:grid-cols-2 lg:grid-cols-4"
-          aria-label="Companies"
+          aria-label="Portfolio"
         >
           {investments.map((company, index) => (
             <motion.a

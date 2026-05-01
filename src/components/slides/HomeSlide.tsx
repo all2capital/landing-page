@@ -55,10 +55,10 @@ export function HomeSlide() {
               className="mt-6 flex flex-wrap items-center gap-5 sm:mt-7 sm:gap-7"
             >
               <Link
-                href="/companies"
+                href="/portfolio"
                 className="relative inline-flex min-h-11 items-center justify-center bg-[rgb(var(--at-ink-rgb)_/_0.55)] backdrop-blur-sm px-6 py-3 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-[#F4EFE6] transition duration-300 after:absolute after:-bottom-1 after:-right-1 after:h-full after:w-full after:border-b-4 after:border-r-4 after:border-[var(--at-accent-warm)] after:content-[''] hover:bg-[rgb(var(--at-accent-primary-rgb)_/_0.85)] hover:bg-[var(--at-accent-primary)] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--at-accent-primary)]"
               >
-                Companies
+                Portfolio
               </Link>
               <Link
                 href="/philosophy"
