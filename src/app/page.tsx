@@ -143,7 +143,7 @@ const founders = [
 ];
 
 const warmupImageSources = [
-  "/design-assets/bg-philosophy-space.png",
+  "/design-assets/philosophy.jpg",
   "/design-assets/bg-investments-underwater.png",
   "/design-assets/bg-team-desert.png",
   "/design-assets/founder-hisham.png",
