@@ -1,0 +1,152 @@
+export const philosophyTenets = [
+  {
+    title: "Conviction over consensus",
+    body: "The best companies look obvious in retrospect and contrarian at conception. We back founders whose thesis we don't fully understand on the first read — and whose answers, by the second, feel inevitable.",
+  },
+  {
+    title: "From AI to atoms",
+    body: "Software has stopped being a category. We invest across the full stack of intelligence and matter — language models, autonomous systems, robotics, energy, and the physical infrastructure that lets the digital world meet the real one.",
+  },
+  {
+    title: "Evaluate from the command line",
+    body: "We read the codebase before the deck. We talk to the customer before the cap table. Pitches are signal; product is truth — and we'd rather spend an afternoon inside the thing than an hour hearing about it.",
+  },
+  {
+    title: "Operators, not observers",
+    body: "Capital is the easy part. We've shipped products, recruited teams, and survived the quiet years. We show up when the work is hard and unglamorous — and we measure ourselves by what our founders can build because we were in the room.",
+  },
+  {
+    title: "Long arcs, patient capital",
+    body: "The companies worth building rarely fit a fund cycle. We hold for decades, not exits — and we structure our partnership so that founders can optimize for the next fifteen years, not the next fifteen months.",
+  },
+];
+
+export function logoSources(domain: string, simpleIcon?: string, localSrc?: string) {
+  const sources: string[] = [];
+  if (localSrc) sources.push(localSrc);
+  if (simpleIcon) sources.push(`https://cdn.simpleicons.org/${simpleIcon}/F4F0E8`);
+  sources.push(
+    `https://icon.horse/icon/${domain}`,
+    `https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${domain}&size=128`,
+    `https://www.google.com/s2/favicons?domain=${domain}&sz=128`
+  );
+  return sources;
+}
+
+export const investments = [
+  {
+    name: "Anthropic",
+    fallback: "Anthropic",
+    meta: "AI",
+    href: "https://www.anthropic.com/",
+    logoSources: logoSources("anthropic.com", "anthropic"),
+  },
+  {
+    name: "Anduril",
+    fallback: "Anduril",
+    meta: "Defense · AI",
+    href: "https://www.anduril.com/",
+    logoSources: logoSources("anduril.com"),
+  },
+  {
+    name: "Replit",
+    fallback: "Replit",
+    meta: "Software · AI",
+    href: "https://replit.com/",
+    logoSources: logoSources("replit.com", "replit"),
+  },
+  {
+    name: "Applied Intuition",
+    fallback: "Applied Intuition",
+    meta: "AI · Robotics",
+    href: "https://www.appliedintuition.com/",
+    logoSources: logoSources("appliedintuition.com"),
+  },
+  {
+    name: "Figure AI",
+    fallback: "Figure",
+    meta: "AI · Robotics",
+    href: "https://www.figure.ai/",
+    logoSources: [],
+  },
+  {
+    name: "1X",
+    fallback: "1X",
+    meta: "AI · Robotics",
+    href: "https://www.1x.tech/",
+    logoSources: [],
+  },
+  {
+    name: "Exowatt",
+    fallback: "Exowatt",
+    meta: "Energy",
+    href: "https://www.exowatt.com/",
+    logoSources: logoSources("exowatt.com", undefined, "/design-assets/logos/exowatt.png"),
+  },
+  {
+    name: "Unspun",
+    fallback: "Unspun",
+    meta: "Robotics · Manufacturing",
+    href: "https://www.unspun.io/",
+    logoSources: logoSources("unspun.io", undefined, "/design-assets/logos/unspun.png"),
+  },
+  {
+    name: "Lance",
+    fallback: "Lance",
+    meta: "Software",
+    href: "https://www.lance.live/",
+    logoSources: logoSources("lance.live"),
+  },
+  {
+    name: "Bud Break Innovations",
+    fallback: "Bud Break",
+    meta: "Bio · Agriculture",
+    href: "https://www.budbreakinnovations.com/",
+    logoSources: logoSources("budbreakinnovations.com"),
+  },
+];
+
+export const founders = [
+  {
+    index: "01 / Founding Partner",
+    name: "Hisham El-Husseini",
+    role: "Founding Partner",
+    bioBefore: "Hisham builds at the intersection of software, AI, and capital.",
+    emphasis: "University of Washington",
+    bioAfter:
+      "grad, previously shipping product at Layer3 and across the web3 and AI tooling stack. He partners earliest with technical founders, the kind who answer questions in code, not slideware.",
+    image: "/design-assets/founder-hisham.png",
+    linkedin: "https://www.linkedin.com/in/hisham-el-husseini/",
+    email: "hisham@all2capital.com",
+  },
+  {
+    index: "02 / Founding Partner",
+    name: "Robert Neir",
+    role: "Founding Partner",
+    bioBefore: "Robert is a multi-time founder and former",
+    emphasis: "Microsoft",
+    bioAfter:
+      "game developer. He's built across DeFi, decentralized identity, and consumer products, most recently at Riot IQ. He invests in founders who would build their company whether or not capital ever showed up.",
+    image: "/design-assets/founder-robert.png",
+    linkedin: "https://www.linkedin.com/in/robertmneir/",
+    email: "robert@all2capital.com",
+  },
+];
+
+export const warmupImageSources = [
+  "/design-assets/philosophy.jpg",
+  "/design-assets/bg-investments-underwater.png",
+  "/design-assets/bg-team-desert.png",
+  "/design-assets/founder-hisham.png",
+  "/design-assets/founder-robert.png",
+  "/design-assets/logos/openai.svg",
+  "/design-assets/logos/exowatt.png",
+  "/design-assets/logos/unspun.png",
+  ...investments.flatMap((company) => company.logoSources.slice(0, 1)),
+];
+
+export const driftUp = (delay: number = 0) => ({
+  initial: { opacity: 0, y: 40 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const, delay },
+});
