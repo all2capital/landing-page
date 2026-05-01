@@ -44,20 +44,6 @@ function logoSources(domain: string, simpleIcon?: string, localSrc?: string) {
 
 const investments = [
   {
-    name: "SpaceX",
-    fallback: "SpaceX",
-    meta: "Space · Infrastructure",
-    href: "https://www.spacex.com/",
-    logoSources: logoSources("spacex.com", "spacex"),
-  },
-  {
-    name: "OpenAI",
-    fallback: "OpenAI",
-    meta: "AI",
-    href: "https://openai.com/",
-    logoSources: logoSources("openai.com", undefined, "/design-assets/logos/openai.svg"),
-  },
-  {
     name: "Anthropic",
     fallback: "Anthropic",
     meta: "AI",
@@ -245,7 +231,7 @@ function InvestmentLogo({
         />
       )}
       {useFallback && (
-        <span className="font-display text-[26px] font-normal leading-none tracking-normal text-[var(--at-paper)] transition duration-500 group-hover:text-[var(--at-ink)]">
+        <span className="font-display text-[26px] font-normal leading-none tracking-normal text-[var(--at-paper)] transition duration-500 group-hover:text-[#ffffff]">
           {fallback}
         </span>
       )}
@@ -277,7 +263,7 @@ function AssetWarmup() {
 }
 
 /* ─── Slide 0: Home ─── */
-function HomeSlide({ onNavigate }: { onNavigate: (slide: number) => void }) {
+function HomeSlide({ onNavigate }: { onNavigate: (index: number) => void }) {
   return (
     <div className="at-home-slide relative isolate flex flex-1 flex-col overflow-hidden">
       {/* Bottom-up scrim — preserves the image, anchors the hero */}
@@ -323,26 +309,29 @@ function HomeSlide({ onNavigate }: { onNavigate: (slide: number) => void }) {
               <p className="mt-2 font-display text-[clamp(1.4rem,3.6vw,3rem)] font-normal italic leading-[1] tracking-normal text-[#F4EFE6] [text-shadow:0_1px_2px_rgba(0,0,0,0.4),_0_2px_18px_rgba(0,0,0,0.2)]">
                 from AI to atoms.
               </p>
+            </motion.div>
 
-              <div className="mt-7 flex flex-wrap items-center gap-4 sm:gap-5 md:mt-8">
-                <button
-                  type="button"
-                  onClick={() => onNavigate(2)}
-                  className="relative inline-flex min-h-11 items-center justify-center bg-[var(--at-ink)] px-6 py-3 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--at-paper)] shadow-[0_8px_24px_-12px_rgba(0,0,0,0.6)] transition duration-300 after:absolute after:-bottom-1 after:-right-1 after:h-full after:w-full after:border-r-4 after:border-b-4 after:border-[var(--at-accent-warm)] after:content-[''] hover:bg-[var(--at-accent-primary)] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--at-accent-primary)]"
-                >
-                  Companies
-                </button>
-                <button
-                  type="button"
-                  onClick={() => onNavigate(1)}
-                  className="group inline-flex min-h-11 items-center gap-3 border-b border-[rgb(244,239,230_/_0.5)] px-1 py-3 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-[#F4EFE6] transition duration-300 hover:border-[var(--at-accent-primary)] hover:text-[var(--at-accent-primary)] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--at-accent-primary)]"
-                >
-                  <span>Philosophy</span>
-                  <span aria-hidden className="text-[var(--at-accent-warm)] transition-transform duration-300 group-hover:translate-x-1">
-                    →
-                  </span>
-                </button>
-              </div>
+            <motion.div
+              {...driftUp(0.18)}
+              className="mt-6 flex flex-wrap items-center gap-5 sm:mt-7 sm:gap-7"
+            >
+              <button
+                type="button"
+                onClick={() => onNavigate(2)}
+                className="relative inline-flex min-h-11 items-center justify-center bg-[var(--at-ink)] px-6 py-3 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-[#F4EFE6] transition duration-300 after:absolute after:-bottom-1 after:-right-1 after:h-full after:w-full after:border-b-4 after:border-r-4 after:border-[var(--at-accent-warm)] after:content-[''] hover:bg-[var(--at-accent-primary)] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--at-accent-primary)]"
+              >
+                Companies
+              </button>
+              <button
+                type="button"
+                onClick={() => onNavigate(1)}
+                className="group inline-flex min-h-11 items-center gap-3 border-b border-[rgb(244,239,230_/_0.5)] px-1 py-3 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-[#F4EFE6] [text-shadow:0_1px_2px_rgba(0,0,0,0.45)] transition duration-300 hover:border-[var(--at-accent-warm)] hover:text-[var(--at-accent-warm)] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--at-accent-warm)]"
+              >
+                <span>Philosophy</span>
+                <span aria-hidden className="text-[var(--at-accent-warm)] transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
+              </button>
             </motion.div>
           </div>
         </div>
@@ -441,13 +430,13 @@ function InvestmentsSlide() {
                 fallback={company.fallback}
                 sources={company.logoSources}
               />
-              <div className="font-display text-lg italic tracking-normal text-[rgb(var(--at-paper-rgb)_/_0.94)] transition duration-500 group-hover:text-[var(--at-ink)]">
+              <div className="font-display text-lg italic tracking-normal text-[rgb(var(--at-paper-rgb)_/_0.94)] transition duration-500 group-hover:text-[#ffffff]">
                 {company.name}
               </div>
-              <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-[rgb(var(--at-paper-rgb)_/_0.45)] transition duration-500 group-hover:text-[var(--at-ink-3)]">
+              <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-[rgb(var(--at-paper-rgb)_/_0.45)] transition duration-500 group-hover:text-[#ffffff]">
                 {company.meta}
               </div>
-              <span className="absolute bottom-4 right-4 font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--at-ink-3)] opacity-0 transition delay-0 duration-300 group-hover:opacity-100 group-hover:delay-200">
+              <span className="absolute bottom-4 right-4 font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--at-paper)] opacity-0 transition delay-0 duration-300 group-hover:opacity-100 group-hover:delay-200">
                 Visit →
               </span>
             </motion.a>
@@ -479,39 +468,44 @@ function TeamSlide() {
                 sizes="(min-width: 1024px) 440px, (min-width: 768px) 42vw, 100vw"
               />
 
-              {/* Hover overlay — instant, no fade */}
-              <div className="pointer-events-none absolute inset-0 hidden bg-[rgb(var(--at-ink-rgb)_/_0.55)] group-hover:block group-focus-within:block">
-                <div className="pointer-events-auto absolute inset-x-0 top-0 px-5 pt-5 sm:px-6 sm:pt-6">
-                  <h2 className="m-0 font-sans text-xl font-medium uppercase leading-[1.05] tracking-normal text-[#F4EFE6] sm:text-2xl">
-                    {member.name}
-                  </h2>
-                  <p className="m-0 mt-1 font-display text-sm italic text-[rgb(244,239,230_/_0.78)]">
-                    Founding Partner
-                  </p>
-                </div>
+              {/* Bottom overlay bar — instant, no fade */}
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden bg-[rgb(var(--at-ink-rgb)_/_0.7)] group-hover:block group-focus-within:block">
+                <div className="pointer-events-auto flex items-center justify-between gap-4 px-5 py-4 sm:px-6 sm:py-5">
+                  <div className="min-w-0">
+                    <h2
+                      className="m-0 truncate text-lg font-medium uppercase leading-[1.05] tracking-normal text-[#F4EFE6] sm:text-xl"
+                      style={{ fontFamily: "var(--at-font-body)" }}
+                    >
+                      {member.name}
+                    </h2>
+                    <p className="m-0 mt-1 font-display text-base italic leading-tight text-[#F4EFE6] sm:text-lg">
+                      Founding Partner
+                    </p>
+                  </div>
 
-                <div className="pointer-events-auto absolute inset-x-0 bottom-0 flex gap-2 px-5 pb-5 sm:px-6 sm:pb-6">
-                  <a
-                    href={member.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${member.name} on LinkedIn`}
-                    className="inline-flex h-11 w-11 items-center justify-center border border-[rgb(244,239,230_/_0.7)] text-[#F4EFE6] touch-manipulation hover:border-[#F4EFE6] hover:bg-[#F4EFE6] hover:text-[var(--at-ink)] sm:h-10 sm:w-10"
-                  >
-                    <svg className="h-[14px] w-[14px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-                      <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z" />
-                    </svg>
-                  </a>
-                  <a
-                    href={`mailto:${member.email}`}
-                    aria-label={`Email ${member.name}`}
-                    className="inline-flex h-11 w-11 items-center justify-center border border-[rgb(244,239,230_/_0.7)] text-[#F4EFE6] touch-manipulation hover:border-[#F4EFE6] hover:bg-[#F4EFE6] hover:text-[var(--at-ink)] sm:h-10 sm:w-10"
-                  >
-                    <svg className="h-[14px] w-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>
-                      <rect x="2.5" y="5" width="19" height="14" rx="0.5" />
-                      <path d="M3 6l9 7 9-7" />
-                    </svg>
-                  </a>
+                  <div className="flex shrink-0 gap-2">
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${member.name} on LinkedIn`}
+                      className="inline-flex h-10 w-10 items-center justify-center border border-[rgb(244,239,230_/_0.7)] text-[#F4EFE6] touch-manipulation hover:border-[#F4EFE6] hover:bg-[#F4EFE6] hover:text-[var(--at-ink)]"
+                    >
+                      <svg className="h-[14px] w-[14px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                        <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z" />
+                      </svg>
+                    </a>
+                    <a
+                      href={`mailto:${member.email}`}
+                      aria-label={`Email ${member.name}`}
+                      className="inline-flex h-10 w-10 items-center justify-center border border-[rgb(244,239,230_/_0.7)] text-[#F4EFE6] touch-manipulation hover:border-[#F4EFE6] hover:bg-[#F4EFE6] hover:text-[var(--at-ink)]"
+                    >
+                      <svg className="h-[14px] w-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>
+                        <rect x="2.5" y="5" width="19" height="14" rx="0.5" />
+                        <path d="M3 6l9 7 9-7" />
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
             </article>

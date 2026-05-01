@@ -46,8 +46,8 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
   // Wordmark + hamburger adapt to the page background.
   // Logo square (orange + white "at") stays the same on all pages.
   const isDarkSlide = currentSlide === 2;
-  const logoColor = isDarkSlide ? "var(--at-paper)" : "var(--at-ink)";
-  const menuLineColor = isDarkSlide ? "var(--at-paper)" : "var(--at-ink)";
+  const logoColor = menuOpen ? "var(--at-ink)" : isDarkSlide ? "var(--at-paper)" : "var(--at-ink)";
+  const menuLineColor = menuOpen ? "var(--at-ink)" : isDarkSlide ? "var(--at-paper)" : "var(--at-ink)";
 
   return (
     <>
@@ -161,54 +161,34 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
           >
             <div className="flex h-full min-h-[100svh] flex-col overflow-hidden pt-20 sm:pt-24 md:pt-28">
               <nav className="mx-auto flex w-full max-w-[1280px] flex-1 flex-col justify-center px-5 sm:px-6 md:px-10 lg:px-16">
-                {menuItems.map(({ num, label, slide }, i) => {
-                  const isCurrent = currentSlide === slide;
-                  return (
-                    <motion.button
-                      key={label}
-                      type="button"
-                      aria-current={isCurrent ? "page" : undefined}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{
-                        duration: 0.3,
-                        ease: [0.16, 1, 0.3, 1] as const,
-                        delay: 0.1 + i * 0.06,
-                      }}
-                      onClick={() => handleMenuNavigate(slide)}
-                      className={`group flex min-w-0 items-center gap-3 border-t border-[var(--at-rule)] py-4 text-left transition-colors duration-300 last:border-b sm:gap-7 sm:py-5 ${
-                        isCurrent
-                          ? "text-[var(--at-accent-primary)]"
-                          : "text-[var(--at-ink)] hover:text-[var(--at-accent-primary)]"
-                      }`}
+                {menuItems.map(({ num, label, slide }, i) => (
+                  <motion.button
+                    key={label}
+                    type="button"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.3,
+                      ease: [0.16, 1, 0.3, 1] as const,
+                      delay: 0.1 + i * 0.06,
+                    }}
+                    onClick={() => handleMenuNavigate(slide)}
+                    className="group flex min-w-0 items-center gap-3 border-t border-[var(--at-rule)] py-4 text-left text-[var(--at-ink)] transition-colors duration-300 last:border-b hover:text-[var(--at-accent-primary)] sm:gap-7 sm:py-5"
+                  >
+                    <span className="flex w-8 shrink-0 items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.08em] text-[var(--at-ink-3)] sm:w-14 sm:gap-2 sm:text-xs">
+                      <span>{num}</span>
+                    </span>
+                    <span className="min-w-0 font-sans text-[clamp(1.875rem,9.4vw,3.1rem)] font-medium uppercase leading-none tracking-normal sm:text-6xl md:text-7xl lg:text-[76px]">
+                      {label}
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className="ml-auto hidden shrink-0 self-center font-mono text-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:block"
                     >
-                      <span
-                        className={`flex w-8 shrink-0 items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.08em] sm:w-14 sm:gap-2 sm:text-xs ${
-                          isCurrent ? "text-[var(--at-accent-primary)]" : "text-[var(--at-ink-3)]"
-                        }`}
-                      >
-                        <span>{num}</span>
-                        {isCurrent && (
-                          <span
-                            aria-hidden="true"
-                            className="h-1.5 w-1.5 rounded-full bg-current"
-                          />
-                        )}
-                      </span>
-                      <span className="min-w-0 font-sans text-[clamp(1.875rem,9.4vw,3.1rem)] font-medium uppercase leading-none tracking-normal sm:text-6xl md:text-7xl lg:text-[76px]">
-                        {label}
-                      </span>
-                      <span
-                        aria-hidden="true"
-                        className={`ml-auto hidden shrink-0 self-center font-mono text-lg transition-opacity duration-300 sm:block ${
-                          isCurrent ? "opacity-100" : "opacity-0 group-hover:opacity-100"
-                        }`}
-                      >
-                        →
-                      </span>
-                    </motion.button>
-                  );
-                })}
+                      →
+                    </span>
+                  </motion.button>
+                ))}
               </nav>
 
               <div className="mx-auto flex w-full max-w-[1280px] flex-wrap items-baseline justify-between gap-4 border-t border-[var(--at-rule)] px-5 py-6 sm:px-6 md:px-10 lg:px-16">
