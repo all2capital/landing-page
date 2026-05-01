@@ -9,9 +9,9 @@ interface NavigationProps {
 }
 
 const menuItems = [
-  { num: "01", label: "Philosophy", slide: 1 },
-  { num: "02", label: "Companies", slide: 2 },
-  { num: "03", label: "Team", slide: 3 },
+  { label: "Philosophy", slide: 1 },
+  { label: "Companies", slide: 2 },
+  { label: "Team", slide: 3 },
 ];
 
 export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationProps) {
@@ -158,47 +158,26 @@ export default function Navigation({ onNavigate, currentSlide = 0 }: NavigationP
             transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="fixed inset-0 z-[200] overflow-hidden bg-[var(--at-paper)]"
           >
-            <div className="flex h-full min-h-[100svh] flex-col overflow-hidden pt-20 sm:pt-24 md:pt-28">
-              <nav className="mx-auto flex w-full max-w-[1280px] flex-1 flex-col justify-center px-5 sm:px-6 md:px-10 lg:px-16">
-                {menuItems.map(({ num, label, slide }, i) => (
+            <div className="flex h-full min-h-[100svh] items-center justify-center px-5 sm:px-6">
+              <nav className="flex flex-col items-center gap-6 text-center sm:gap-8">
+                {menuItems.map(({ label, slide }, i) => (
                   <motion.button
                     key={label}
                     type="button"
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{
                       duration: 0.3,
                       ease: [0.16, 1, 0.3, 1] as const,
-                      delay: 0.1 + i * 0.06,
+                      delay: 0.08 + i * 0.06,
                     }}
                     onClick={() => handleMenuNavigate(slide)}
-                    className="group flex min-w-0 items-center gap-3 border-t border-[var(--at-rule)] py-4 text-left text-[var(--at-ink)] transition-colors duration-300 last:border-b hover:text-[var(--at-accent-primary)] sm:gap-7 sm:py-5"
+                    className="font-sans text-[clamp(2.5rem,10vw,4.5rem)] font-medium uppercase leading-none tracking-normal text-[var(--at-ink)] transition-colors duration-300 hover:text-[var(--at-accent-primary)]"
                   >
-                    <span className="flex w-8 shrink-0 items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.08em] text-[var(--at-ink-3)] sm:w-14 sm:gap-2 sm:text-xs">
-                      <span>{num}</span>
-                    </span>
-                    <span className="min-w-0 font-sans text-[clamp(1.875rem,9.4vw,3.1rem)] font-medium uppercase leading-none tracking-normal sm:text-6xl md:text-7xl lg:text-[76px]">
-                      {label}
-                    </span>
-                    <span
-                      aria-hidden="true"
-                      className="ml-auto hidden shrink-0 self-center font-mono text-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:block"
-                    >
-                      →
-                    </span>
+                    {label}
                   </motion.button>
                 ))}
               </nav>
-
-              <div className="mx-auto flex w-full max-w-[1280px] flex-wrap items-baseline justify-between gap-4 border-t border-[var(--at-rule)] px-5 py-6 sm:px-6 md:px-10 lg:px-16">
-                <span className="font-display text-base italic text-[var(--at-ink)] sm:text-lg">
-                  Partners to founders. We build alongside,{" "}
-                  <span className="text-[var(--at-accent-primary)]">for the long arc.</span>
-                </span>
-                <span className="font-mono text-[10px] uppercase tracking-[0.04em] text-[var(--at-ink-3)] sm:text-xs">
-                  © 2026 All Together Capital
-                </span>
-              </div>
             </div>
           </motion.div>
         )}

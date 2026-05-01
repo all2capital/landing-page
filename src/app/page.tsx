@@ -304,7 +304,7 @@ function HomeSlide({ onNavigate }: { onNavigate: (index: number) => void }) {
                 className="m-0 text-[clamp(1.75rem,5vw,3.75rem)] font-medium uppercase leading-[0.92] tracking-normal text-[#F4EFE6] [text-shadow:0_1px_2px_rgba(0,0,0,0.45),_0_2px_18px_rgba(0,0,0,0.25)]"
                 style={{ fontFamily: "var(--at-font-body)" }}
               >
-                Build Our Future Together
+                The future is built together.
               </h1>
               <p className="mt-2 font-display text-[clamp(1.4rem,3.6vw,3rem)] font-normal italic leading-[1] tracking-normal text-[#F4EFE6] [text-shadow:0_1px_2px_rgba(0,0,0,0.4),_0_2px_18px_rgba(0,0,0,0.2)]">
                 from AI to atoms.
@@ -318,7 +318,7 @@ function HomeSlide({ onNavigate }: { onNavigate: (index: number) => void }) {
               <button
                 type="button"
                 onClick={() => onNavigate(2)}
-                className="relative inline-flex min-h-11 items-center justify-center bg-[var(--at-ink)] px-6 py-3 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-[#F4EFE6] transition duration-300 after:absolute after:-bottom-1 after:-right-1 after:h-full after:w-full after:border-b-4 after:border-r-4 after:border-[var(--at-accent-warm)] after:content-[''] hover:bg-[var(--at-accent-primary)] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--at-accent-primary)]"
+                className="relative inline-flex min-h-11 items-center justify-center bg-[rgb(var(--at-ink-rgb)_/_0.55)] backdrop-blur-sm px-6 py-3 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-[#F4EFE6] transition duration-300 after:absolute after:-bottom-1 after:-right-1 after:h-full after:w-full after:border-b-4 after:border-r-4 after:border-[var(--at-accent-warm)] after:content-[''] hover:bg-[rgb(var(--at-accent-primary-rgb)_/_0.85)] hover:bg-[var(--at-accent-primary)] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--at-accent-primary)]"
               >
                 Companies
               </button>
