@@ -48,8 +48,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" className="dark" style={{ colorScheme: "light" }} suppressHydrationWarning>
       <head>
+        <meta name="color-scheme" content="light only" />
+        <meta name="darkreader-lock" />
         {preloadedImages.map((href) => (
           <link key={href} rel="preload" as="image" href={href} />
         ))}
