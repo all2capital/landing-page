@@ -33,7 +33,7 @@ export function PortfolioSlide() {
         </div>
 
         <section
-          className="grid grid-cols-1 border-l border-t border-[rgb(var(--at-paper-rgb)_/_0.14)] sm:grid-cols-2 lg:grid-cols-4"
+          className="grid grid-cols-2 border-l border-t border-[rgb(var(--at-paper-rgb)_/_0.14)] lg:grid-cols-4"
           aria-label="Portfolio"
         >
           {investments.map((company, index) => (
