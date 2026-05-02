@@ -17,7 +17,7 @@ export function PhilosophySlide() {
             {...driftUp(0.02)}
             className="mb-5 font-display text-[32px] font-normal leading-[1.06] tracking-normal text-[var(--at-ink)] min-[420px]:text-[38px] sm:text-[46px] sm:leading-[1.04] lg:text-[52px]"
           >
-            We invest in the best
+            We invest in bold founders
             <br />
             <em className="font-normal text-[var(--at-ink-3)]">Working at technology&apos;s edge</em>
           </motion.h1>
