@@ -90,7 +90,7 @@ export default function Navigation() {
           <button
             type="button"
             onClick={handleHomeClick}
-            className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 flex-col items-center text-center touch-manipulation pointer-events-auto sm:flex"
+            className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center text-center touch-manipulation pointer-events-auto"
             style={{
               fontFamily: "var(--at-font-body)",
               color: logoColor,
