@@ -84,6 +84,13 @@ export const investments = [
     logoSources: logoSources("exowatt.com", undefined, "/design-assets/logos/exowatt.png"),
   },
   {
+    name: "Quaise Energy",
+    fallback: "Quaise",
+    meta: "Energy · Geothermal",
+    href: "https://quaise.energy/",
+    logoSources: logoSources("quaise.energy", undefined, "/design-assets/logos/quaise.svg"),
+  },
+  {
     name: "Unspun",
     fallback: "Unspun",
     meta: "Robotics · Manufacturing",
@@ -141,6 +148,7 @@ export const warmupImageSources = [
   "/design-assets/founder-robert.png",
   "/design-assets/logos/openai.svg",
   "/design-assets/logos/exowatt.png",
+  "/design-assets/logos/quaise.svg",
   "/design-assets/logos/unspun.png",
   ...investments.flatMap((company) => company.logoSources.slice(0, 1)),
 ];
