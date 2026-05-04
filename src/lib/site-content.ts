@@ -49,6 +49,13 @@ export const investments = [
     logoSources: logoSources("anduril.com"),
   },
   {
+    name: "Shield AI",
+    fallback: "Shield AI",
+    meta: "Defense · AI",
+    href: "https://shield.ai/",
+    logoSources: logoSources("shield.ai", undefined, "/design-assets/logos/shield-ai.svg"),
+  },
+  {
     name: "Replit",
     fallback: "Replit",
     meta: "Software · AI",
@@ -105,6 +112,13 @@ export const investments = [
     logoSources: logoSources("lance.live"),
   },
   {
+    name: "Samply",
+    fallback: "Samply",
+    meta: "Software · Audio",
+    href: "https://samply.app/",
+    logoSources: logoSources("samply.app", undefined, "/design-assets/logos/samply.svg"),
+  },
+  {
     name: "Bud Break Innovations",
     fallback: "Bud Break",
     meta: "Bio · Agriculture",
@@ -149,6 +163,8 @@ export const warmupImageSources = [
   "/design-assets/logos/openai.svg",
   "/design-assets/logos/exowatt.png",
   "/design-assets/logos/quaise.svg",
+  "/design-assets/logos/shield-ai.svg",
+  "/design-assets/logos/samply.svg",
   "/design-assets/logos/unspun.png",
   ...investments.flatMap((company) => company.logoSources.slice(0, 1)),
 ];
